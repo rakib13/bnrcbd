@@ -52,7 +52,8 @@ class UserInfoController extends Controller
     $userInfo->is_deleted = $request->is_deleted ?? false;
     $userInfo->save();
 
-     return redirect()->route('pages.userInfo')->with('status', 'User created successfully!');
+     //return redirect()->route('pages.userInfo')->with('status', 'User created successfully!');
+      return redirect('/login')->with('status', 'Registration successful. Please login.');
 
 
     }

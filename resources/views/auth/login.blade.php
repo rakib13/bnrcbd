@@ -44,11 +44,12 @@
         <div id="mission" class="bg-white rounded px-5 py-4 w-50 section active mx-auto">
             <h4 class="text-primary text-center mt-2" class="col-12">Login</h4>
             <div class="row g-4 justify-content-center mt-1">
-
+<form action="{{ route('login.submit') }}" method="POST">
+    @csrf
                 <div class="col-12">
                     <div class="mx-auto">
                         <div class="form-floating">
-                            <input type="text" class="form-control border-0" id="name" placeholder="Email">
+                            <input type="text" class="form-control border-0" name="email" id="email" placeholder="Email">
                             <label for="name">Email</label>
                         </div>
                     </div>
@@ -56,7 +57,7 @@
                 <div class="col-12">
                     <div class="mx-auto">
                         <div class="form-floating">
-                            <input type="password" class="form-control border-0" id="name" placeholder="Password">
+                            <input type="password" class="form-control border-0" name="password" id="password" placeholder="Password">
                             <label for="name">Password</label>
                         </div>
                     </div>
@@ -70,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-
+</form>
             </div>
         </div>
     </div>

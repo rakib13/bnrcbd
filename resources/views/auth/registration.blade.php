@@ -39,84 +39,94 @@
 <!-- Header End -->
 
 <!-- Registration Start -->
-<div class="container-fluid bg-light blog pb-2">
-    <div class="text-center mx-auto py-5 pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1200px;">
-        <div id="mission" class="bg-white rounded px-5 py-4 h-100 section active">
-            <h4 class="text-primary text-center mt-2" class="col-12">Registration</h4>
-            <div class="row g-4 justify-content-center mt-1">
-                <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12">
-                    <div class="mx-auto">
-                        <div class="form-floating">
-                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                            <label for="name">Your Name</label>
-                        </div>
-                    </div>
-                </div>
+ 
+<div class="container py-5 bg-light">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow border-0">
+                <div class="card-body p-5">
+                    <h3 class="text-center text-primary mb-4">User Registration</h3>
 
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-                    <div class="mx-auto">
-                        <div class="form-floating">
-                            <input type="text" class="form-control border-0" id="name" placeholder="User Name">
-                            <label for="name">User Name</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-                    <div class="mx-auto">
-                        <div class="form-floating">
-                            <input type="text" class="form-control border-0" id="name" placeholder="Email">
-                            <label for="name">Email</label>
-                        </div>
-                    </div>
-                </div>
+                    <form action="{{ route('userInfo.store') }}" method="POST">
+                        @csrf
+                        <div class="row g-3">
+                            <!-- Full Name -->
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Your Name" required>
+                                    <label for="full_name">Full Name</label>
+                                </div>
+                            </div>
 
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-                    <div class="mx-auto">
-                        <div class="form-floating">
-                            <input type="password" class="form-control border-0" id="name" placeholder="Password">
-                            <label for="name">Password</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-                    <div class="mx-auto">
-                        <div class="form-floating">
-                            <input type="password" class="form-control border-0" id="name"
-                                placeholder="Re-Password">
-                            <label for="name">Re-Password</label>
-                        </div>
-                    </div>
-                </div>
+                            <!-- User Name -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="user_name" name="user_name" placeholder="User Name" required>
+                                    <label for="user_name">User Name</label>
+                                </div>
+                            </div>
 
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-                    <div class="mx-auto">
-                        <select data-mdb-select-init class="form-select" aria-label="Default select example">
-                            <option selected>Select Role</option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="name">
-                        <label class="form-check-label" for="name"><b>Is Archive User</b></label>
-                    </div>
-                </div>
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
 
-                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12 mt-3">
-                    <div class="mx-auto">
-                        <div class="form-floating">
-                            <button class="btn btn-primary w-100 py-3 my-2">Register</button>
-                            Already A Registered User,<a href="./login">Login</a>.
-                        </div>
-                    </div>
-                </div>
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
 
-            </div>
-        </div>
-    </div>
-</div>
+                            <!-- Re-Password -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
+                                    <label for="confirm_password">Confirm Password</label>
+                                </div>
+                            </div>
+
+                            <!-- Role Select -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="role" name="role" required>
+                                        <option value="" disabled selected>Select Role</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="user">User</option>
+                                    </select>
+                                    <label for="role">Role</label>
+                                </div>
+                            </div>
+
+                            <!-- Archive (Hidden) -->
+                            <div class="col-md-6 d-none">
+                                <div class="form-check mt-4">
+                                    <input class="form-check-input" type="checkbox" id="is_archive" name="is_archive" value="1">
+                                    <label class="form-check-label" for="is_archive"><strong>Is Archive User</strong></label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-md-12">
+                                <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+                                <div class="text-center mt-3">
+                                    Already registered? <a href="{{ url('/login') }}">Login</a>
+                                </div>
+                            </div>
+                        </div> <!-- row -->
+                    </form>
+
+                </div> <!-- card-body -->
+            </div> <!-- card -->
+        </div> <!-- col -->
+    </div> <!-- row -->
+</div> <!-- container -->
+
+
 
 <!-- Registration End -->
 
