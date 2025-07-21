@@ -28,7 +28,33 @@ class UserInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+// Optional: Validation
+    $request->validate([
+        'full_name'  => 'required|string|max:255',
+        'user_name'  => 'required|string|max:255|unique:user_infos,user_name',
+        'email'      => 'required|email|unique:user_infos,email',
+        'password'   => 'required|string|min:5',
+        'role'       => 'required|string',
+        'is_active'  => 'nullable|boolean',
+        'is_archive' => 'nullable|boolean',
+        'is_deleted' => 'nullable|boolean',
+    ]);
+
+    $userInfo = new UserInfo;
+    $userInfo->full_name = $request->full_name;
+    $userInfo->user_name = $request->user_name;
+    $userInfo->email = $request->email;
+    $userInfo->password = bcrypt($request->password);
+    $userInfo->role = $request->role;
+    $userInfo->is_active = $request->is_active ?? true;
+    $userInfo->is_archive = $request->is_archive ?? false;
+    $userInfo->is_deleted = $request->is_deleted ?? false;
+    $userInfo->save();
+
+     return redirect()->route('pages.userInfo')->with('status', 'User created successfully!');
+
+
     }
 
     /**
@@ -52,7 +78,23 @@ class UserInfoController extends Controller
      */
     public function update(Request $request, UserInfo $userInfo)
     {
-        //
+        $validated = $request->validate([
+            'full_name' => 'sometimes|string|max:255',
+            'user_name' => 'sometimes|string|max:255|unique:user_infos,user_name,' . $userInfo->id,
+            'email' => 'sometimes|email|unique:user_infos,email,' . $userInfo->id,
+            'password' => 'sometimes|string|min:6',
+            'role' => 'sometimes|string',
+            'is_active' => 'sometimes|boolean',
+            'is_archive' => 'sometimes|boolean',
+            'is_deleted' => 'sometimes|boolean',
+        ]);
+
+        if (isset($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        }
+
+        $userInfo->update($validated);
+        return response()->json($userInfo);
     }
 
     /**
@@ -60,6 +102,8 @@ class UserInfoController extends Controller
      */
     public function destroy(UserInfo $userInfo)
     {
-        //
+         $userInfo->update(['is_deleted' => true]);
+
+        return response()->json(['message' => 'User soft-deleted successfully.']);
     }
 }
