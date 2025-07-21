@@ -17,16 +17,16 @@
                          <div class="col-md-6 col-lg-6 col-xl-4">
                              <div class="footer-item">
                                  <h5 class="text-white mb-2">Useful Links</h5>
-                                 <a href="./about.html"><i class="fas fa-angle-right me-2"></i> About BNRC</a>
+                                 <a href="./about"><i class="fas fa-angle-right me-2"></i> About BNRC</a>
 
-                                 <a href="./publications.html"><i class="fas fa-angle-right me-2"></i> Research &
+                                 <a href="./publication"><i class="fas fa-angle-right me-2"></i> Research &
                                      Publications</a>
-                                 <a href="./leadershiplegacy.html"><i class="fas fa-angle-right me-2"></i>
+                                 <a href="./leadership-legacy"><i class="fas fa-angle-right me-2"></i>
                                      Leadership
                                      Legacy</a>
                                  <a href="https://roadtodemocracy.com/"><i class="fas fa-angle-right me-2"></i>
                                      RTD</a>
-                                 <a href="./archive/archive_home.html"><i class="fas fa-angle-right me-2"></i>
+                                 <a href="#"><i class="fas fa-angle-right me-2"></i>
                                      Archive</a>
                              </div>
 

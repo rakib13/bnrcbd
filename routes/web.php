@@ -12,3 +12,4 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/publication', [PublicationController::class, 'index']);
 Route::get('/leadership-legacy', [LeadershipLegacyController::class, 'index']);
 Route::get('/share-your-thought', [ShareYourThoughtController::class, 'index']);
+Route::get('/reg', function(){ return view('auth.registration');});
