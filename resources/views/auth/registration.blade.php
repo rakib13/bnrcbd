@@ -107,7 +107,8 @@
                 <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12 mt-3">
                     <div class="mx-auto">
                         <div class="form-floating">
-                            <button class="btn btn-primary w-100 py-3">Register</button>
+                            <button class="btn btn-primary w-100 py-3 my-2">Register</button>
+                            Already A Registered User,<a href="./login">Login</a>.
                         </div>
                     </div>
                 </div>
