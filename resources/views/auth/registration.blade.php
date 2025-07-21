@@ -40,17 +40,78 @@
 
 <!-- Registration Start -->
 <div class="container-fluid bg-light blog pb-2">
-    <div class="text-center mx-auto pb-2 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1200px;">
-        <div id="mission" class="bg-white rounded px-5 py-2 h-100 section active">
+    <div class="text-center mx-auto py-5 pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1200px;">
+        <div id="mission" class="bg-white rounded px-5 py-4 h-100 section active">
             <h4 class="text-primary text-center mt-2" class="col-12">Registration</h4>
-            <div class="row g-4 justify-content-center">
-                <div class="col-2 col-sm-12"></div>
-                <div class="col-8 col-sm-12">
+            <div class="row g-4 justify-content-center mt-1">
+                <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12">
                     <div class="mx-auto">
-                        
+                        <div class="form-floating">
+                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
+                            <label for="name">Your Name</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-2 col-sm-12"></div>
+
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
+                    <div class="mx-auto">
+                        <div class="form-floating">
+                            <input type="text" class="form-control border-0" id="name" placeholder="User Name">
+                            <label for="name">User Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
+                    <div class="mx-auto">
+                        <div class="form-floating">
+                            <input type="text" class="form-control border-0" id="name" placeholder="Email">
+                            <label for="name">Email</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
+                    <div class="mx-auto">
+                        <div class="form-floating">
+                            <input type="password" class="form-control border-0" id="name" placeholder="Password">
+                            <label for="name">Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
+                    <div class="mx-auto">
+                        <div class="form-floating">
+                            <input type="password" class="form-control border-0" id="name"
+                                placeholder="Re-Password">
+                            <label for="name">Re-Password</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
+                    <div class="mx-auto">
+                        <select data-mdb-select-init class="form-select" aria-label="Default select example">
+                            <option selected>Select Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="name">
+                        <label class="form-check-label" for="name"><b>Is Archive User</b></label>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12 mt-3">
+                    <div class="mx-auto">
+                        <div class="form-floating">
+                            <button class="btn btn-primary w-100 py-3">Register</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -58,9 +119,7 @@
 
 <!-- Registration End -->
 
-<!-- Footer Start -->
 @include('layouts.footer')
-<!-- Footer End -->
 
 </body>
 
