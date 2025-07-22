@@ -10,15 +10,16 @@ class loginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login'); // assuming login.blade.php is your view
+        return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function loginUser(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dashboard'); // change as needed
+            $request->session()->regenerate();
+            return redirect()->route('auth.dashboard');
         }
 
         return back()->withErrors([
@@ -26,22 +27,22 @@ class loginController extends Controller
         ])->withInput();
     }
 
-    // public function logout()
-    // {
-    //     Auth::logout();
-    //     return redirect('/auth.login');
-    // }
-
     public function logout(Request $request)
-{
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-    return redirect('/auth.login');
-}
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('auth.login');
+    }
 
     public function dashboard()
-{
-    return view('auth.dashboard');
-}
+    {
+        if(Auth::check()){
+
+            return view('dashboard');
+
+        } 
+
+        return redirect("login")->withSuccess('Opps! You do not have access');
+    }
 }

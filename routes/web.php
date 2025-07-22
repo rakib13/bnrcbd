@@ -22,7 +22,7 @@ Route::post('/reg', [UserInfoController::class, 'store'])->name('userInfo.store'
 //Route::get('/login', function(){ return view('auth.login');});
 //Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::post('/login', [LoginController::class, 'loginUser'])->name('login.submit');
 
 // Dashboard (only for authenticated users)
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth')->name('dashboard');
