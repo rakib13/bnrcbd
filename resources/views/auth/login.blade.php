@@ -43,6 +43,13 @@
     <div class="text-center mx-auto py-4 pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1200px;">
         <div id="mission" class="bg-white rounded px-5 py-4 w-50 section active mx-auto">
             <h4 class="text-primary text-center mt-2" class="col-12">Login</h4>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
             <div class="row g-4 justify-content-center mt-1">
                 <form action="{{ route('login.submit') }}" method="POST">
                     @csrf

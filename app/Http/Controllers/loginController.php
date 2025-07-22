@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\UserInfo;
 
 use Illuminate\Http\Request;
 
@@ -19,7 +23,7 @@ class loginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('auth.dashboard');
+            return redirect()->route('dashboard');
         }
 
         return back()->withErrors([
@@ -32,17 +36,16 @@ class loginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('auth.login');
+        return redirect()->route('login');
     }
 
     public function dashboard()
     {
-        if(Auth::check()){
+        // if (Auth::check()) {
 
-            return view('dashboard');
-
-        } 
-
-        return redirect("login")->withSuccess('Opps! You do not have access');
+        //     return view('dashboard');
+        // }
+        return view('auth.dashboard');
+        //return redirect("login")->withSuccess('Opps! You do not have access');
     }
 }

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Dashboard</title>
 </head>
+
 <body>
     <h1>Welcome, {{ Auth::user()->email ?? 'User' }}</h1>
 
@@ -11,4 +13,5 @@
         <button type="submit">Logout</button>
     </form>
 </body>
+
 </html>
