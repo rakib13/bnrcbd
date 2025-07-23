@@ -21,6 +21,7 @@ class UserInfoController extends Controller
     public function create()
     {
         //
+        return view('auth.registration');
     }
 
     /**

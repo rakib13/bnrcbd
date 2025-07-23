@@ -15,7 +15,7 @@ Route::get('/publication', [PublicationController::class, 'index']);
 Route::get('/leadership-legacy', [LeadershipLegacyController::class, 'index']);
 Route::get('/share-your-thought', [ShareYourThoughtController::class, 'index']);
 
-Route::get('/reg', function(){ return view('auth.registration');});
+Route::get('/reg', [UserInfoController::class, 'create']);
 Route::post('/reg', [UserInfoController::class, 'store'])->name('userInfo.store');
 
 // Login routes
