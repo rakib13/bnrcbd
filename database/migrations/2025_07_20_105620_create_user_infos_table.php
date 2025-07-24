@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->string('full_name');
             $table->string('user_name')->unique();
             $table->string('email')->unique();
@@ -21,7 +22,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(1);
             $table->boolean('is_archive')->default(0);
             $table->boolean('is_deleted')->default(0);
-            $table->timestamps();
         });
     }
 

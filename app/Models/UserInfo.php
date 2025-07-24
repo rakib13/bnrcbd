@@ -24,14 +24,16 @@ class UserInfo extends Authenticatable //Model change here //add line tareq
         'is_archive',
         'is_deleted'
     ];
+
+    public function publishListing() : HasMany{
+        return $this->hasMany(
+            \App\Models\UserInfos::class,
+            'user_infos_id'
+        );
+    }
+    
     // Add these methods to disable remember token functionality ///add line tareq
-    public function getRememberToken()
-    {
-        return null;
-    }
+    public function getRememberToken() { return null;}
     public function setRememberToken($value) {}
-    public function getRememberTokenName()
-    {
-        return '';
-    }
+    public function getRememberTokenName() {return '';}
 }

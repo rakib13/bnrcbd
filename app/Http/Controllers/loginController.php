@@ -23,7 +23,7 @@ class loginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.dashboard');
         }
 
         return back()->withErrors([
@@ -45,7 +45,7 @@ class loginController extends Controller
 
         //     return view('dashboard');
         // }
-        return view('auth.dashboard');
+        return view('dashboard.dashboard');
         //return redirect("login")->withSuccess('Opps! You do not have access');
     }
 }

@@ -56,7 +56,7 @@
                     <div class="col-12">
                         <div class="mx-auto">
                             <div class="form-floating">
-                                <input type="text" class="form-control border-0" name="email" id="email"
+                                <input type="text" class="form-control border-0" name="email" id="email" value="rakib.omar13@gmail.com"
                                     placeholder="Email">
                                 <label for="name">Email</label>
                             </div>
@@ -65,7 +65,7 @@
                     <div class="col-12">
                         <div class="mx-auto">
                             <div class="form-floating">
-                                <input type="password" class="form-control border-0" name="password" id="password"
+                                <input type="password" class="form-control border-0" name="password" id="password" value="abc@123"
                                     placeholder="Password">
                                 <label for="name">Password</label>
                             </div>
