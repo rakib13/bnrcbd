@@ -24,6 +24,7 @@ Route::post('/login', [LoginController::class, 'loginUser'])->name('login.submit
 
 // Dashboard (only for authenticated users)
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth')->name('dashboard.dashboard');
+Route::get('/add-book', function(){ return view('dashboard.addBook');});
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
