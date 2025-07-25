@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    @include('dashboard.head')
+    @include('dashboard.layouts.head')
 </head>
 
 <body>
     <header>
-        @include('dashboard.nav')
+        @include('dashboard.layouts.nav')
     </header>
 
 

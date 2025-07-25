@@ -26,7 +26,7 @@
     <div class="sidebar" id="sidebar">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="/add-book">
+                <a class="nav-link" href="{{ url('/add-book') }}">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Add Book
                 </a>

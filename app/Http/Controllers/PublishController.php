@@ -21,6 +21,7 @@ class PublishController extends Controller
     public function create()
     {
         //
+        return view('dashboard.addBook');
     }
 
     /**
@@ -28,7 +29,34 @@ class PublishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // Optional: Validation
+        $request->validate([
+            'book_name'     => 'required|string|max:255',
+            'book_title'    => 'required|string|max:255',
+            'book_summary'  => 'required|email|unique:user_infos,email',
+            'book_author'      => 'required|string|min:5',
+            'thumbnail'          => 'required|string',
+            'link'     => 'nullable|boolean',
+            'publish_date'    => 'required|string|max:255',
+            'topic'    => 'required|string|max:255',
+            'category_of_publication' =>'required|string|max:255',
+        ]);
+
+        $publish =  new Publish;
+        $publish->book_name = $request->book_name;
+        $publish->book_title = $request->book_title;
+        $publish->book_summary = $request->book_summary;
+        $publish->book_author = $request->book_author;
+        $publish->thumbnail = $request->thumbnail;
+        $publish->link =  $request->link;
+        $publish->publish_date = $request->publish_date;
+        $publish->topic = $request->topic;
+        $publish->type = $request->type;
+        $publish->category_of_publication = $request->category_of_publication;
+        $publish->save();
+
+        return redirect('/add-book')->with('status','Book Added Successfully!');
+
     }
 
     /**

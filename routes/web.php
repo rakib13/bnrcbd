@@ -8,6 +8,7 @@ use App\Http\Controllers\LeadershipLegacyController;
 use App\Http\Controllers\ShareYourThoughtController;
 use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PublishController;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
@@ -24,7 +25,9 @@ Route::post('/login', [LoginController::class, 'loginUser'])->name('login.submit
 
 // Dashboard (only for authenticated users)
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth')->name('dashboard.dashboard');
-Route::get('/add-book', function(){ return view('dashboard.addBook');});
+Route::get('/add-book', [PublishController::class, 'create']);
+Route::post('/add-book', [PublishController::class, 'store']);
+// Route::get('/add-book', function(){ return view('dashboard.addBook');});
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 

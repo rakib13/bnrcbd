@@ -1,5 +1,128 @@
 @extends('dashboard.dashboard')
 
 @section('dashboard-content')
-    <h1>This is ADD SEctoip</h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow border-0">
+                <div class="card-body p-5">
+                    <h3 class="text-center text-primary mb-4">Add Book</h3>
+
+                    <form action="{{ url('/add-book') }}" method="POST">
+                        @csrf
+                        <div class="row g-3">
+                            <!-- Full Name -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="book_name" name="book_name"
+                                        placeholder="Book Name" required>
+                                    <label for="book_name">Book Name</label>
+                                </div>
+                            </div>
+
+                            <!-- User Name -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="book_title" name="book_title"
+                                        placeholder="Book Title" required>
+                                    <label for="book_title">Book Title</label>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="book_summary" name="book_summary"
+                                        placeholder="Book Summary" required>
+                                    <label for="book_summary">Book Summary</label>
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="book_author" name="book_author"
+                                        placeholder="Book Author" required>
+                                    <label for="book_author">Book Author</label>
+                                </div>
+                            </div>
+
+                            <!-- Re-Password -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="thumbnail" name="thumbnail"
+                                        placeholder="Post Cover" required>
+                                    <label for="thumbnail">Post Cover</label>
+                                </div>
+                            </div>
+
+                            <!-- File Link -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="link" name="link"
+                                        placeholder="File Link" required>
+                                    <label for="link">File Link</label>
+                                </div>
+                            </div>
+
+                            <!-- Publish Date -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="publish_date" name="publish_date"
+                                        placeholder="Publish Date" value="" required>
+                                    <label for="publish_date">Publish Date</label>
+                                </div>
+                            </div>
+
+                            <!-- Topic Select -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="topic" name="topic" required>
+                                        <option value="">All Topics</option>
+                                        <option value="political-study">- Political Studies</option>
+                                        <option value="economical-stude">- Economic Studies</option>
+                                        <option value="social-study">- Social Studies</option>
+                                        <option value="others">- Others</option>
+                                    </select>
+                                    <label for="topic">topic</label>
+                                </div>
+                            </div>
+
+                            <!-- Topic Select -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="topic" name="topic" required>
+                                        <option value="">All Types</option>
+                                        <option value="research-paper">- Research Papers</option>
+                                        <option value="policy-brief">- Policy Briefs</option>
+                                        <option value="report-and-analysis">- Reports and Analysis</option>
+                                        <option value="book-and-monographs">- Books and Monographs</option>
+                                        <option value="case-studies">- Case Studies</option>
+                                        <option value="conference-proceedings">- Conference Proceedings</option>
+                                        <option value="newsletters">- Newsletters</option>
+                                    </select>
+                                    <label for="topic">topic</label>
+                                </div>
+                            </div>
+
+                            <!-- Archive (Hidden) -->
+                            <div class="col-md-6 d-none">
+                                <div class="form-check mt-4">
+                                    <input class="form-check-input" type="checkbox" id="is_archive" name="is_archive"
+                                        value="1">
+                                    <label class="form-check-label" for="is_archive"><strong>Is Archive
+                                            User</strong></label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-md-12">
+                                <button class="btn btn-primary w-100 py-2" type="submit">Submit</button>
+                            </div>
+                        </div> <!-- row -->
+                    </form>
+
+                </div> <!-- card-body -->
+            </div> <!-- card -->
+        </div> <!-- col -->
+    </div> <!-- row -->
 @endsection

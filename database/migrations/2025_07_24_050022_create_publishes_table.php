@@ -22,13 +22,12 @@ return new class extends Migration
             $table->datetime('publish-date');
             $table->string('topic');
             $table->string('type');
-            $table->string('type_of_publication');
+            $table->string('category_of_publication');
             $table->boolean('is_hidden')->default(0);
             $table->foreignIdFor(
                 \App\Models\UserInfo::class,
                 'user_infos_id'
             )->constrained('user_infos');
-
         });
     }
 

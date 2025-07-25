@@ -17,10 +17,10 @@ class Publish extends Model
         'book_author',
         'thumbnail',
         'link',
-        'publish-date',
+        'publish_date',
         'topic',
         'type',
-        'type_of_publications',
+        'category_of_publication',
         'is_hidden'
     ];
 
