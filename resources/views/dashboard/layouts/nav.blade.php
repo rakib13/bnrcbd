@@ -7,7 +7,7 @@
                 </button> --}}
 
             <a class="navbar-brand" href="#">
-                <img src="./img/logo-bnrc.png" height="60px" alt="Logo BNRC">
+                <img src="./img/nav-logo.png" height="60px" alt="Logo BNRC">
             </a>
             <div class="ms-auto d-flex align-items-center">
                 <span class="text-dark me-3">Welcome, {{ Auth::user()->full_name ?? 'User' }}</span>

@@ -19,11 +19,40 @@ class loginController extends Controller
 
     public function loginUser(Request $request)
     {
+        // $credentials = $request->only('email', 'password');
+
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+        //     return redirect()->route('dashboard.dashboard');
+        // }
+
+        // return back()->withErrors([
+        //     'email' => 'Invalid credentials.',
+        // ])->withInput();
+
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            // ✅ Return JSON if it's an AJAX request
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => true,
+                    'redirect_url' => route('dashboard.dashboard'),
+                ]);
+            }
+
+            // fallback for non-AJAX
             return redirect()->route('dashboard.dashboard');
+        }
+
+        // return JSON for AJAX
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid credentials.',
+            ], 401);
         }
 
         return back()->withErrors([
