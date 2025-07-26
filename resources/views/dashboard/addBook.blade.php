@@ -6,8 +6,7 @@
             <div class="card shadow border-0">
                 <div class="card-body p-5">
                     <h3 class="text-center text-primary mb-4">Add Book</h3>
-
-                    <form action="{{ url('/add-book') }}" method="POST">
+                    <form action="{{ url('/add-book') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row g-3">
                             <!-- Full Name -->
@@ -58,8 +57,8 @@
                             <!-- Thumbnail -->
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="thumbnail" name="thumbnail"
-                                        placeholder="File Link" required>
+                                    <input type="file" class="form-control" id="thumbnail" name="thumbnail"
+                                        placeholder="Thumbnail" accept="image/" required>
                                     <label for="thumbnail">Thumbnail</label>
                                 </div>
                             </div>
