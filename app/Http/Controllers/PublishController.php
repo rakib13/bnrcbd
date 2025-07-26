@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Publish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PublishController extends Controller
 {
@@ -31,15 +32,16 @@ class PublishController extends Controller
     {
          // Optional: Validation
         $request->validate([
-            'book_name'     => 'required|string|max:255',
-            'book_title'    => 'required|string|max:255',
-            'book_summary'  => 'required|email|unique:user_infos,email',
-            'book_author'      => 'required|string|min:5',
-            'thumbnail'          => 'required|string',
-            'link'     => 'nullable|boolean',
-            'publish_date'    => 'required|string|max:255',
-            'topic'    => 'required|string|max:255',
-            'category_of_publication' =>'required|string|max:255',
+            'book_name'                 => 'required|string|max:255',
+            'book_title'                => 'required|string|max:255',
+            'book_summary'              => 'required|string|',
+            'book_author'               => 'required|string|min:5',
+            'thumbnail'                 => 'required|string',
+            'link'                      => 'nullable|string',
+            'publish_date'              => 'required|date|max:255',
+            'topic'                     => 'required|string|max:255',
+            'type'                     => 'required|string|max:255',
+            'category_of_publication'   =>'required|string|max:255',
         ]);
 
         $publish =  new Publish;
@@ -53,6 +55,7 @@ class PublishController extends Controller
         $publish->topic = $request->topic;
         $publish->type = $request->type;
         $publish->category_of_publication = $request->category_of_publication;
+        $publish->user_infos_id = Auth::user()->id;
         $publish->save();
 
         return redirect('/add-book')->with('status','Book Added Successfully!');

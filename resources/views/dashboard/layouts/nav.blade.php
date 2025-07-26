@@ -10,7 +10,7 @@
                 <img src="./img/nav-logo.png" height="60px" alt="Logo BNRC">
             </a>
             <div class="ms-auto d-flex align-items-center">
-                <span class="text-dark me-3">Welcome, {{ Auth::user()->full_name ?? 'User' }}</span>
+                <span class="text-dark me-3">Welcome, {{ Auth::user()->id ?? 'User' }}</span>
                 {{-- <button class="btn btn-danger btn-md">Logout</button> --}}
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf

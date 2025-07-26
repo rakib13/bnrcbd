@@ -55,6 +55,15 @@
                                 </div>
                             </div>
 
+                            <!-- Thumbnail -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="thumbnail" name="thumbnail"
+                                        placeholder="File Link" required>
+                                    <label for="thumbnail">Thumbnail</label>
+                                </div>
+                            </div>
+
                             <!-- File Link -->
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -90,7 +99,7 @@
                             <!-- Topic Select -->
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select" id="topic" name="topic" required>
+                                    <select class="form-select" id="type" name="type" required>
                                         <option value="">All Types</option>
                                         <option value="research-paper">- Research Papers</option>
                                         <option value="policy-brief">- Policy Briefs</option>
@@ -104,16 +113,32 @@
                                 </div>
                             </div>
 
-                            <!-- Archive (Hidden) -->
-                            <div class="col-md-6 d-none">
-                                <div class="form-check mt-4">
-                                    <input class="form-check-input" type="checkbox" id="is_archive" name="is_archive"
-                                        value="1">
-                                    <label class="form-check-label" for="is_archive"><strong>Is Archive
-                                            User</strong></label>
+                            <!-- Category Select -->
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <select class="form-select" id="category_of_publication"
+                                        name="category_of_publication" required>
+                                        <option value="">Select Category</option>
+                                        <option value="featured">- Featured</option>
+                                        <option value="newsletters">- Newsletters</option>
+                                        <option value="conference-proceedings">- Conference Proceedings</option>
+                                        <option value="multimedia-resources">- Multimedia Resources</option>
+                                        <option value="leadership-legacy">- Leadership Legacy: A Tradition of Excellence
+                                        </option>
+                                        <option value="economic-advancements">- Economic Advancements: Driving Growth,
+                                            Empowering Progress</option>
+                                        <option value="restoring-democracy">- Restoring Democracy: Championing People's
+                                            Voices, Building Nations</option>
+                                        <option value="social-development">- Social Development: Transforming Lives,
+                                            Creating Equity</option>
+                                        <option value="environmental-vision">- Environmental Vision: Sustainability Today
+                                            for Tomorrow's Prosperity</option>
+                                        <option value="other-sectors">- Other Sectors: Beyond Boundaries, Expanding
+                                            Horizons.</option>
+                                    </select>
+                                    <label for="topic">topic</label>
                                 </div>
                             </div>
-
                             <!-- Submit Button -->
                             <div class="col-md-12">
                                 <button class="btn btn-primary w-100 py-2" type="submit">Submit</button>
