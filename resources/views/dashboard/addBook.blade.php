@@ -16,6 +16,9 @@
                                         placeholder="Book Name" required>
                                     <label for="book_name">Book Name</label>
                                 </div>
+                                @if ($errors->has('book_name'))
+                                    <span class="alert alert-danger">{{ $errors->first('book_name') }}</span>
+                                @endif
                             </div>
 
                             <!-- User Name -->
