@@ -14,6 +14,10 @@ class PublishController extends Controller
     public function index()
     {
         //
+        $publish = Publish::all();
+
+        return view('dashboard.allBook', compact('publish'));
+        // return response()->json($publish);
     }
 
     /**
@@ -73,9 +77,11 @@ class PublishController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Publish $publish)
+    public function show($id)
     {
         //
+        $publish = Publish::findOrFail($id);
+        return view('dashboard.showBook', compact('publish'));
     }
 
     /**
