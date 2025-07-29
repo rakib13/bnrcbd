@@ -1,8 +1,8 @@
-@extends('dashboard.dashboard')
+@extends('dashboard.layouts.mainLayout')
 
 @section('dashboard-content')
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
             <div class="card shadow border-0">
                 <div class="card-body p-5">
                     <h3 class="text-center text-primary mb-4">List of Book</h3>

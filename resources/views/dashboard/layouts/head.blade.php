@@ -42,7 +42,7 @@
         /* Height of the navbar */
         left: 0;
         height: 100%;
-        width: 220px;
+        width: 200px;
         background-color: #343a40;
         color: white;
         transition: all 0.3s;

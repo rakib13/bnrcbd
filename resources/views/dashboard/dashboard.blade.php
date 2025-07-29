@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('dashboard.layouts.mainLayout')
 
-<head>
-    @include('dashboard.layouts.head')
-</head>
+@section('dashboard-content')
 
-<body>
-    <header>
-        @include('dashboard.layouts.nav')
-    </header>
-
-
-    <!--Main layout-->
-    <main style="margin-top: 58px">
-        <!-- Content -->
-        <div class="content" id="content">
-            @yield('dashboard-content')
-        </div>
-    </main>
-    <!--Main layout-->
-
-</body>
-
-</html>
+Main Dashboard
+@endsection
