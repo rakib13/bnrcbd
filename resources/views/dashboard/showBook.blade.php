@@ -14,7 +14,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating mb-2">
                                         <input type="text" class="form-control" id="book_name" name="book_name"
-                                            placeholder="Book Name" required>
+                                            value="{{ $publish->book_name }}" placeholder="Book Name" required>
                                         <label for="book_name">Book Name</label>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating mb-2">
                                         <input type="text" class="form-control" id="book_title" name="book_title"
-                                            placeholder="Book Title" required>
+                                            value="{{ $publish->book_title }}" placeholder="Book Title" required>
                                         <label for="book_title">Book Title</label>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating mb-2">
                                         <input type="text" class="form-control" id="book_author" name="book_author"
-                                            placeholder="Book Author" required>
+                                            value="{{ $publish->book_author }}" placeholder="Book Author" required>
                                         <label for="book_author">Book Author</label>
                                     </div>
                                 </div>
@@ -42,19 +42,20 @@
                                 <!-- Publish Date -->
                                 <div class="col-md-12">
                                     <div class="form-floating mb-2">
+                                        {{ $publish->publish_date }}
                                         <input type="date" class="form-control" id="publish_date" name="publish_date"
-                                            placeholder="Publish Date" value="" required>
+                                            value="{{ $publish->publish_date}}" placeholder="Publish Date" required>
                                         <label for="publish_date">Publish Date</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Book Summary -->
                         <div class="col-md-12 mb-2">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="book_summary" name="book_summary"
-                                    placeholder="Book Summary" required>
+                                    value="{{ $publish->book_summary }}" placeholder="Book Summary" required>
                                 <label for="book_summary">Book Summary</label>
                             </div>
                         </div>
@@ -62,7 +63,7 @@
                         <!-- File Link -->
                         <div class="col-md-6 mb-2">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="link" name="link"
+                                <input type="text" class="form-control" id="link" name="link" value="{{ $publish->link }}"
                                     placeholder="File Link" required>
                                 <label for="link">File Link</label>
                             </div>

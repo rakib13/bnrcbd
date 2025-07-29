@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('book_author');
             $table->string('thumbnail');
             $table->string('link');
-            $table->datetime('publish_date');
+            $table->date('publish_date');
             $table->string('topic');
             $table->string('type');
             $table->string('category_of_publication');

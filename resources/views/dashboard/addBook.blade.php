@@ -33,9 +33,9 @@
                                 @endif
                             </div>
 
-                            <!-- Email -->
-                            <div class="col-md-12 mb-2">
-                                <div class="form-floating">
+                            <!-- Summary -->
+                            <div class="col-md-12">
+                                <div class="form-floating mb-2">
                                     <input type="text" class="form-control" id="book_summary" name="book_summary"
                                         placeholder="Book Summary" required>
                                     <label for="book_summary">Book Summary</label>
@@ -45,9 +45,9 @@
                                 @endif
                             </div>
 
-                            <!-- Password -->
-                            <div class="col-md-6 mb-2">
-                                <div class="form-floating">
+                            <!-- Author -->
+                            <div class="col-md-6">
+                                <div class="form-floating mb-2">
                                     <input type="text" class="form-control" id="book_author" name="book_author"
                                         placeholder="Book Author" required>
                                     <label for="book_author">Book Author</label>
@@ -58,8 +58,8 @@
                             </div>
 
                             <!-- Thumbnail -->
-                            <div class="col-md-6 mb-2">
-                                <div class="form-floating">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-2">
                                     <input type="file" class="form-control" id="thumbnail" name="thumbnail"
                                         placeholder="Thumbnail" accept="image/" required>
                                     <label for="thumbnail">Thumbnail</label>
@@ -70,8 +70,8 @@
                             </div>
 
                             <!-- File Link -->
-                            <div class="col-md-6 mb-2">
-                                <div class="form-floating">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-2">
                                     <input type="text" class="form-control" id="link" name="link"
                                         placeholder="File Link" required>
                                     <label for="link">File Link</label>
@@ -82,8 +82,8 @@
                             </div>
 
                             <!-- Publish Date -->
-                            <div class="col-md-6 mb-2">
-                                <div class="form-floating">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-2">
                                     <input type="date" class="form-control" id="publish_date" name="publish_date"
                                         placeholder="Publish Date" value="" required>
                                     <label for="publish_date">Publish Date</label>
@@ -94,8 +94,8 @@
                             </div>
 
                             <!-- Topic Select -->
-                            <div class="col-md-6 mb-2">
-                                <div class="form-floating">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-2">
                                     <select class="form-select" id="topic" name="topic" required>
                                         <option value="">All Topics</option>
                                         <option value="political-study">- Political Studies</option>
@@ -111,8 +111,8 @@
                             </div>
 
                             <!-- Topic Select -->
-                            <div class="col-md-6 mb-2">
-                                <div class="form-floating">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-2">
                                     <select class="form-select" id="type" name="type" required>
                                         <option value="">All Types</option>
                                         <option value="research-paper">- Research Papers</option>
@@ -131,8 +131,8 @@
                             </div>
 
                             <!-- Category Select -->
-                            <div class="col-md-12 mb-2">
-                                <div class="form-floating">
+                            <div class="col-md-12">
+                                <div class="form-floating mb-2">
                                     <select class="form-select" id="category_of_publication"
                                         name="category_of_publication" required>
                                         <option value="">Select Category</option>
