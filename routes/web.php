@@ -30,6 +30,8 @@ Route::get('/all-book', [PublishController::class, 'index']);
 Route::get('/add-book', [PublishController::class, 'create']);
 Route::post('/add-book', [PublishController::class, 'store']);
 Route::get('/show-book/{id}', [PublishController::class, 'show']);
+Route::get('/edit-book/{id}', [PublishController::class, 'edit']);
+// Route::post('/edit-book', [PublishController::class, 'update']);
 // Route::get('/add-book', function(){ return view('dashboard.addBook');});
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

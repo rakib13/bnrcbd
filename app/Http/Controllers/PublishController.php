@@ -87,9 +87,11 @@ class PublishController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Publish $publish)
+    public function edit($id)
     {
         //
+        $publish = Publish::findOrFail($id);
+        return view('dashboard.editBook', compact('publish'));
     }
 
     /**

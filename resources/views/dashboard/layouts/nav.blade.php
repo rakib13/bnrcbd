@@ -31,14 +31,5 @@
                     Add Book
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    Update
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Delete</a>
-            </li>
         </ul>
     </div>

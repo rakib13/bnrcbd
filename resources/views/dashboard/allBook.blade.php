@@ -28,7 +28,7 @@
                                     <th>{{ $row->category_of_publication }}</th>
                                     <th>
                                         <a class="btn btn-success" href="{{url('/show-book/'.$row->id)}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                        <a class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-warning" href="{{ url('/edit-book/'.$row->id) }}"><i class="fas fa-edit"></i></a>
                                         <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </th>
                                 </tr>
