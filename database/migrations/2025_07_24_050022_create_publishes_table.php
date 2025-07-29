@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('topic');
             $table->string('type');
             $table->string('category_of_publication');
-            $table->boolean('is_hidden')->default(0);
+            $table->boolean('is_visible')->default(0);
+            $table->boolean('is_deleted')->default(0);
             $table->foreignIdFor(
                 \App\Models\UserInfo::class,
                 'user_infos_id'

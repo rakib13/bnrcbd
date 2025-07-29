@@ -21,7 +21,8 @@ class Publish extends Model
         'topic',
         'type',
         'category_of_publication',
-        'is_hidden'
+        'is_visible',
+        'is_deleted'
     ];
 
     public function toUserInfos() : BelongsTo{
