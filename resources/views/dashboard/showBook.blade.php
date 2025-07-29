@@ -42,7 +42,6 @@
                                 <!-- Publish Date -->
                                 <div class="col-md-12">
                                     <div class="form-floating mb-2">
-                                        {{ $publish->publish_date }}
                                         <input type="date" class="form-control" id="publish_date" name="publish_date"
                                             value="{{ $publish->publish_date}}" placeholder="Publish Date" required>
                                         <label for="publish_date">Publish Date</label>
@@ -74,10 +73,10 @@
                             <div class="form-floating">
                                 <select class="form-select" id="topic" name="topic" required>
                                     <option value="">All Topics</option>
-                                    <option value="political-study">- Political Studies</option>
-                                    <option value="economical-stude">- Economic Studies</option>
-                                    <option value="social-study">- Social Studies</option>
-                                    <option value="others">- Others</option>
+                                    <option {{ $publish->topic == 'political-study' ? 'selected' : ''}} value="political-study">- Political Studies</option>
+                                    <option {{ $publish->topic == 'economical-study' ? 'selected' : ''}} value="economical-study">- Economic Studies</option>
+                                    <option {{ $publish->topic == 'social-study' ? 'selected' : ''}} value="social-study">- Social Studies</option>
+                                    <option {{ $publish->topic == 'others' ? 'selected' : ''}} value="others">- Others</option>
                                 </select>
                                 <label for="topic">topic</label>
                             </div>
