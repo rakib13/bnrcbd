@@ -20,6 +20,12 @@
     <div class="sidebar" id="sidebar">
         <ul class="nav flex-column">
             <li class="nav-item">
+                <a class="nav-link" href="{{ url('/dashboard') }}">
+                    <i class="fas fa-inbox"></i> 
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url('/all-book') }}">
                     <i class="fa fa-list" aria-hidden="true"></i>
                     All Book
