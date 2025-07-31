@@ -11,10 +11,13 @@ class PublishController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(?string $itemName = null)
     {
         //
-        $publish = Publish::all();
+        if($itemName == null)
+            $publish = Publish::all();
+        else
+            $publish = Publish::where('category_of_publication', $itemName)->get();
 
         return view('dashboard.allBook', compact('publish'));
         // return response()->json($publish);

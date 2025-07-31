@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/all-book') }}">
+                <a class="nav-link" href="{{ url('/all-book/') }}">
                     <i class="fa fa-list" aria-hidden="true"></i>
                     All Book
                 </a>
