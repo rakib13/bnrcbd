@@ -831,3 +831,76 @@ function searchDocument() {
     // this regidtration role script ...................end
 
 
+// archive serarch filter....................
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBox = document.getElementById("searchBox");
+    const yearFrom = document.getElementById("yearFrom");
+    const yearTo = document.getElementById("yearTo");
+    const authorFilter = document.getElementById("authorFilter");
+    const topicFilter = document.getElementById("topicFilter");
+    const typeFilter = document.getElementById("typeFilter");
+    const clearButton = document.getElementById("clearFilters");
+    const items = document.querySelectorAll(".blog-item");
+
+    // ✅ Hide all items on load
+    items.forEach(item => {
+        item.style.display = "none";
+    });
+
+    function filterItems() {
+        const keyword = searchBox.value.toLowerCase().trim();
+        const fromYear = parseInt(yearFrom.value);
+        const toYear = parseInt(yearTo.value);
+        const author = authorFilter.value.trim();
+        const topic = topicFilter.value.trim();
+        const type = typeFilter.value.trim();
+
+        let anyVisible = false;
+
+        items.forEach(item => {
+            const title = item.getAttribute("data-title");
+            const pubYear = parseInt(item.getAttribute("data-year"));
+            const pubAuthor = item.getAttribute("data-author");
+            const pubTopic = item.getAttribute("data-topic");
+            const pubType = item.getAttribute("data-type");
+
+            const matchesKeyword = !keyword || title.includes(keyword);
+            const matchesFromYear = isNaN(fromYear) || pubYear >= fromYear;
+            const matchesToYear = isNaN(toYear) || pubYear <= toYear;
+            const matchesAuthor = !author || pubAuthor === author;
+            const matchesTopic = !topic || pubTopic === topic;
+            const matchesType = !type || pubType === type;
+
+            const shouldShow = matchesKeyword && matchesFromYear && matchesToYear &&
+                               matchesAuthor && matchesTopic && matchesType;
+
+            item.style.display = shouldShow ? "block" : "none";
+            if (shouldShow) anyVisible = true;
+        });
+    }
+
+    searchBox.addEventListener("input", filterItems);
+    yearFrom.addEventListener("input", filterItems);
+    yearTo.addEventListener("input", filterItems);
+    authorFilter.addEventListener("change", filterItems);
+    topicFilter.addEventListener("change", filterItems);
+    typeFilter.addEventListener("change", filterItems);
+
+    clearButton.addEventListener("click", () => {
+        searchBox.value = "";
+        yearFrom.value = "";
+        yearTo.value = "";
+        authorFilter.value = "";
+        topicFilter.value = "";
+        typeFilter.value = "";
+
+        // ✅ Hide all on clear
+        items.forEach(item => {
+            item.style.display = "none";
+        });
+    });
+});
+
+
+

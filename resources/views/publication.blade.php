@@ -94,43 +94,71 @@
                 <i class="fas fa-user icon"></i>
                 <select id="authorFilter">
                     <option value="">All Authors</option>
-                    <option>- BNRC Researchers</option>
-                    <option>- External Collaborators</option>
-                    <option>- Joint Publications</option>
-
+                    <option value="BNRC Researchers">BNRC Researchers</option>
+                    <option value="External Collaborators">External Collaborators</option>
+                    <option value="Joint Publications">Joint Publications</option>
                 </select>
             </div>
 
             <div class="filter-item">
                 <i class="fas fa-book icon"></i>
                 <select id="topicFilter">
-                    <option value="">All Topics</option>
-                    <option>- Political Studies</option>
-                    <option>- Economic Studies</option>
-                    <option>- Social Studies</option>
-                    <option>- Others</option>
-                </select>
+    <option value="">All Topics</option>
+    <option value="Political Studies">Political Studies</option>
+    <option value="Economic Studies">Economic Studies</option>
+    <option value="Social Studies">Social Studies</option>
+    <option value="Others">Others</option>
+</select>
             </div>
 
             <div class="filter-item">
                 <i class="fas fa-file-alt icon"></i>
                 <select id="typeFilter">
-                    <option value="">All Types</option>
-                    <option>- Research Papers</option>
-                    <option>- Policy Briefs</option>
-                    <option>- Reports and Analyses</option>
-                    <option>- Books and Monographs</option>
-                    <option>- Case Studies</option>
-                    <option>- Conference Proceedings</option>
-                    <option>- Newsletters</option>
-                </select>
+    <option value="">All Types</option>
+    <option value="Research Papers">Research Papers</option>
+    <option value="Policy Briefs">Policy Briefs</option>
+    <option value="Reports and Analyses">Reports and Analyses</option>
+    <option value="Books and Monographs">Books and Monographs</option>
+    <option value="Case Studies">Case Studies</option>
+    <option value="Conference Proceedings">Conference Proceedings</option>
+    <option value="Newsletters">Newsletters</option>
+</select>
             </div>
 
-            <button onclick="clearFilters()">
+            <button id="clearFilters">
                 <i class="fas fa-eraser"></i> Clear
             </button>
         </div>
 
+    
+
+<!-- Search and Filter Section -->
+
+
+<!-- Publications List -->
+<div class="row" id="publicationList">
+    @foreach($publishes as $publish)
+        <div class="col-md-6 col-lg-4 blog-item mb-4"
+             data-title="{{ strtolower($publish->book_title) }}"
+             data-author="{{ $publish->book_author }}"
+             data-year="{{ \Carbon\Carbon::parse($publish->publish_date)->format('Y') }}"
+             data-type="{{ $publish->type }}"
+             data-topic="{{ $publish->topic }}">
+             
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $publish->book_title }}</h5>
+                    <p class="card-text">
+                        <strong>Author:</strong> {{ $publish->book_author }}<br>
+                        <strong>Published:</strong> {{ \Carbon\Carbon::parse($publish->publish_date)->format('F Y') }}<br>
+                        <strong>Type:</strong> {{ $publish->type }}<br>
+                        <strong>Topic:</strong> {{ $publish->topic }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
 
         <!-- filter end -->
 
@@ -625,6 +653,77 @@
 
 <!-- Footer Start -->
 @include('layouts.footer')
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBox = document.getElementById("searchBox");
+    const yearFrom = document.getElementById("yearFrom");
+    const yearTo = document.getElementById("yearTo");
+    const authorFilter = document.getElementById("authorFilter");
+    const topicFilter = document.getElementById("topicFilter");
+    const typeFilter = document.getElementById("typeFilter");
+    const clearButton = document.getElementById("clearFilters");
+    const items = document.querySelectorAll(".blog-item");
+
+    // ✅ Hide all items on load
+    items.forEach(item => {
+        item.style.display = "none";
+    });
+
+    function filterItems() {
+        const keyword = searchBox.value.toLowerCase().trim();
+        const fromYear = parseInt(yearFrom.value);
+        const toYear = parseInt(yearTo.value);
+        const author = authorFilter.value.trim();
+        const topic = topicFilter.value.trim();
+        const type = typeFilter.value.trim();
+
+        let anyVisible = false;
+
+        items.forEach(item => {
+            const title = item.getAttribute("data-title");
+            const pubYear = parseInt(item.getAttribute("data-year"));
+            const pubAuthor = item.getAttribute("data-author");
+            const pubTopic = item.getAttribute("data-topic");
+            const pubType = item.getAttribute("data-type");
+
+            const matchesKeyword = !keyword || title.includes(keyword);
+            const matchesFromYear = isNaN(fromYear) || pubYear >= fromYear;
+            const matchesToYear = isNaN(toYear) || pubYear <= toYear;
+            const matchesAuthor = !author || pubAuthor === author;
+            const matchesTopic = !topic || pubTopic === topic;
+            const matchesType = !type || pubType === type;
+
+            const shouldShow = matchesKeyword && matchesFromYear && matchesToYear &&
+                               matchesAuthor && matchesTopic && matchesType;
+
+            item.style.display = shouldShow ? "block" : "none";
+            if (shouldShow) anyVisible = true;
+        });
+    }
+
+    searchBox.addEventListener("input", filterItems);
+    yearFrom.addEventListener("input", filterItems);
+    yearTo.addEventListener("input", filterItems);
+    authorFilter.addEventListener("change", filterItems);
+    topicFilter.addEventListener("change", filterItems);
+    typeFilter.addEventListener("change", filterItems);
+
+    clearButton.addEventListener("click", () => {
+        searchBox.value = "";
+        yearFrom.value = "";
+        yearTo.value = "";
+        authorFilter.value = "";
+        topicFilter.value = "";
+        typeFilter.value = "";
+
+        // ✅ Hide all on clear
+        items.forEach(item => {
+            item.style.display = "none";
+        });
+    });
+});
+</script>
+
 </body>
 
 </html>
