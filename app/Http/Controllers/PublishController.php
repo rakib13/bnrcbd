@@ -14,10 +14,13 @@ class PublishController extends Controller
     public function index(?string $itemName = null)
     {
         //
-        if($itemName == null)
-            $publish = Publish::all();
+        if ($itemName == null)
+            $publish = Publish::orderBy('category_of_publication', 'asc')
+                ->orderBy('is_visible', 'asc')->get();
         else
-            $publish = Publish::where('category_of_publication', $itemName)->get();
+            $publish = Publish::where('category_of_publication', $itemName)
+                ->orderBy('category_of_publication', 'asc')
+                ->orderBy('is_visible', 'asc')->get();
 
         return view('dashboard.allBook', compact('publish'));
         // return response()->json($publish);

@@ -42,7 +42,7 @@
         /* Height of the navbar */
         left: 0;
         height: 100%;
-        width: 200px;
+        width: 180px;
         background-color: #343a40;
         color: white;
         transition: all 0.3s;
@@ -64,9 +64,9 @@
     }
 
     .content {
-        margin-left: 220px;
+        margin-left: 190px;
         transition: all 0.3s;
-        padding: 20px;
+        padding: 10px;
     }
 
     .content.collapsed {
