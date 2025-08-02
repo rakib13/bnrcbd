@@ -25,7 +25,7 @@
                                     <th>{{ $row->book_author }}</th>
                                     <th>{{ $row->publish_date }}</th>
                                     <th>{{ $row->category_of_publication }}</th>
-                                    <th>{{ if$row->is_visible ?  }}</th>
+                                    <th><i class="fas {{ $row->is_visible ? 'fa-check-circle' : 'fa-do-not-enter' }}"></i></th>
                                     <th>
                                         <a class="btn btn-success" href="{{ url('/show-book/' . $row->id) }}"><i
                                                 class="fa fa-eye" aria-hidden="true"></i></a>
