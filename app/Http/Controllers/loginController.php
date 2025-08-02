@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserInfo;
+use App\Models\Publish;
 
 use Illuminate\Http\Request;
 
@@ -44,7 +45,96 @@ class loginController extends Controller
             }
 
             // fallback for non-AJAX
-            return redirect()->route('dashboard.dashboard');
+            $total_publishes = Publish::select('category_of_publication')->where('is_deleted', false)
+                ->get();
+
+            $count_total_feature = $count_total_newsletter = $count_total_conference_proceeding
+                = $count_total_multimedia_resources = $count_total_leadership_legacy
+                = $count_total_economic_advancements = $count_total_restoring_democracy
+                = $count_total_social_development = $count_total_environmental_vision
+                = $count_total_other = 0;
+
+            foreach ($total_publishes as $publish) {
+                if ($publish->category_of_publication == 'featured')
+                    $count_total_feature++;
+                elseif ($publish->category_of_publication == 'newsletters')
+                    $count_total_newsletter++;
+                elseif ($publish->category_of_publication == 'conference-proceedings')
+                    $count_total_conference_proceeding++;
+                elseif ($publish->category_of_publication == 'multimedia-resources')
+                    $count_total_multimedia_resources++;
+                elseif ($publish->category_of_publication == 'leadership-legacy')
+                    $count_total_leadership_legacy++;
+                elseif ($publish->category_of_publication == 'economic-advancements')
+                    $count_total_economic_advancements++;
+                elseif ($publish->category_of_publication == 'restoring-democracy')
+                    $count_total_restoring_democracy++;
+                elseif ($publish->category_of_publication == 'social-development')
+                    $count_total_social_development++;
+                elseif ($publish->category_of_publication == 'environmental-vision')
+                    $count_total_environmental_vision++;
+                else
+                    $count_total_other++;
+            }
+
+            $object_total_counter = [
+                $count_total_feature,
+                $count_total_newsletter,
+                $count_total_conference_proceeding,
+                $count_total_multimedia_resources,
+                $count_total_leadership_legacy,
+                $count_total_economic_advancements,
+                $count_total_restoring_democracy,
+                $count_total_social_development,
+                $count_total_environmental_vision,
+                $count_total_other
+            ];
+
+
+            $publishes = Publish::select('category_of_publication')->where('is_deleted', false)
+                ->where('is_visible', true)
+                ->get();
+
+            $count_feature = $count_newsletter = $count_conference_proceeding
+                = $count_multimedia_resources = $count_leadership_legacy
+                = $count_economic_advancements = $count_restoring_democracy
+                = $count_social_development = $count_environmental_vision = $count_other = 0;
+            foreach ($publishes as $publish) {
+                if ($publish->category_of_publication == 'featured')
+                    $count_feature++;
+                elseif ($publish->category_of_publication == 'newsletters')
+                    $count_newsletter++;
+                elseif ($publish->category_of_publication == 'conference-proceedings')
+                    $count_conference_proceeding++;
+                elseif ($publish->category_of_publication == 'multimedia-resources')
+                    $count_multimedia_resources++;
+                elseif ($publish->category_of_publication == 'leadership-legacy')
+                    $count_leadership_legacy++;
+                elseif ($publish->category_of_publication == 'economic-advancements')
+                    $count_economic_advancements++;
+                elseif ($publish->category_of_publication == 'restoring-democracy')
+                    $count_restoring_democracy++;
+                elseif ($publish->category_of_publication == 'social-development')
+                    $count_social_development++;
+                elseif ($publish->category_of_publication == 'environmental-vision')
+                    $count_environmental_vision++;
+                else
+                    $count_other++;
+            }
+            $object_counter = [
+                $count_feature,
+                $count_newsletter,
+                $count_conference_proceeding,
+                $count_multimedia_resources,
+                $count_leadership_legacy,
+                $count_economic_advancements,
+                $count_restoring_democracy,
+                $count_social_development,
+                $count_environmental_vision,
+                $count_other
+            ];
+
+            return redirect()->route('dashboard.dashboard', compact('object_total_counter', 'object_counter'));
         }
 
         // return JSON for AJAX
@@ -68,13 +158,100 @@ class loginController extends Controller
         return redirect()->route('login');
     }
 
+
     public function dashboard()
     {
-        // if (Auth::check()) {
+        $total_publishes = Publish::select('category_of_publication')->where('is_deleted', false)
+            ->get();
 
-        //     return view('dashboard');
-        // }
-        return view('dashboard.dashboard');
+        $count_total_feature = $count_total_newsletter = $count_total_conference_proceeding
+            = $count_total_multimedia_resources = $count_total_leadership_legacy
+            = $count_total_economic_advancements = $count_total_restoring_democracy
+            = $count_total_social_development = $count_total_environmental_vision
+            = $count_total_other = 0;
+
+        foreach ($total_publishes as $publish) {
+            if ($publish->category_of_publication == 'featured')
+                $count_total_feature++;
+            elseif ($publish->category_of_publication == 'newsletters')
+                $count_total_newsletter++;
+            elseif ($publish->category_of_publication == 'conference-proceedings')
+                $count_total_conference_proceeding++;
+            elseif ($publish->category_of_publication == 'multimedia-resources')
+                $count_total_multimedia_resources++;
+            elseif ($publish->category_of_publication == 'leadership-legacy')
+                $count_total_leadership_legacy++;
+            elseif ($publish->category_of_publication == 'economic-advancements')
+                $count_total_economic_advancements++;
+            elseif ($publish->category_of_publication == 'restoring-democracy')
+                $count_total_restoring_democracy++;
+            elseif ($publish->category_of_publication == 'social-development')
+                $count_total_social_development++;
+            elseif ($publish->category_of_publication == 'environmental-vision')
+                $count_total_environmental_vision++;
+            else
+                $count_total_other++;
+        }
+
+        $object_total_counter = [
+            $count_total_feature,
+            $count_total_newsletter,
+            $count_total_conference_proceeding,
+            $count_total_multimedia_resources,
+            $count_total_leadership_legacy,
+            $count_total_economic_advancements,
+            $count_total_restoring_democracy,
+            $count_total_social_development,
+            $count_total_environmental_vision,
+            $count_total_other
+        ];
+
+
+        $publishes = Publish::select('category_of_publication')->where('is_deleted', false)
+            ->where('is_visible', true)
+            ->get();
+
+        $count_feature = $count_newsletter = $count_conference_proceeding
+            = $count_multimedia_resources = $count_leadership_legacy
+            = $count_economic_advancements = $count_restoring_democracy
+            = $count_social_development = $count_environmental_vision = $count_other = 0;
+        foreach ($publishes as $publish) {
+            if ($publish->category_of_publication == 'featured')
+                $count_feature++;
+            elseif ($publish->category_of_publication == 'newsletters')
+                $count_newsletter++;
+            elseif ($publish->category_of_publication == 'conference-proceedings')
+                $count_conference_proceeding++;
+            elseif ($publish->category_of_publication == 'multimedia-resources')
+                $count_multimedia_resources++;
+            elseif ($publish->category_of_publication == 'leadership-legacy')
+                $count_leadership_legacy++;
+            elseif ($publish->category_of_publication == 'economic-advancements')
+                $count_economic_advancements++;
+            elseif ($publish->category_of_publication == 'restoring-democracy')
+                $count_restoring_democracy++;
+            elseif ($publish->category_of_publication == 'social-development')
+                $count_social_development++;
+            elseif ($publish->category_of_publication == 'environmental-vision')
+                $count_environmental_vision++;
+            else
+                $count_other++;
+        }
+        $object_counter = [
+            $count_feature,
+            $count_newsletter,
+            $count_conference_proceeding,
+            $count_multimedia_resources,
+            $count_leadership_legacy,
+            $count_economic_advancements,
+            $count_restoring_democracy,
+            $count_social_development,
+            $count_environmental_vision,
+            $count_other
+        ];
+
+        return  view('dashboard.dashboard', compact('object_total_counter', 'object_counter'));
+        // return response()->json($object_counter);
         //return redirect("login")->withSuccess('Opps! You do not have access');
     }
 }

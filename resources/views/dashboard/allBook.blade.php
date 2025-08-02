@@ -11,7 +11,6 @@
                         <thead>
                             <th>Sl.</th>
                             <th>Book Name</th>
-                            <th>Book Summary</th>
                             <th>Book Author</th>
                             <th>Publish Date</th>
                             <th>Category</th>
@@ -22,7 +21,6 @@
                                 <tr>
                                     <th>{{ ++$count }}.</th>
                                     <th>{{ $row->book_name }}</th>
-                                    <th>{{ $row->book_summary }}</th>
                                     <th>{{ $row->book_author }}</th>
                                     <th>{{ $row->publish_date }}</th>
                                     <th>{{ $row->category_of_publication }}</th>
