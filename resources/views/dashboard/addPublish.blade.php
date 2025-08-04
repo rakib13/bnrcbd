@@ -5,7 +5,7 @@
             <div class="card shadow border-0">
                 <div class="card-body p-5">
                     <h3 class="text-center text-primary mb-4">Add Book</h3>
-                    <form action="{{ url('/add-book') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('/add-publish') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row g-3">
                             <!-- Full Name -->

@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Publish extends Model
+class Leadership extends Model
 {
+    
     use HasFactory;
     //
     protected $fillable = [
@@ -19,8 +20,6 @@ class Publish extends Model
         'thumbnail',
         'link',
         'publish_date',
-        'topic',
-        'type',
         'tag',
         'is_featured',
         'is_shown',
@@ -35,4 +34,5 @@ class Publish extends Model
             'id'
         );
     }
+
 }

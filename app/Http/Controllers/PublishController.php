@@ -15,11 +15,11 @@ class PublishController extends Controller
     {
         //
         if ($itemName == null)
-            $publish = Publish::orderBy('category_of_publication', 'asc')
+            $publish = Publish::orderBy('tag', 'asc')
                 ->orderBy('is_visible', 'asc')->get();
         else
-            $publish = Publish::where('category_of_publication', $itemName)
-                ->orderBy('category_of_publication', 'asc')
+            $publish = Publish::where('tag', $itemName)
+                ->orderBy('tag', 'asc')
                 ->orderBy('is_visible', 'asc')->get();
 
         return view('dashboard.allBook', compact('publish'));
@@ -32,7 +32,7 @@ class PublishController extends Controller
     public function create()
     {
         //
-        return view('dashboard.addBook');
+        return view('dashboard.addPublish');
     }
 
     /**
@@ -42,16 +42,16 @@ class PublishController extends Controller
     {
         // Optional: Validation
         $request->validate([
-            'book_name'                 => 'required|string|max:255',
-            'book_title'                => 'required|string|max:255',
-            'book_summary'              => 'required|string|',
-            'book_author'               => 'required|string|min:5',
-            'thumbnail'                 => 'required | mimes:jpeg,jpg,png,PNG | max:2000',
-            'link'                      => 'nullable|string',
-            'publish_date'              => 'required|date|max:255',
-            'topic'                     => 'required|string|max:255',
-            'type'                     => 'required|string|max:255',
-            'category_of_publication'   => 'required|string|max:255',
+            'book_name'         => 'required|string|max:255',
+            'book_title'        => 'required|string|max:255',
+            'book_summary'      => 'required|string|',
+            'book_author'       => 'required|string|min:5',
+            'thumbnail'         => 'required | mimes:jpeg,jpg,png,PNG | max:2000',
+            'link'              => 'nullable|string',
+            'publish_date'      => 'required|date|max:255',
+            'topic'             => 'required|string|max:255',
+            'type'              => 'required|string|max:255',
+            'tag'               => 'required|string|max:255',
         ]);
 
         $publish =  new Publish;
@@ -73,11 +73,11 @@ class PublishController extends Controller
         $publish->publish_date = $request->publish_date;
         $publish->topic = $request->topic;
         $publish->type = $request->type;
-        $publish->category_of_publication = $request->category_of_publication;
+        $publish->tag = $request->tag;
         $publish->user_infos_id = Auth::user()->id;
         $publish->save();
 
-        return redirect('/add-book')->with('status', 'Book Added Successfully!');
+        return redirect('/add-publish')->with('status', 'Book Added Successfully!');
     }
 
     /**
@@ -87,7 +87,7 @@ class PublishController extends Controller
     {
         //
         $publish = Publish::findOrFail($id);
-        return view('dashboard.showBook', compact('publish'));
+        return view('dashboard.showPublish', compact('publish'));
     }
 
     /**
@@ -97,7 +97,7 @@ class PublishController extends Controller
     {
         //
         $publish = Publish::findOrFail($id);
-        return view('dashboard.editBook', compact('publish'));
+        return view('dashboard.editPublish', compact('publish'));
     }
 
     /**

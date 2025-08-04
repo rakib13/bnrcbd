@@ -26,13 +26,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/all-book/') }}">
+                <a class="nav-link" href="{{ url('/all-publish') }}">
                     <i class="fa fa-list" aria-hidden="true"></i>
                     All Book
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/add-book') }}">
+                <a class="nav-link" href="{{ url('/add-publish') }}">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Add Book
                 </a>

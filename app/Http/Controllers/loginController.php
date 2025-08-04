@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserInfo;
 use App\Models\Publish;
+use App\Models\Leadership;
 
 use Illuminate\Http\Request;
 
@@ -45,8 +46,9 @@ class loginController extends Controller
             }
 
             // fallback for non-AJAX
-            $total_publishes = Publish::select('category_of_publication')->where('is_deleted', false)
-                ->get();
+            $total_publishes = Publish::select('tag','is_featured')->where('is_deleted', false)->get();
+
+            $total_leadership = Leadership::select('tag','is_featured')->where('is_deleted', false)->get();
 
             $count_total_feature = $count_total_newsletter = $count_total_conference_proceeding
                 = $count_total_multimedia_resources = $count_total_leadership_legacy
@@ -55,23 +57,26 @@ class loginController extends Controller
                 = $count_total_other = 0;
 
             foreach ($total_publishes as $publish) {
-                if ($publish->category_of_publication == 'featured')
+                if ($publish->is_featured)
                     $count_total_feature++;
-                elseif ($publish->category_of_publication == 'newsletters')
+                elseif ($publish->tag == 'newsletters')
                     $count_total_newsletter++;
-                elseif ($publish->category_of_publication == 'conference-proceedings')
+                elseif ($publish->tag == 'conference-proceedings')
                     $count_total_conference_proceeding++;
-                elseif ($publish->category_of_publication == 'multimedia-resources')
+                elseif ($publish->tag == 'multimedia-resources')
                     $count_total_multimedia_resources++;
-                elseif ($publish->category_of_publication == 'leadership-legacy')
+            }
+
+            foreach ($total_leadership as $publish) {
+                if ($publish->is_featured)
                     $count_total_leadership_legacy++;
-                elseif ($publish->category_of_publication == 'economic-advancements')
+                elseif ($publish->tag == 'economic-advancements')
                     $count_total_economic_advancements++;
-                elseif ($publish->category_of_publication == 'restoring-democracy')
+                elseif ($publish->tag == 'restoring-democracy')
                     $count_total_restoring_democracy++;
-                elseif ($publish->category_of_publication == 'social-development')
+                elseif ($publish->tag == 'social-development')
                     $count_total_social_development++;
-                elseif ($publish->category_of_publication == 'environmental-vision')
+                elseif ($publish->tag == 'environmental-vision')
                     $count_total_environmental_vision++;
                 else
                     $count_total_other++;
@@ -91,36 +96,45 @@ class loginController extends Controller
             ];
 
 
-            $publishes = Publish::select('category_of_publication')->where('is_deleted', false)
-                ->where('is_visible', true)
+            $publishes = Publish::select('tag','is_featured')->where('is_deleted', false)
+                ->where('is_shown', true)
+                ->get();
+
+            $leaderships = Leadership::select('tag','is_featured')->where('is_deleted', false)
+                ->where('is_shown', true)
                 ->get();
 
             $count_feature = $count_newsletter = $count_conference_proceeding
                 = $count_multimedia_resources = $count_leadership_legacy
                 = $count_economic_advancements = $count_restoring_democracy
                 = $count_social_development = $count_environmental_vision = $count_other = 0;
+
             foreach ($publishes as $publish) {
-                if ($publish->category_of_publication == 'featured')
+                if ($publish->is_featred)
                     $count_feature++;
-                elseif ($publish->category_of_publication == 'newsletters')
+                elseif ($publish->tag == 'newsletters')
                     $count_newsletter++;
-                elseif ($publish->category_of_publication == 'conference-proceedings')
+                elseif ($publish->tag == 'conference-proceedings')
                     $count_conference_proceeding++;
-                elseif ($publish->category_of_publication == 'multimedia-resources')
+                elseif ($publish->tag == 'multimedia-resources')
                     $count_multimedia_resources++;
-                elseif ($publish->category_of_publication == 'leadership-legacy')
+            }
+
+            foreach ($publishes as $publish) {
+                if ($publish->is_featured)
                     $count_leadership_legacy++;
-                elseif ($publish->category_of_publication == 'economic-advancements')
+                elseif ($publish->tag == 'economic-advancements')
                     $count_economic_advancements++;
-                elseif ($publish->category_of_publication == 'restoring-democracy')
+                elseif ($publish->tag == 'restoring-democracy')
                     $count_restoring_democracy++;
-                elseif ($publish->category_of_publication == 'social-development')
+                elseif ($publish->tag == 'social-development')
                     $count_social_development++;
-                elseif ($publish->category_of_publication == 'environmental-vision')
+                elseif ($publish->tag == 'environmental-vision')
                     $count_environmental_vision++;
                 else
                     $count_other++;
             }
+
             $object_counter = [
                 $count_feature,
                 $count_newsletter,
@@ -161,8 +175,9 @@ class loginController extends Controller
 
     public function dashboard()
     {
-        $total_publishes = Publish::select('category_of_publication')->where('is_deleted', false)
-            ->get();
+        $total_publishes = Publish::select('tag','is_featured')->where('is_deleted', false)->get();
+
+        $total_leadership = Leadership::select('tag','is_featured')->where('is_deleted', false)->get();
 
         $count_total_feature = $count_total_newsletter = $count_total_conference_proceeding
             = $count_total_multimedia_resources = $count_total_leadership_legacy
@@ -171,23 +186,26 @@ class loginController extends Controller
             = $count_total_other = 0;
 
         foreach ($total_publishes as $publish) {
-            if ($publish->category_of_publication == 'featured')
+            if ($publish->is_featured)
                 $count_total_feature++;
-            elseif ($publish->category_of_publication == 'newsletters')
+            elseif ($publish->tag == 'newsletters')
                 $count_total_newsletter++;
-            elseif ($publish->category_of_publication == 'conference-proceedings')
+            elseif ($publish->tag == 'conference-proceedings')
                 $count_total_conference_proceeding++;
-            elseif ($publish->category_of_publication == 'multimedia-resources')
+            elseif ($publish->tag == 'multimedia-resources')
                 $count_total_multimedia_resources++;
-            elseif ($publish->category_of_publication == 'leadership-legacy')
+        }
+
+        foreach ($total_leadership as $publish) {
+            if ($publish->is_featured)
                 $count_total_leadership_legacy++;
-            elseif ($publish->category_of_publication == 'economic-advancements')
+            elseif ($publish->tag == 'economic-advancements')
                 $count_total_economic_advancements++;
-            elseif ($publish->category_of_publication == 'restoring-democracy')
+            elseif ($publish->tag == 'restoring-democracy')
                 $count_total_restoring_democracy++;
-            elseif ($publish->category_of_publication == 'social-development')
+            elseif ($publish->tag == 'social-development')
                 $count_total_social_development++;
-            elseif ($publish->category_of_publication == 'environmental-vision')
+            elseif ($publish->tag == 'environmental-vision')
                 $count_total_environmental_vision++;
             else
                 $count_total_other++;
@@ -207,36 +225,46 @@ class loginController extends Controller
         ];
 
 
-        $publishes = Publish::select('category_of_publication')->where('is_deleted', false)
-            ->where('is_visible', true)
+        $publishes = Publish::select('tag','is_featured')->where('is_deleted', false)
+            ->where('is_shown', true)
             ->get();
 
-        $count_feature = $count_newsletter = $count_conference_proceeding
+        $leaderships = Leadership::select('tag','is_featured')->where('is_deleted', false)
+            ->where('is_shown', true)
+            ->get();
+
+        
+            $count_feature = $count_newsletter = $count_conference_proceeding
             = $count_multimedia_resources = $count_leadership_legacy
             = $count_economic_advancements = $count_restoring_democracy
             = $count_social_development = $count_environmental_vision = $count_other = 0;
+
         foreach ($publishes as $publish) {
-            if ($publish->category_of_publication == 'featured')
+            if ($publish->is_featred)
                 $count_feature++;
-            elseif ($publish->category_of_publication == 'newsletters')
+            elseif ($publish->tag == 'newsletters')
                 $count_newsletter++;
-            elseif ($publish->category_of_publication == 'conference-proceedings')
+            elseif ($publish->tag == 'conference-proceedings')
                 $count_conference_proceeding++;
-            elseif ($publish->category_of_publication == 'multimedia-resources')
+            elseif ($publish->tag == 'multimedia-resources')
                 $count_multimedia_resources++;
-            elseif ($publish->category_of_publication == 'leadership-legacy')
+        }
+
+        foreach ($publishes as $publish) {
+            if ($publish->is_featured)
                 $count_leadership_legacy++;
-            elseif ($publish->category_of_publication == 'economic-advancements')
+            elseif ($publish->tag == 'economic-advancements')
                 $count_economic_advancements++;
-            elseif ($publish->category_of_publication == 'restoring-democracy')
+            elseif ($publish->tag == 'restoring-democracy')
                 $count_restoring_democracy++;
-            elseif ($publish->category_of_publication == 'social-development')
+            elseif ($publish->tag == 'social-development')
                 $count_social_development++;
-            elseif ($publish->category_of_publication == 'environmental-vision')
+            elseif ($publish->tag == 'environmental-vision')
                 $count_environmental_vision++;
             else
                 $count_other++;
         }
+
         $object_counter = [
             $count_feature,
             $count_newsletter,
