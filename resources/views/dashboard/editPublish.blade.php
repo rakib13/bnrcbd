@@ -7,7 +7,7 @@
                 <div class="card-body p-5">
 
                     <h3 class="text-center text-primary mb-4">Book Details of "{{ $publish->book_name }}"</h3>
-                    <form action="{{ url('/update-publish/'.$publish->id) }}" enctype="multipart/form-data" method="POST">
+                    <form action="{{ url('/update-publish/' . $publish->id) }}" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="row g-3">
                             <!-- Button -->
@@ -65,7 +65,8 @@
 
                             <div class="col-md-4">
                                 <img src="/{{ $publish->thumbnail }}" class="w-100 h-auto" alt="">
-                                <input type="hidden" name="old_image" id="old_image" value="{{ $publish->thumbnail }}" ></input>
+                                <input type="hidden" name="old_image" id="old_image"
+                                    value="{{ $publish->thumbnail }}"></input>
 
                             </div>
 
@@ -140,38 +141,31 @@
                                     <select class="form-select" id="category_of_publication"
                                         name="category_of_publication" required>
                                         <option value="">Select Category</option>
-                                        <option {{ $publish->category_of_publication == 'featured' ? 'selected' : '' }}
-                                            value="featured">- Featured</option>
-                                        <option {{ $publish->category_of_publication == 'newsletters' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'featured' ? 'selected' : '' }} value="featured">-
+                                            Featured</option>
+                                        <option {{ $publish->tag == 'newsletters' ? 'selected' : '' }}
                                             value="newsletters">- Newsletters</option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'conference-proceedings' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'conference-proceedings' ? 'selected' : '' }}
                                             value="conference-proceedings">- Conference Proceedings</option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'multimedia-resources' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'multimedia-resources' ? 'selected' : '' }}
                                             value="multimedia-resources">- Multimedia Resources</option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'leadership-legacy' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'leadership-legacy' ? 'selected' : '' }}
                                             value="leadership-legacy">- Leadership Legacy: A Tradition of Excellence
                                         </option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'economic-advancements' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'economic-advancements' ? 'selected' : '' }}
                                             value="economic-advancements">- Economic Advancements: Driving Growth,
                                             Empowering Progress</option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'restoring-democracy' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'restoring-democracy' ? 'selected' : '' }}
                                             value="restoring-democracy">- Restoring Democracy: Championing People's
                                             Voices, Building Nations</option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'social-development' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'social-development' ? 'selected' : '' }}
                                             value="social-development">- Social Development: Transforming Lives,
                                             Creating Equity</option>
-                                        <option
-                                            {{ $publish->category_of_publication == 'environmental-vision' ? 'selected' : '' }}
+                                        <option {{ $publish->tag == 'environmental-vision' ? 'selected' : '' }}
                                             value="environmental-vision">- Environmental Vision: Sustainability Today
                                             for Tomorrow's Prosperity</option>
-                                        <option {{ $publish->category_of_publication == 'other' ? 'selected' : '' }}
-                                            value="other">- Other Sectors: Beyond Boundaries, Expanding
+                                        <option {{ $publish->tag == 'other' ? 'selected' : '' }} value="other">- Other
+                                            Sectors: Beyond Boundaries, Expanding
                                             Horizons.</option>
                                     </select>
                                     <label for="topic">topic</label>
