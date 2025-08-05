@@ -138,8 +138,7 @@
                             <!-- Category Select -->
                             <div class="col-md-12 mb-2">
                                 <div class="form-floating">
-                                    <select class="form-select" id="category_of_publication"
-                                        name="category_of_publication" required>
+                                    <select class="form-select" id="tad" name="tag" required>
                                         <option value="">Select Category</option>
                                         <option {{ $publish->tag == 'featured' ? 'selected' : '' }} value="featured">-
                                             Featured</option>
