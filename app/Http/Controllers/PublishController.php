@@ -16,13 +16,13 @@ class PublishController extends Controller
         //
         if ($itemName == null)
             $publish = Publish::orderBy('tag', 'asc')
-                ->orderBy('is_visible', 'asc')->get();
+                ->orderBy('is_shown', 'asc')->get();
         else
             $publish = Publish::where('tag', $itemName)
                 ->orderBy('tag', 'asc')
-                ->orderBy('is_visible', 'asc')->get();
+                ->orderBy('is_shown', 'asc')->get();
 
-        return view('dashboard.allBook', compact('publish'));
+        return view('dashboard.allPublish', compact('publish'));
         // return response()->json($publish);
     }
 
@@ -48,7 +48,7 @@ class PublishController extends Controller
             'book_author'       => 'required|string|min:5',
             'thumbnail'         => 'required | mimes:jpeg,jpg,png,PNG | max:2000',
             'link'              => 'nullable|string',
-            'publish_date'      => 'required|date|max:255',
+            'publish_date'      => 'required|date',
             'topic'             => 'required|string|max:255',
             'type'              => 'required|string|max:255',
             'tag'               => 'required|string|max:255',
@@ -103,9 +103,57 @@ class PublishController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Publish $publish)
+    public function update(Request $request, $id)
     {
         //
+
+        $request->validate([
+            'id'                => 'required',
+            'book_name'         => 'required|string|max:255',
+            'book_title'        => 'required|string|max:255',
+            'book_summary'      => 'required|string|',
+            'book_author'       => 'required|string|min:5',
+            'thumbnail'         => 'required | mimes:jpeg,jpg,png,PNG | max:2000',
+            'link'              => 'nullable|string',
+            'publish_date'      => 'required|date',
+            'topic'             => 'required|string|max:255',
+            'type'              => 'required|string|max:255',
+            'tag'               => 'required|string|max:255',
+        ]);
+
+        $publish =  new Publish;
+        $publish->id = $id;
+        $publish->book_name = $request->book_name;
+        $publish->book_title = $request->book_title;
+        $publish->book_summary = $request->book_summary;
+        $publish->book_author = $request->book_author;
+        
+        $image = $request->file('thumbnail');
+        // return response()->json($publish);
+
+        if ($image) {
+            unlink($request->old_image);
+            $image_name = hexdec(uniqid());
+            $ext = strtolower($image->getClientOriginalExtension());
+            $image_full_name = $image_name . '.' . $ext;
+            $upload_path = 'img/pdf-cover/';
+            $image_url = $upload_path . $image_full_name;
+            $success = $image->move($upload_path, $image_full_name);
+            $publish->thumbnail = $image_url;
+        } else {
+            $image = $request->old_image;
+        }
+
+        $publish->link =  $request->link;
+        $publish->publish_date = $request->publish_date;
+        $publish->topic = $request->topic;
+        $publish->type = $request->type;
+        $publish->tag = $request->tag;
+        $publish->user_infos_id = Auth::user()->id;
+        $publish->save();
+
+        return request()->json('publish');
+        // return view('dashboard.showPublish', compact('publish'));
     }
 
     /**

@@ -27,10 +27,10 @@
                                     <th>{{ $row->category_of_publication }}</th>
                                     <th><i id="" class="fas {{ $row->is_visible ? 'fa-eye' : 'fa-eye-slash' }}"></i></th>
                                     <th>
-                                        <a class="btn btn-success" href="{{ url('/show-book/' . $row->id) }}">
+                                        <a class="btn btn-success" href="{{ url('/show-publish/' . $row->id) }}">
                                             <i class="fas fa-binoculars"></i>
                                         </a>
-                                        <a class="btn btn-warning" href="{{ url('/edit-book/' . $row->id) }}">
+                                        <a class="btn btn-warning" href="{{ url('/edit-publish/' . $row->id) }}">
                                             <i class="fas fa-edit"></i></a>
                                         <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </th>

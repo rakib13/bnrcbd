@@ -278,8 +278,8 @@ class loginController extends Controller
             $count_other
         ];
 
-        // return  view('dashboard.dashboard', compact('object_total_counter', 'object_counter'));
-        return response()->json($object_counter);
+        return  view('dashboard.dashboard', compact('object_total_counter', 'object_counter'));
+        // return response()->json($object_counter);
         //return redirect("login")->withSuccess('Opps! You do not have access');
     }
 }

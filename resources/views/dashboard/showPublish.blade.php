@@ -10,8 +10,8 @@
                     <div class="row g-3">
                         <!-- Button -->
                         <div class="col-md-12">
-                            <a class="btn btn-primary px-3 py-2 me-3" href="{{ url('/all-book') }}">All Book </a>
-                            <a class="btn btn-info px-4 py-2" href="{{ url('/edit-book/'.$publish->id) }}">Edit</a>
+                            <a class="btn btn-primary px-3 py-2 me-3" href="{{ url('/all-publish') }}">All Book </a>
+                            <a class="btn btn-info px-4 py-2" href="{{ url('/edit-publish/'.$publish->id) }}">Edit</a>
                         </div>
 
                         <div class="col-md-8">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
 
-                        <!-- Topic Select -->
+                        <!-- Type Select -->
                         <div class="col-md-6 mb-2">
                             <div class="form-floating">
                                 <select class="form-select" id="type" name="type" disabled>
@@ -117,14 +117,14 @@
                                     <option {{ $publish->type == 'newsletters' ? 'selected' : '' }} value="newsletters">-
                                         Newsletters</option>
                                 </select>
-                                <label for="topic">topic</label>
+                                <label for="type">Type</label>
                             </div>
                         </div>
 
-                        <!-- Category Select -->
+                        <!-- Tag Select -->
                         <div class="col-md-12 mb-2">
                             <div class="form-floating">
-                                <select class="form-select" id="category_of_publication" name="category_of_publication"
+                                <select class="form-select" id="tag" name="tag"
                                     disabled>
                                     <option value="">Select Category</option>
                                     <option {{ $publish->category_of_publication == 'featured' ? 'selected' : '' }}
@@ -161,7 +161,7 @@
                                         value="other">- Other Sectors: Beyond Boundaries, Expanding
                                         Horizons.</option>
                                 </select>
-                                <label for="topic">topic</label>
+                                <label for="tag">Category</label>
                             </div>
                         </div>
                     </div> <!-- row -->

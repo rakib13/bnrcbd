@@ -31,7 +31,7 @@ Route::get('/add-publish', [PublishController::class, 'create']);
 Route::post('/add-publish', [PublishController::class, 'store']);
 Route::get('/show-publish/{id}', [PublishController::class, 'show']);
 Route::get('/edit-publish/{id}', [PublishController::class, 'edit']);
-// Route::post('/edit-book', [PublishController::class, 'update']);
+Route::post('/update-publish/{id}', [PublishController::class, 'update']);
 // Route::get('/add-publish', function(){ return view('dashboard.addBook');});
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

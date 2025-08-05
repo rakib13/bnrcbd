@@ -7,14 +7,14 @@
                 <div class="card-body p-5">
 
                     <h3 class="text-center text-primary mb-4">Book Details of "{{ $publish->book_name }}"</h3>
-                    <form action="{{ url('/') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('/update-publish/'.$publish->id) }}" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="row g-3">
                             <!-- Button -->
-                        <!-- Button -->
-                        <div class="col-md-12">
-                            <a class="btn btn-primary px-3 py-2 me-3" href="{{ url('/all-book') }}">Back to All Book </a>
-                        </div>
+                            <div class="col-md-12">
+                                <a class="btn btn-primary px-3 py-2 me-3" href="{{ url('/all-publish') }}">Back to All Book
+                                </a>
+                            </div>
 
                             <div class="col-md-8">
                                 <div class="row">
@@ -45,8 +45,6 @@
                                         </div>
                                     </div>
 
-
-
                                     <!-- Publish Date -->
                                     <div class="col-md-12">
                                         <div class="form-floating mb-2">
@@ -55,12 +53,20 @@
                                             <label for="publish_date">Publish Date</label>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-floating mb-2">
+                                            <input type="file" class="form-control" id="thumbnail" name="thumbnail"
+                                                placeholder="Thumbnail" accept="image/">
+                                            <label for="thumbnail">Thumbnail</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <img src="/{{ $publish->thumbnail }}" class="w-100 h-auto" alt="">
-                                
+                                <input type="hidden" name="old_image" id="old_image" value="{{ $publish->thumbnail }}" ></input>
+
                             </div>
 
                             <!-- Book Summary -->
