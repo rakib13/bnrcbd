@@ -122,7 +122,7 @@
                                         <option value="conference-proceedings">- Conference Proceedings</option>
                                         <option value="newsletters">- Newsletters</option>
                                     </select>
-                                    <label for="topic">topic</label>
+                                    <label for="type">Type</label>
                                 </div>
                                 @if ($errors->has('type'))
                                     <span class="alert alert-danger m-0.5 p-0">{{ $errors->first('type') }}</span>
@@ -132,31 +132,18 @@
                             <!-- Category Select -->
                             <div class="col-md-12">
                                 <div class="form-floating mb-2">
-                                    <select class="form-select" id="category_of_publication"
-                                        name="category_of_publication" required>
+                                    <select class="form-select" id="tag"
+                                        name="tag" required>
                                         <option value="">Select Category</option>
-                                        <option value="featured">- Featured</option>
                                         <option value="newsletters">- Newsletters</option>
                                         <option value="conference-proceedings">- Conference Proceedings</option>
                                         <option value="multimedia-resources">- Multimedia Resources</option>
-                                        <option value="leadership-legacy">- Leadership Legacy: A Tradition of Excellence
-                                        </option>
-                                        <option value="economic-advancements">- Economic Advancements: Driving Growth,
-                                            Empowering Progress</option>
-                                        <option value="restoring-democracy">- Restoring Democracy: Championing People's
-                                            Voices, Building Nations</option>
-                                        <option value="social-development">- Social Development: Transforming Lives,
-                                            Creating Equity</option>
-                                        <option value="environmental-vision">- Environmental Vision: Sustainability Today
-                                            for Tomorrow's Prosperity</option>
-                                        <option value="other-sectors">- Other Sectors: Beyond Boundaries, Expanding
-                                            Horizons.</option>
                                     </select>
                                     <label for="topic">topic</label>
                                 </div>
-                                @if ($errors->has('category_of_publication'))
+                                @if ($errors->has('tag'))
                                     <span
-                                        class="alert alert-danger m-0.5 p-0">{{ $errors->first('category_of_publication') }}</span>
+                                        class="alert alert-danger m-0.5 p-0">{{ $errors->first('tag') }}</span>
                                 @endif
                             </div>
                             <!-- Submit Button -->
