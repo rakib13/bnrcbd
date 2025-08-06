@@ -24,7 +24,7 @@
                                     <th>{{ $row->book_name }}</th>
                                     <th>{{ $row->book_author }}</th>
                                     <th>{{ $row->publish_date }}</th>
-                                    <th>{{ $row->category_of_publication }}</th>
+                                    <th>{{ $row->tag }}</th>
                                     <th><i id="" class="fas {{ $row->is_visible ? 'fa-eye' : 'fa-eye-slash' }}"></i></th>
                                     <th>
                                         <a class="btn btn-success" href="{{ url('/show-publish/' . $row->id) }}">
