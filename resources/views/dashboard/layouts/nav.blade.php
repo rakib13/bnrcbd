@@ -21,9 +21,12 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/dashboard') }}">
-                    <i class="fas fa-inbox"></i> 
+                    <i class="fas fa-inbox"></i>
                     Dashboard
                 </a>
+            </li>
+            <li>
+                <hr>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/all-publish') }}">
@@ -35,6 +38,21 @@
                 <a class="nav-link" href="{{ url('/add-publish') }}">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Add Publication
+                </a>
+            </li>
+            <li>
+                <hr>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/all-leadership') }}">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Leadership Post
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/add-leadership') }}">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    Leadership Post Add
                 </a>
             </li>
         </ul>

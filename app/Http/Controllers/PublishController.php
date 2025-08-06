@@ -22,7 +22,7 @@ class PublishController extends Controller
                 ->orderBy('tag', 'asc')
                 ->orderBy('is_shown', 'asc')->get();
 
-        return view('dashboard.allPublish', compact('publish'));
+        return view('dashboard.publications.allPublish', compact('publish'));
         // return response()->json($publish);
     }
 
@@ -32,7 +32,7 @@ class PublishController extends Controller
     public function create()
     {
         //
-        return view('dashboard.addPublish');
+        return view('dashboard.publications.addPublish');
     }
 
     /**
@@ -87,7 +87,7 @@ class PublishController extends Controller
     {
         //
         $publish = Publish::findOrFail($id);
-        return view('dashboard.showPublish', compact('publish'));
+        return view('dashboard.publications.showPublish', compact('publish'));
     }
 
     /**
@@ -97,7 +97,7 @@ class PublishController extends Controller
     {
         //
         $publish = Publish::findOrFail($id);
-        return view('dashboard.editPublish', compact('publish'));
+        return view('dashboard.publications.editPublish', compact('publish'));
     }
 
     /**
