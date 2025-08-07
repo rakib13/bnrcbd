@@ -25,14 +25,30 @@
                                     <th>{{ $row->book_author }}</th>
                                     <th>{{ $row->publish_date }}</th>
                                     <th>{{ $row->tag }}</th>
-                                    <th><i id="" class="fas {{ $row->is_visible ? 'fa-eye' : 'fa-eye-slash' }}"></i></th>
+                                    <th>
+                                        @if ($row->is_shown)
+                                            <form action="{{ url('/status-publish/' . $row->id) }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="is_shown" id="is_shown" value="0">
+                                                <button class="btn btn-info" type="submit">
+                                                    <i id="" class="fas fa-eye"></i></button>
+                                            </form>
+                                        @else
+                                            <form action="{{ url('/status-publish/' . $row->id) }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="is_shown" id="is_shown" value="1">
+                                                <button class="btn btn-danger" type="submit">
+                                                    <i id="" class="fas fa-eye-slash"></i></button>
+                                            </form>
+                                        @endif
+                                    </th>
                                     <th>
                                         <a class="btn btn-success" href="{{ url('/show-publish/' . $row->id) }}">
                                             <i class="fas fa-binoculars"></i>
                                         </a>
                                         <a class="btn btn-warning" href="{{ url('/edit-publish/' . $row->id) }}">
                                             <i class="fas fa-edit"></i></a>
-                                        <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        {{-- <a class="btn btn-danger"><i class="fas fa-trash"></i></a> --}}
                                     </th>
                                 </tr>
                             @endforeach

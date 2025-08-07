@@ -137,6 +137,20 @@ class LeadershipController extends Controller
 
         return redirect()->back()->with('success', 'Updated successfully!');
     }
+    
+    /*
+    Status Update
+    */
+    public function updateIsShown(Request $request, $id)
+    {
+        $publish = Leadership::findOrFail($id);
+
+        $publish->is_shown = $request->is_shown;
+        $publish->save();
+        
+        // return response('publish')->json();
+        return redirect()->back()->with('success', 'Book details updated successfully!');
+    }
 
     /**
      * Remove the specified resource from storage.
