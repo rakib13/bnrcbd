@@ -233,9 +233,33 @@
                         continues to empower people, creating opportunities that drive sustainable progress.
                     </p>
                 </div>
-
+                @forelse ($economicesadvancment as $item)
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                    alt="{{ $item->book_title }}">
+                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                    <span>View Details</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span>
+                                        {{ $item->book_author }}</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                </div>
+                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Newsletters found.</p>
+                @endforelse
                 <!-- Card 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-1.jpg" style="height: 300px;"
@@ -256,10 +280,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-2.jpg" style="height: 300px;"
@@ -280,10 +304,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-3.jpg" style="height: 300px;"
@@ -304,10 +328,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-4.jpg" style="height: 300px;"
@@ -328,7 +352,7 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 
@@ -351,7 +375,7 @@
                 </div>
 
                 <!-- Card 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/constitution&law/law-1.jpg" style="height: 300px;"
@@ -372,10 +396,34 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
-
+                </div> --}}
+                @forelse ($restoringdemocracy as $item)
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                    alt="{{ $item->book_title }}">
+                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                    <span>View Details</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span>
+                                        {{ $item->book_author }}</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                </div>
+                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Newsletters found.</p>
+                @endforelse
                 <!-- Card 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/constitution&law/law-2.jpg" style="height: 300px;"
@@ -396,10 +444,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/constitution&law/law-3.jpg" style="height: 300px;"
@@ -420,10 +468,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/constitution&law/law-3.jpg" style="height: 300px;"
@@ -444,7 +492,7 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 
@@ -465,9 +513,33 @@
                         human rights, and public welfare remains at the core of its governance philosophy.
                     </p>
                 </div>
-
+                @forelse ($socialdevelopment as $item)
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                    alt="{{ $item->book_title }}">
+                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                    <span>View Details</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span>
+                                        {{ $item->book_author }}</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                </div>
+                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Newsletters found.</p>
+                @endforelse
                 <!-- Card 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-1.jpg" style="height: 300px;"
@@ -488,10 +560,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-2.jpg" style="height: 300px;"
@@ -512,10 +584,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-3.jpg" style="height: 300px;"
@@ -536,10 +608,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-4.jpg" style="height: 300px;"
@@ -560,7 +632,7 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
         <!-- socialdevelopment......END.......................... -->
@@ -580,9 +652,33 @@
                         BNP aims to ensure a healthier future for the next generations.
                     </p>
                 </div>
-
+                {{-- @forelse ($environmentalvision as $item)
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                    alt="{{ $item->book_title }}">
+                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                    <span>View Details</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span>
+                                        {{ $item->book_author }}</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                </div>
+                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Newsletters found.</p>
+                @endforelse --}}
                 <!-- Card 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-1.jpg" style="height: 300px;"
@@ -603,10 +699,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-2.jpg" style="height: 300px;"
@@ -627,10 +723,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-3.jpg" style="height: 300px;"
@@ -651,10 +747,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/health&development/health-4.jpg" style="height: 300px;"
@@ -675,7 +771,7 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
         <!-- Environmental vision......END.......................... -->
@@ -695,9 +791,33 @@
                         strengthens Bangladesh’s position as a forward-thinking and resilient nation.
                     </p>
                 </div>
-
+                @forelse ($othersectors as $item)
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                    alt="{{ $item->book_title }}">
+                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                    <span>View Details</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span>
+                                        {{ $item->book_author }}</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                </div>
+                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Newsletters found.</p>
+                @endforelse
                 <!-- Card 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/defense&foreignAffairs/defense-1.jpg" style="height: 300px;"
@@ -718,10 +838,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/defense&foreignAffairs/defense-1.jpg" style="height: 300px;"
@@ -742,10 +862,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/defense&foreignAffairs/defence-2.jpg" style="height: 300px;"
@@ -766,10 +886,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Card 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/defense&foreignAffairs/defence-2.jpg" style="height: 300px;"
@@ -790,7 +910,7 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 
