@@ -15,7 +15,7 @@ class LeadershipLegacyController extends Controller
 
         $restoringdemocracy = Leadership::where('tag', 'restoring-democracy')->get();
         $socialdevelopment = Leadership::where('tag', 'social-development')->get();
-        $economicesadvancment = Leadership::where('tag', 'economices-advancment')->get();
+        $economicesadvancment = Leadership::where('tag', 'economic-advancements')->get();
         $environmentalvision = Leadership::where('tag', 'environmental-vision')->get();
         $othersectors = Leadership::where('tag', 'other-sectors')->get();
 

@@ -256,103 +256,9 @@
                         </div>
                     </div>
                 @empty
-                    <p>No Newsletters found.</p>
+                    <p>No Economic Advancements found.</p>
                 @endforelse
-                <!-- Card 1 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/agriculture&economics/agri-1.jpg" style="height: 300px;"
-                                alt="Sample Image 1" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/d95efb5d9d.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Leadership in Agricultural Reform</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
 
-                <!-- Card 2 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/agriculture&economics/agri-2.jpg" style="height: 300px;"
-                                alt="Sample Image 2" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/a5a311e867.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Economics and Leadership</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 3 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/agriculture&economics/agri-3.jpg" style="height: 300px;"
-                                alt="Sample Image 3" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/fa62917017.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Legacy in Rural Innovation</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 4 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/agriculture&economics/agri-4.jpg" style="height: 300px;"
-                                alt="Sample Image 4" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/224dded0a9.html">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Sustainability & Strategy</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </section>
 
@@ -375,28 +281,7 @@
                 </div>
 
                 <!-- Card 1 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/constitution&law/law-1.jpg" style="height: 300px;"
-                                alt="Sample Image 1" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/14ffb620e2.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Leadership in Agricultural Reform</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
+
                 @forelse ($restoringdemocracy as $item)
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="blog-item">
@@ -422,77 +307,7 @@
                 @empty
                     <p>No Newsletters found.</p>
                 @endforelse
-                <!-- Card 2 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/constitution&law/law-2.jpg" style="height: 300px;"
-                                alt="Sample Image 2" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/0429c696c5.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Economics and Leadership</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
 
-                <!-- Card 3 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/constitution&law/law-3.jpg" style="height: 300px;"
-                                alt="Sample Image 3" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/02c69bce85.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Legacy in Rural Innovation</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 4 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/constitution&law/law-3.jpg" style="height: 300px;"
-                                alt="Sample Image 4" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/b52aab635b.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Sustainability & Strategy</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </section>
 
@@ -538,101 +353,7 @@
                 @empty
                     <p>No Newsletters found.</p>
                 @endforelse
-                <!-- Card 1 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-1.jpg" style="height: 300px;"
-                                alt="Sample Image 1" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/5c31d50952.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Leadership in Agricultural Reform</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
 
-                <!-- Card 2 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-2.jpg" style="height: 300px;"
-                                alt="Sample Image 2" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/357afbfc22.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Economics and Leadership</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 3 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-3.jpg" style="height: 300px;"
-                                alt="Sample Image 3" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/ef994aeba8.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Legacy in Rural Innovation</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 4 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-4.jpg" style="height: 300px;"
-                                alt="Sample Image 4" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/ab830ed3e0.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Sustainability & Strategy</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </section>
         <!-- socialdevelopment......END.......................... -->
@@ -652,7 +373,7 @@
                         BNP aims to ensure a healthier future for the next generations.
                     </p>
                 </div>
-                {{-- @forelse ($environmentalvision as $item)
+                @forelse ($environmentalvision as $item)
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="blog-item">
                             <div class="blog-img">
@@ -675,103 +396,9 @@
                         </div>
                     </div>
                 @empty
-                    <p>No Newsletters found.</p>
-                @endforelse --}}
-                <!-- Card 1 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-1.jpg" style="height: 300px;"
-                                alt="Sample Image 1" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/5c31d50952.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Leadership in Agricultural Reform</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
+                    <p>No Environmental Vision found.</p>
+                @endforelse
 
-                <!-- Card 2 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-2.jpg" style="height: 300px;"
-                                alt="Sample Image 2" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/357afbfc22.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Economics and Leadership</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 3 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-3.jpg" style="height: 300px;"
-                                alt="Sample Image 3" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/ef994aeba8.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Legacy in Rural Innovation</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 4 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/health&development/health-4.jpg" style="height: 300px;"
-                                alt="Sample Image 4" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/ab830ed3e0.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Sustainability & Strategy</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </section>
         <!-- Environmental vision......END.......................... -->
@@ -814,103 +441,9 @@
                         </div>
                     </div>
                 @empty
-                    <p>No Newsletters found.</p>
+                    <p>No Other Sectors found.</p>
                 @endforelse
-                <!-- Card 1 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/defense&foreignAffairs/defense-1.jpg" style="height: 300px;"
-                                alt="Sample Image 1" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/bae06c0b34.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Leadership in Agricultural Reform</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
 
-                <!-- Card 2 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/defense&foreignAffairs/defense-1.jpg" style="height: 300px;"
-                                alt="Sample Image 2" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/565a798c5c.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Economics and Leadership</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 3 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/defense&foreignAffairs/defence-2.jpg" style="height: 300px;"
-                                alt="Sample Image 3" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/1239793c6d.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Legacy in Rural Innovation</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Card 4 -->
-                {{-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="./img/pdf-cover/defense&foreignAffairs/defence-2.jpg" style="height: 300px;"
-                                alt="Sample Image 4" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/ab830ed3e0.html" class="pdf-link">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Author Name
-                                </div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 25 May 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">Sustainability & Strategy</a>
-                            <p class="mb-3">Brief description or abstract of the publication goes here.</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </section>
 
