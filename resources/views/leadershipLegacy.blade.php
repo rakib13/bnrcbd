@@ -101,8 +101,8 @@
     </div>
 </div>
 <!-- Service Start -->
-<div class="container-fluid blog py-5">
-    <div class="container py-5">
+<div class="container-fluid blog">
+    <div class="container">
 
         <!-- leadership and legacy -->
 
@@ -233,7 +233,9 @@
                         continues to empower people, creating opportunities that drive sustainable progress.
                     </p>
                 </div>
-                @forelse ($economicesadvancment as $item)
+
+
+                {{-- @forelse ($economicesadvancment as $item)
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="blog-item">
                             <div class="blog-img">
@@ -257,7 +259,40 @@
                     </div>
                 @empty
                     <p>No Economic Advancements found.</p>
-                @endforelse
+                    @endforelse --}}
+
+                <div class="row">
+                    @forelse ($economicesadvancment as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small">
+                                            <span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}
+                                        </div>
+                                        <div class="small">
+                                            <span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Economic Advancements found.</p>
+                    @endforelse
+                </div>
+
 
             </div>
         </section>
@@ -281,33 +316,64 @@
                 </div>
 
                 <!-- Card 1 -->
-
-                @forelse ($restoringdemocracy as $item)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                    alt="{{ $item->book_title }}">
-                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                    <span>View Details</span>
+                {{-- <div class="row">
+                    @forelse ($restoringdemocracy as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span>
-                                        {{ $item->book_author }}</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                <div class="blog-content p-4">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small"><span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}</div>
+                                        <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                                 </div>
-                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <p>No Newsletters found.</p>
-                @endforelse
-
+                    @empty
+                        <p>No Newsletters found.</p>
+                    @endforelse
+                </div> --}}
+                <div class="row">
+                    @forelse ($restoringdemocracy as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small">
+                                            <span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}
+                                        </div>
+                                        <div class="small">
+                                            <span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Restoring Democracy found.</p>
+                    @endforelse
+                </div>
             </div>
         </section>
 
@@ -328,32 +394,65 @@
                         human rights, and public welfare remains at the core of its governance philosophy.
                     </p>
                 </div>
-                @forelse ($socialdevelopment as $item)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                    alt="{{ $item->book_title }}">
-                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                    <span>View Details</span>
+
+                {{-- <div class="row">
+                    @forelse ($socialdevelopment as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span>
-                                        {{ $item->book_author }}</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                <div class="blog-content p-4">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small"><span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}</div>
+                                        <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                                 </div>
-                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <p>No Newsletters found.</p>
-                @endforelse
-
+                    @empty
+                        <p>No Newsletters found.</p>
+                    @endforelse
+                </div> --}}
+                <div class="row">
+                    @forelse ($socialdevelopment as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small">
+                                            <span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}
+                                        </div>
+                                        <div class="small">
+                                            <span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Social Development found.</p>
+                    @endforelse
+                </div>
             </div>
         </section>
         <!-- socialdevelopment......END.......................... -->
@@ -373,32 +472,64 @@
                         BNP aims to ensure a healthier future for the next generations.
                     </p>
                 </div>
-                @forelse ($environmentalvision as $item)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                    alt="{{ $item->book_title }}">
-                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                    <span>View Details</span>
+                {{-- <div class="row">
+                    @forelse ($environmentalvision as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span>
-                                        {{ $item->book_author }}</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                <div class="blog-content p-4">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small"><span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}</div>
+                                        <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                                 </div>
-                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <p>No Environmental Vision found.</p>
-                @endforelse
-
+                    @empty
+                        <p>No Environmental Vision found.</p>
+                    @endforelse
+                </div> --}}
+                <div class="row">
+                    @forelse ($environmentalvision as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small">
+                                            <span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}
+                                        </div>
+                                        <div class="small">
+                                            <span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Environmental Vision found.</p>
+                    @endforelse
+                </div>
             </div>
         </section>
         <!-- Environmental vision......END.......................... -->
@@ -418,31 +549,64 @@
                         strengthens Bangladesh’s position as a forward-thinking and resilient nation.
                     </p>
                 </div>
-                @forelse ($othersectors as $item)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                    alt="{{ $item->book_title }}">
-                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                    <span>View Details</span>
+
+                {{-- <div class="row">
+                    @forelse ($othersectors as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span>
-                                        {{ $item->book_author }}</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                <div class="blog-content p-4">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small"><span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}</div>
+                                        <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                                 </div>
-                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <p>No Other Sectors found.</p>
-                @endforelse
+                    @empty
+                        <p>No Other Sectors found.</p>
+                    @endforelse
+                </div> --}}<div class="row">
+                    @forelse ($othersectors as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small">
+                                            <span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}
+                                        </div>
+                                        <div class="small">
+                                            <span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No Other Sectors found.</p>
+                    @endforelse
+                </div>
 
             </div>
         </section>

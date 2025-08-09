@@ -112,7 +112,8 @@
                 </p>
             </div>
 
-            <form method="POST" action="" enctype="multipart/form-data">
+            {{-- <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
+                @csrf
                 <h4 class="text-primary mb-4">Submit Your Thoughts:</h4>
 
                 <!-- Submission Status Checkboxes -->
@@ -177,6 +178,42 @@
                 <div class="text-center mb-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+            </form> --}}
+
+            <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
+                @csrf
+
+                <div>
+                    <input type="checkbox" id="anonymousCheck" name="anonymous_check"
+                        onchange="toggleSection('anonymousSection', this)">
+                    <label for="anonymousCheck">A. Remain anonymous</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="recognizedCheck" name="recognized_check"
+                        onchange="toggleSection('recognizedSection', this)">
+                    <label for="recognizedCheck">B. Be recognized</label>
+                </div>
+
+                <div id="anonymousSection" style="display:none;">
+                    <textarea name="anonymous_feedback" placeholder="Your feedback..."></textarea>
+                    <input type="file" name="anonymous_file">
+                </div>
+
+                <div id="recognizedSection" style="display:none;">
+                    <textarea name="recognized_feedback" placeholder="Your feedback..."></textarea>
+                    <input type="file" name="recognized_file">
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Your Email">
+                    <input type="text" name="mobile" placeholder="Your Mobile Number">
+                </div>
+
+                <div>
+                    <input type="checkbox" id="agreeTerms" name="agree_terms" required>
+                    <label for="agreeTerms">I agree to the terms and privacy policy.</label>
+                </div>
+
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
@@ -187,6 +224,31 @@
 
 <!-- Footer Start -->
 @include('layouts.footer')
+
+
+<script>
+    function toggleSection(sectionId, checkbox) {
+        const anonymousCheck = document.getElementById('anonymousCheck');
+        const recognizedCheck = document.getElementById('recognizedCheck');
+
+        document.getElementById('anonymousSection').style.display = 'none';
+        document.getElementById('recognizedSection').style.display = 'none';
+
+        if (checkbox.id === 'anonymousCheck') {
+            recognizedCheck.checked = false;
+            if (checkbox.checked) {
+                document.getElementById('anonymousSection').style.display = 'block';
+            }
+        }
+
+        if (checkbox.id === 'recognizedCheck') {
+            anonymousCheck.checked = false;
+            if (checkbox.checked) {
+                document.getElementById('recognizedSection').style.display = 'block';
+            }
+        }
+    }
+</script>
 </body>
 
 </html>
