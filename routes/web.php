@@ -10,6 +10,9 @@ use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PublishController;
 use App\Http\Controllers\LeadershipController;
+use App\Http\Controllers\FeedbackController;
+
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
@@ -46,3 +49,14 @@ Route::post('/is-shown-leadership/{id}', [LeadershipController::class, 'updateIs
 Route::post('/is-featured-leadership/{id}', [LeadershipController::class, 'updateIsFeatured']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// share your thought send mail
+//Route::post('/feedback/send', [FeedbackController::class, 'send'])->name('feedback.send');
+Route::get('/test-mail', function () {
+    Mail::raw('This is a test email from Laravel', function ($message) {
+        $message->to('rahmantareq11@example.com')
+            ->subject('Test Mail');
+    });
+
+    return 'Test email sent!';
+});
