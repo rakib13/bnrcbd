@@ -112,7 +112,7 @@
                 </p>
             </div>
 
-            {{-- <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
+             <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
                 @csrf
                 <h4 class="text-primary mb-4">Submit Your Thoughts:</h4>
 
@@ -178,9 +178,9 @@
                 <div class="text-center mb-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-            </form> --}}
+            </form> 
 
-            <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
+            <!-- <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div>
@@ -214,7 +214,7 @@
                 </div>
 
                 <button type="submit">Submit</button>
-            </form>
+            </form> -->
         </div>
     </div>
 </div>
@@ -224,9 +224,45 @@
 
 <!-- Footer Start -->
 @include('layouts.footer')
-
-
 <script>
+    function toggleSection(sectionId, checkbox) {
+    const anonymousCheck = document.getElementById('anonymousCheck');
+    const recognizedCheck = document.getElementById('recognizedCheck');
+
+    // Hide both sections
+    document.getElementById('anonymousSection').style.display = 'none';
+    document.getElementById('recognizedSection').style.display = 'none';
+
+    // Remove required attributes from all fields
+    document.querySelectorAll('#anonymousSection [required], #recognizedSection [required]').forEach(el => {
+        el.removeAttribute('required');
+    });
+
+    // Show and add required only for the active section
+    if (checkbox.id === 'anonymousCheck') {
+        recognizedCheck.checked = false;
+        if (checkbox.checked) {
+            document.getElementById('anonymousSection').style.display = 'block';
+            document.querySelectorAll('#anonymousSection textarea, #anonymousSection input').forEach(el => {
+                el.setAttribute('required', true);
+            });
+        }
+    }
+
+    if (checkbox.id === 'recognizedCheck') {
+        anonymousCheck.checked = false;
+        if (checkbox.checked) {
+            document.getElementById('recognizedSection').style.display = 'block';
+            document.querySelectorAll('#recognizedSection textarea, #recognizedSection input').forEach(el => {
+                el.setAttribute('required', true);
+            });
+        }
+    }
+}
+
+</script>
+
+<!-- <script>
     function toggleSection(sectionId, checkbox) {
         const anonymousCheck = document.getElementById('anonymousCheck');
         const recognizedCheck = document.getElementById('recognizedCheck');
@@ -248,7 +284,7 @@
             }
         }
     }
-</script>
+</script> -->
 </body>
 
 </html>
