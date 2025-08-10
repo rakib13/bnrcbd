@@ -158,13 +158,16 @@ class LeadershipController extends Controller
     */
     public function updateIsFeatured(Request $request, $id)
     {
+        if (Leadership::where('is_featured', 1)->count() == 4 && $request->is_featured == 1)
+            return redirect()->back()->with('error', 'Can not add more than 4 featured Item!');
+
         $leadership = Leadership::findOrFail($id);
 
         $leadership->is_featured = $request->is_featured;
         $leadership->save();
 
         // return redirect('/all-leadership')->with('success', 'Book details updated successfully!');
-        return redirect()->back()->with('success', 'Book details updated successfully!');
+        return redirect()->back()->with('success', 'Featured updated successfully!');
     }
 
     /**

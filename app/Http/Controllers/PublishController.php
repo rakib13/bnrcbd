@@ -162,13 +162,16 @@ class PublishController extends Controller
     */
     public function updateIsFeatured(Request $request, $id)
     {
+        if (Publish::where('is_featured', 1)->count() == 4 && $request->is_featured == 1)
+            return redirect()->back()->with('error', 'Can not add more than 4 featured Item!');
+
         $publish = Publish::findOrFail($id);
 
         $publish->is_featured = $request->is_featured;
         $publish->save();
 
         // return redirect('/all-publish')->with('success', 'Book details updated successfully!');
-        return redirect()->back()->with('success', 'Book details updated successfully!');
+        return redirect()->back()->with('success', 'Featured Items updated successfully!');
     }
 
     /**

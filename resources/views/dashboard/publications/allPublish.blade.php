@@ -56,7 +56,8 @@
                                                 @csrf
                                                 <input type="hidden" name="is_featured" id="is_featured" value="1">
                                                 <button class="btn btn-secondary" type="submit">
-                                                    <i class="fas fa-star"></i></button>
+                                                    <i class="fa-regular fa-circle-minus"></i>
+                                                </button>
                                             </form>
                                         @endif
                                     </th>

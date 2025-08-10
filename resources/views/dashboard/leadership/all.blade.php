@@ -49,14 +49,16 @@
                                                 @csrf
                                                 <input type="hidden" name="is_featured" id="is_featured" value="0">
                                                 <button class="btn btn-primary" type="submit">
-                                                    <i class="fas fa-star"></i></button>
+                                                    <i class="fas fa-star"></i>
+                                                </button>
                                             </form>
                                         @else
                                             <form action="{{ url('/is-featured-leadership/' . $row->id) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="is_featured" id="is_featured" value="1">
                                                 <button class="btn btn-secondary" type="submit">
-                                                    <i class="fas fa-star"></i></button>
+                                                    <i class="fa-regular fa-circle-minus"></i>
+                                                </button>
                                             </form>
                                         @endif
                                     </th>
