@@ -14,7 +14,8 @@
                             <th>Book Author</th>
                             <th>Publish Date</th>
                             <th>Category</th>
-                            <th>Is Shown</th>
+                            <th>Shown</th>
+                            <th>Featured</th>
                             <th>Actions</th>
                         </thead>
                         <tbody class="text-center">
@@ -27,18 +28,35 @@
                                     <th>{{ $row->tag }}</th>
                                     <th>
                                         @if ($row->is_shown)
-                                            <form action="{{ url('/status-publish/' . $row->id) }}" method="post">
+                                            <form action="{{ url('/is-shown-publish/' . $row->id) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="is_shown" id="is_shown" value="0">
                                                 <button class="btn btn-info" type="submit">
-                                                    <i id="" class="fas fa-eye"></i></button>
+                                                    <i class="fas fa-eye"></i></button>
                                             </form>
                                         @else
-                                            <form action="{{ url('/status-publish/' . $row->id) }}" method="post">
+                                            <form action="{{ url('/is-shown-publish/' . $row->id) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="is_shown" id="is_shown" value="1">
                                                 <button class="btn btn-danger" type="submit">
-                                                    <i id="" class="fas fa-eye-slash"></i></button>
+                                                    <i class="fas fa-eye-slash"></i></button>
+                                            </form>
+                                        @endif
+                                    </th>
+                                    <th>
+                                        @if ($row->is_featured)
+                                            <form action="{{ url('/is-featured-publish/' . $row->id) }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="is_featured" id="is_featured" value="0">
+                                                <button class="btn btn-primary" type="submit">
+                                                    <i class="fas fa-star"></i></button>
+                                            </form>
+                                        @else
+                                            <form action="{{ url('/is-featured-publish/' . $row->id) }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="is_featured" id="is_featured" value="1">
+                                                <button class="btn btn-secondary" type="submit">
+                                                    <i class="fas fa-star"></i></button>
                                             </form>
                                         @endif
                                     </th>

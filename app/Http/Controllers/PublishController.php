@@ -144,7 +144,7 @@ class PublishController extends Controller
     }
 
     /*
-    Status Update
+    Status IS SHOWN
     */
     public function updateIsShown(Request $request, $id)
     {
@@ -152,7 +152,21 @@ class PublishController extends Controller
 
         $publish->is_shown = $request->is_shown;
         $publish->save();
-        
+
+        // return redirect('/all-publish')->with('success', 'Book details updated successfully!');
+        return redirect()->back()->with('success', 'Book details updated successfully!');
+    }
+
+    /*
+    Status IS FEATURED
+    */
+    public function updateIsFeatured(Request $request, $id)
+    {
+        $publish = Publish::findOrFail($id);
+
+        $publish->is_featured = $request->is_featured;
+        $publish->save();
+
         // return redirect('/all-publish')->with('success', 'Book details updated successfully!');
         return redirect()->back()->with('success', 'Book details updated successfully!');
     }

@@ -33,7 +33,8 @@ Route::post('/add-publish', [PublishController::class, 'store']);
 Route::get('/show-publish/{id}', [PublishController::class, 'show']);
 Route::get('/edit-publish/{id}', [PublishController::class, 'edit']);
 Route::post('/update-publish/{id}', [PublishController::class, 'update']);
-Route::post('/status-publish/{id}', [PublishController::class, 'updateIsShown']);
+Route::post('/is-shown-publish/{id}', [PublishController::class, 'updateIsShown']);
+Route::post('/is-featured-publish/{id}', [PublishController::class, 'updateIsFeatured']);
 
 Route::get('/all-leadership/{itemName?}', [LeadershipController::class, 'index']);
 Route::get('/add-leadership', [LeadershipController::class, 'create']);
@@ -41,6 +42,7 @@ Route::post('/add-leadership', [LeadershipController::class, 'store']);
 Route::get('/show-leadership/{id}', [LeadershipController::class, 'show']);
 Route::get('/edit-leadership/{id}', [LeadershipController::class, 'edit']);
 Route::post('/update-leadership/{id}', [LeadershipController::class, 'update']);
-Route::post('/status-leadership/{id}', [LeadershipController::class, 'updateIsShown']);
+Route::post('/is-shown-leadership/{id}', [LeadershipController::class, 'updateIsShown']);
+Route::post('/is-featured-leadership/{id}', [LeadershipController::class, 'updateIsFeatured']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

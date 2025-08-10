@@ -138,17 +138,32 @@ class LeadershipController extends Controller
         return redirect()->back()->with('success', 'Updated successfully!');
     }
     
+
     /*
-    Status Update
+    Status IS SHOWN
     */
     public function updateIsShown(Request $request, $id)
     {
-        $publish = Leadership::findOrFail($id);
+        $leadership = Leadership::findOrFail($id);
 
-        $publish->is_shown = $request->is_shown;
-        $publish->save();
-        
-        // return response('publish')->json();
+        $leadership->is_shown = $request->is_shown;
+        $leadership->save();
+
+        // return redirect('/all-leadership')->with('success', 'Book details updated successfully!');
+        return redirect()->back()->with('success', 'Book details updated successfully!');
+    }
+
+    /*
+    Status IS FEATURED
+    */
+    public function updateIsFeatured(Request $request, $id)
+    {
+        $leadership = Leadership::findOrFail($id);
+
+        $leadership->is_featured = $request->is_featured;
+        $leadership->save();
+
+        // return redirect('/all-leadership')->with('success', 'Book details updated successfully!');
         return redirect()->back()->with('success', 'Book details updated successfully!');
     }
 
