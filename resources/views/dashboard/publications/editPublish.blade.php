@@ -140,32 +140,12 @@
                                 <div class="form-floating">
                                     <select class="form-select" id="tad" name="tag" required>
                                         <option value="">Select Category</option>
-                                        <option {{ $publish->tag == 'featured' ? 'selected' : '' }} value="featured">-
-                                            Featured</option>
                                         <option {{ $publish->tag == 'newsletters' ? 'selected' : '' }}
                                             value="newsletters">- Newsletters</option>
                                         <option {{ $publish->tag == 'conference-proceedings' ? 'selected' : '' }}
                                             value="conference-proceedings">- Conference Proceedings</option>
                                         <option {{ $publish->tag == 'multimedia-resources' ? 'selected' : '' }}
                                             value="multimedia-resources">- Multimedia Resources</option>
-                                        <option {{ $publish->tag == 'leadership-legacy' ? 'selected' : '' }}
-                                            value="leadership-legacy">- Leadership Legacy: A Tradition of Excellence
-                                        </option>
-                                        <option {{ $publish->tag == 'economic-advancements' ? 'selected' : '' }}
-                                            value="economic-advancements">- Economic Advancements: Driving Growth,
-                                            Empowering Progress</option>
-                                        <option {{ $publish->tag == 'restoring-democracy' ? 'selected' : '' }}
-                                            value="restoring-democracy">- Restoring Democracy: Championing People's
-                                            Voices, Building Nations</option>
-                                        <option {{ $publish->tag == 'social-development' ? 'selected' : '' }}
-                                            value="social-development">- Social Development: Transforming Lives,
-                                            Creating Equity</option>
-                                        <option {{ $publish->tag == 'environmental-vision' ? 'selected' : '' }}
-                                            value="environmental-vision">- Environmental Vision: Sustainability Today
-                                            for Tomorrow's Prosperity</option>
-                                        <option {{ $publish->tag == 'other' ? 'selected' : '' }} value="other">- Other
-                                            Sectors: Beyond Boundaries, Expanding
-                                            Horizons.</option>
                                     </select>
                                     <label for="topic">topic</label>
                                 </div>

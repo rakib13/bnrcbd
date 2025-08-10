@@ -137,7 +137,7 @@ class LeadershipController extends Controller
 
         return redirect()->back()->with('success', 'Updated successfully!');
     }
-    
+
 
     /*
     Status IS SHOWN
@@ -145,6 +145,9 @@ class LeadershipController extends Controller
     public function updateIsShown(Request $request, $id)
     {
         $leadership = Leadership::findOrFail($id);
+
+        if (Leadership::where('tag', $leadership->tag)->where('is_shown', 1)->count() == 4 && $request->is_shown == 1)
+            return redirect()->back()->with('error', 'Can not add more than 4 in ' . $leadership->tag . ' Item!');
 
         $leadership->is_shown = $request->is_shown;
         $leadership->save();

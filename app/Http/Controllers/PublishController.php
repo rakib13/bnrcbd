@@ -150,6 +150,9 @@ class PublishController extends Controller
     {
         $publish = Publish::findOrFail($id);
 
+        if(Publish::where('tag', $publish->tag)->where('is_shown',1)->count() == 4 && $request->is_shown == 1)
+            return redirect()->back()->with('error', 'Can not add more than 4 in '.$publish->tag.' Item!');
+
         $publish->is_shown = $request->is_shown;
         $publish->save();
 
