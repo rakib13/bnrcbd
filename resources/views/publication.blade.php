@@ -174,8 +174,37 @@
                         shape discussions in critical fields. Start here to explore major contributions that drive
                         policy and change.</p>
                 </div>
+
+{{-- Dynamic Newsletter Items from Database --}}
+                @forelse ($feature as $item)
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                    alt="{{ $item->book_title }}">
+                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                    <span>View Details</span>
+                                </div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <div class="blog-comment d-flex justify-content-between mb-3">
+                                    <div class="small"><span class="fa fa-user text-primary"></span>
+                                        {{ $item->book_author }}</div>
+                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                </div>
+                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Featured found.</p>
+                @endforelse
+
+
                 <!-- Blog Item 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="img/pdf-cover/publications/points2.JPG" alt="Sample Image 1" class="img-fluid">
@@ -197,10 +226,10 @@
                             <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Blog Item 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="img/pdf-cover/publications/points3.JPG" alt="Sample Image 2" class="img-fluid">
@@ -222,10 +251,10 @@
                             <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Blog Item 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="img/pdf-cover/publications/English Book.JPG" alt="Sample Image 3"
@@ -248,10 +277,10 @@
                             <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Blog Item 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="img/pdf-cover/publications/Bangla Book.jpg" alt="Sample Image 4"
@@ -274,7 +303,7 @@
                             <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </section>

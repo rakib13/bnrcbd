@@ -26,6 +26,8 @@ class PublicationController extends Controller
         $conferenceProceedings = Publish::where('tag', 'multimedia-resources')
             ->where('is_shown', '1')->get();
 
-        return view('publication', compact('multimediaResources', 'newsletters', 'conferenceProceedings'));
+            $feature = Publish::where('is_featured', '1')->get();
+
+        return view('publication', compact('multimediaResources', 'newsletters', 'conferenceProceedings','feature'));
     }
 }

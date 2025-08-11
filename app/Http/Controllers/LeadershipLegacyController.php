@@ -24,6 +24,8 @@ class LeadershipLegacyController extends Controller
         $othersectors = Leadership::where('tag', 'other-sectors')
         ->where('is_shown', '1')->get();
 
-        return view('leadershipLegacy', compact('restoringdemocracy', 'socialdevelopment', 'economicesadvancment', 'environmentalvision', 'othersectors'));
+        $feature = Leadership::where('is_featured', '1')->get();
+
+        return view('leadershipLegacy', compact('restoringdemocracy', 'socialdevelopment', 'economicesadvancment', 'environmentalvision', 'othersectors','feature'));
     }
 }

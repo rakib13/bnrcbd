@@ -120,8 +120,42 @@
                     </P>
                 </div>
 
+               <div class="row">
+                    @forelse ($feature as $item)
+                        <div class="col-sm-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="blog-item d-flex flex-column w-100">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
+                                    </div>
+                                </div>
+                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small">
+                                            <span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}
+                                        </div>
+                                        <div class="small">
+                                            <span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>No leadership legacy  found.</p>
+                    @endforelse
+                </div>
+
+
+
                 <!-- Card 1 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-1.jpg" style="height: 300px;"
@@ -142,10 +176,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Card 2 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-2.jpg" style="height: 300px;"
@@ -166,10 +200,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Card 3 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-3.jpg" style="height: 300px;"
@@ -190,10 +224,10 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Card 4 -->
-                <div class="col-sm-6 col-lg-4 col-xl-3">
+                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
                             <img src="./img/pdf-cover/agriculture&economics/agri-4.jpg" style="height: 300px;"
@@ -214,7 +248,7 @@
                             <p class="mb-3">Brief description or abstract of the publication goes here.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <!-- ........................ agriculter  Economics section start.............. -->
