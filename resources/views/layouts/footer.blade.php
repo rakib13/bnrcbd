@@ -97,17 +97,17 @@
 
              <div class="col-xl-3">
                  <div class="footer-item">
-                     <h5 class="text-white mb-3">Newsletter</h5>
+                     <!-- <h5 class="text-white mb-3">Newsletter</h5>
                      <div class="position-relative rounded-pill mb-3">
                          <input class="form-control rounded-pill w-100 py-2 ps-3 pe-3" type="text"
                              placeholder="Enter your email">
                          <button type="button"
                              class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-1 mt-1 me-1">SignUp</button>
-                     </div>
+                     </div> -->
                      <div class="d-flex flex-shrink-0">
                          <div class="footer-btn d-flex px-2">
                              <a class="btn btn-md-square rounded-circle me-3"
-                                 href="https://www.facebook.com/bnrc.org"><i class="fab fa-facebook-f"></i></a>
+                                 href="https://www.facebook.com/bnrc.org" target="_blank"><i class="fab fa-facebook-f"></i></a>
                              <a class="btn btn-md-square rounded-circle me-3" href="#"><i
                                      class="fab fa-twitter"></i></a>
                              <a class="btn btn-md-square rounded-circle me-3" href="#"><i

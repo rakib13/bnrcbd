@@ -175,7 +175,7 @@
                         policy and change.</p>
                 </div>
 
-{{-- Dynamic Newsletter Items from Database --}}
+       {{-- Dynamic Newsletter Items from Database --}}
                 @forelse ($feature as $item)
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="blog-item">

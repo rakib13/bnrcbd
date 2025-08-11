@@ -52,7 +52,7 @@
                 </div>
             @endif --}}
             <div id="error-message" class="alert alert-danger d-none"></div>
-            <div class="row g-4 justify-content-center mt-1">
+            <!-- <div class="row g-4 justify-content-center mt-1">
                 <form id="login-form" action="{{ route('login.submit') }}" method="POST">
                     @csrf
                     <div class="col-12">
@@ -84,7 +84,39 @@
                         </div>
                     </div>
                 </form>
+            </div> -->
+            <div class="login-wrapper">
+    <div class="row g-4 justify-content-center mt-1">
+        <form id="login-form" action="{{ route('login.submit') }}" method="POST">
+            @csrf
+            <div class="col-12 position-relative">
+                <i class="bi bi-envelope input-icon"></i>
+                <div class="form-floating">
+                    <input type="text" class="form-control border-0" name="email" id="email"
+                        placeholder="Email">
+                    <label for="email">Email</label>
+                </div>
             </div>
+
+            <div class="col-12 position-relative mt-3">
+                <i class="bi bi-lock input-icon"></i>
+                <div class="form-floating">
+                    <input type="password" class="form-control border-0" name="password" id="password"
+                        placeholder="Password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <button type="submit" id="login-btn"
+                    class="btn btn-primary w-100 py-3 my-2">Login</button>
+                <div class="text-center mt-2">
+                    Not a registered user? <a href="./reg">Register</a>.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
         </div>
     </div>
 </div>
@@ -93,7 +125,8 @@
 
 @include('layouts.footer')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<!-- Bootstrap Icons CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <script>
     $(document).ready(function() {
         $('#login-btn').on('click', function() {
