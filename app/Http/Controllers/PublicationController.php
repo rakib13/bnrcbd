@@ -19,11 +19,11 @@ class PublicationController extends Controller
 
         // Tareq change here......... for fetch data from db and show the form...
 
-        $multimediaResources = Publish::where('tag', 'conference-proceedings')
+        $multimediaResources = Publish::where('tag', 'multimedia-resources')
             ->where('is_shown', '1')->get();
         $newsletters = Publish::where('tag', 'newsletters')
             ->where('is_shown', '1')->get();
-        $conferenceProceedings = Publish::where('tag', 'multimedia-resources')
+        $conferenceProceedings = Publish::where('tag', 'conference-proceedings')
             ->where('is_shown', '1')->get();
 
             $feature = Publish::where('is_featured', '1')->get();
