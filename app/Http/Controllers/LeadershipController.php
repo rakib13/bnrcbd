@@ -14,13 +14,13 @@ class LeadershipController extends Controller
     public function index(?string $itemName = null)
     {
         //
-        if ($itemName == null)
-            $leadership = Leadership::orderBy('tag', 'asc')
-                ->orderBy('is_shown', 'asc')->get();
-        else
+        if ($itemName == null || $itemName == 'featured')
+            $leadership = Leadership::orderBy('is_featured', 'desc')
+                ->orderBy('tag', 'asc')->get();
+        else {
             $leadership = Leadership::where('tag', $itemName)
-                ->orderBy('tag', 'asc')
-                ->orderBy('is_shown', 'asc')->get();
+                ->orderBy('is_shown', 'desc')->get();
+        }
 
         return view('dashboard.leadership.all', compact('leadership'));
     }

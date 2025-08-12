@@ -21,16 +21,6 @@ class loginController extends Controller
 
     public function loginUser(Request $request)
     {
-        // $credentials = $request->only('email', 'password');
-
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->route('dashboard.dashboard');
-        // }
-
-        // return back()->withErrors([
-        //     'email' => 'Invalid credentials.',
-        // ])->withInput();
 
         $credentials = $request->only('email', 'password');
 
@@ -46,109 +36,7 @@ class loginController extends Controller
             }
 
             // fallback for non-AJAX
-            $total_publishes = Publish::select('tag','is_featured')->where('is_deleted', false)->get();
-
-            $total_leadership = Leadership::select('tag','is_featured')->where('is_deleted', false)->get();
-
-            $count_total_feature = $count_total_newsletter = $count_total_conference_proceeding
-                = $count_total_multimedia_resources = $count_total_leadership_legacy
-                = $count_total_economic_advancements = $count_total_restoring_democracy
-                = $count_total_social_development = $count_total_environmental_vision
-                = $count_total_other = 0;
-
-            foreach ($total_publishes as $publish) {
-                if ($publish->is_featured)
-                    $count_total_feature++;
-                elseif ($publish->tag == 'newsletters')
-                    $count_total_newsletter++;
-                elseif ($publish->tag == 'conference-proceedings')
-                    $count_total_conference_proceeding++;
-                elseif ($publish->tag == 'multimedia-resources')
-                    $count_total_multimedia_resources++;
-            }
-
-            foreach ($total_leadership as $publish) {
-                if ($publish->is_featured)
-                    $count_total_leadership_legacy++;
-                elseif ($publish->tag == 'economic-advancements')
-                    $count_total_economic_advancements++;
-                elseif ($publish->tag == 'restoring-democracy')
-                    $count_total_restoring_democracy++;
-                elseif ($publish->tag == 'social-development')
-                    $count_total_social_development++;
-                elseif ($publish->tag == 'environmental-vision')
-                    $count_total_environmental_vision++;
-                else
-                    $count_total_other++;
-            }
-
-            $object_total_counter = [
-                $count_total_feature,
-                $count_total_newsletter,
-                $count_total_conference_proceeding,
-                $count_total_multimedia_resources,
-                $count_total_leadership_legacy,
-                $count_total_economic_advancements,
-                $count_total_restoring_democracy,
-                $count_total_social_development,
-                $count_total_environmental_vision,
-                $count_total_other
-            ];
-
-
-            $publishes = Publish::select('tag','is_featured')->where('is_deleted', false)
-                ->where('is_shown', true)
-                ->get();
-
-            $leaderships = Leadership::select('tag','is_featured')->where('is_deleted', false)
-                ->where('is_shown', true)
-                ->get();
-
-            $count_feature = $count_newsletter = $count_conference_proceeding
-                = $count_multimedia_resources = $count_leadership_legacy
-                = $count_economic_advancements = $count_restoring_democracy
-                = $count_social_development = $count_environmental_vision = $count_other = 0;
-
-            foreach ($publishes as $publish) {
-                if ($publish->is_featred)
-                    $count_feature++;
-                elseif ($publish->tag == 'newsletters')
-                    $count_newsletter++;
-                elseif ($publish->tag == 'conference-proceedings')
-                    $count_conference_proceeding++;
-                elseif ($publish->tag == 'multimedia-resources')
-                    $count_multimedia_resources++;
-            }
-
-            foreach ($publishes as $publish) {
-                if ($publish->is_featured)
-                    $count_leadership_legacy++;
-                elseif ($publish->tag == 'economic-advancements')
-                    $count_economic_advancements++;
-                elseif ($publish->tag == 'restoring-democracy')
-                    $count_restoring_democracy++;
-                elseif ($publish->tag == 'social-development')
-                    $count_social_development++;
-                elseif ($publish->tag == 'environmental-vision')
-                    $count_environmental_vision++;
-                else
-                    $count_other++;
-            }
-
-            $object_counter = [
-                $count_feature,
-                $count_newsletter,
-                $count_conference_proceeding,
-                $count_multimedia_resources,
-                $count_leadership_legacy,
-                $count_economic_advancements,
-                $count_restoring_democracy,
-                $count_social_development,
-                $count_environmental_vision,
-                $count_other
-            ];
-
-            return redirect()->route('dashboard.dashboard', compact('object_total_counter', 'object_counter'));
+            $this->dashboard();
         }
 
         // return JSON for AJAX
@@ -175,107 +63,61 @@ class loginController extends Controller
 
     public function dashboard()
     {
-        $total_publishes = Publish::select('tag','is_featured')->where('is_deleted', false)->get();
+        $total_publication_featured =  Publish::where('is_featured', true)->count();
+        $total_publication = Publish::where('is_deleted', false)->count();
 
-        $total_leadership = Leadership::select('tag','is_featured')->where('is_deleted', false)->get();
+        $total_newsletter_shown = Publish::where('is_shown', true)->where('tag', 'newsletters')->count();
+        $total_newsletter = Publish::where('is_deleted', false)->where('tag', 'newsletters')->count();
 
-        $count_total_feature = $count_total_newsletter = $count_total_conference_proceeding
-            = $count_total_multimedia_resources = $count_total_leadership_legacy
-            = $count_total_economic_advancements = $count_total_restoring_democracy
-            = $count_total_social_development = $count_total_environmental_vision
-            = $count_total_other = 0;
+        $total_conference_proceeding_shown = Publish::where('is_shown', true)->where('tag', 'conference-proceedings')->count();
+        $total_conference_proceeding = Publish::where('is_deleted', false)->where('tag', 'conference-proceedings')->count();
 
-        foreach ($total_publishes as $publish) {
-            if ($publish->is_featured)
-                $count_total_feature++;
-            elseif ($publish->tag == 'newsletters')
-                $count_total_newsletter++;
-            elseif ($publish->tag == 'conference-proceedings')
-                $count_total_conference_proceeding++;
-            elseif ($publish->tag == 'multimedia-resources')
-                $count_total_multimedia_resources++;
-        }
+        $total_multimedia_resources_shown = Publish::where('is_shown', true)->where('tag', 'multimedia-resources')->count();
+        $total_multimedia_resources = Publish::where('is_deleted', false)->where('tag', 'multimedia-resources')->count();
 
-        foreach ($total_leadership as $publish) {
-            if ($publish->is_featured)
-                $count_total_leadership_legacy++;
-            elseif ($publish->tag == 'economic-advancements')
-                $count_total_economic_advancements++;
-            elseif ($publish->tag == 'restoring-democracy')
-                $count_total_restoring_democracy++;
-            elseif ($publish->tag == 'social-development')
-                $count_total_social_development++;
-            elseif ($publish->tag == 'environmental-vision')
-                $count_total_environmental_vision++;
-            else
-                $count_total_other++;
-        }
+        $total_leadership_featured =  Leadership::where('is_featured', true)->count();
+        $total_leadership = Leadership::where('is_deleted', false)->count();
 
-        $object_total_counter = [
-            $count_total_feature,
-            $count_total_newsletter,
-            $count_total_conference_proceeding,
-            $count_total_multimedia_resources,
-            $count_total_leadership_legacy,
-            $count_total_economic_advancements,
-            $count_total_restoring_democracy,
-            $count_total_social_development,
-            $count_total_environmental_vision,
-            $count_total_other
-        ];
+        $count_economic_advancements_shown = Leadership::where('is_shown', true)->where('tag', 'economic-advancements')->count();
+        $count_economic_advancements = Leadership::where('is_deleted', false)->where('tag', 'economic-advancements')->count();
 
+        $count_restoring_democracy_shown = Leadership::where('is_shown', true)->where('tag', 'restoring-democracy')->count();
+        $count_restoring_democracy = Leadership::where('is_deleted', false)->where('tag', 'restoring-democracy')->count();
 
-        $publishes = Publish::select('tag','is_featured')->where('is_deleted', false)
-            ->where('is_shown', true)
-            ->get();
+        $count_social_development_shown = Leadership::where('is_shown', true)->where('tag', 'social-development')->count();
+        $count_social_development = Leadership::where('is_deleted', false)->where('tag', 'social-development')->count();
 
-        $leaderships = Leadership::select('tag','is_featured')->where('is_deleted', false)
-            ->where('is_shown', true)
-            ->get();
+        $count_environmental_vision_shown = Leadership::where('is_shown', true)->where('tag', 'environmental-vision')->count();
+        $count_environmental_vision = Leadership::where('is_deleted', false)->where('tag', 'environmental-vision')->count();
 
-        
-            $count_feature = $count_newsletter = $count_conference_proceeding
-            = $count_multimedia_resources = $count_leadership_legacy
-            = $count_economic_advancements = $count_restoring_democracy
-            = $count_social_development = $count_environmental_vision = $count_other = 0;
+        $count_other_shown = Leadership::where('is_shown', true)->where('tag', 'other-sectors')->count();
+        $count_other = Leadership::where('is_deleted', false)->where('tag', 'other-sectors')->count();
 
-        foreach ($publishes as $publish) {
-            if ($publish->is_featred)
-                $count_feature++;
-            elseif ($publish->tag == 'newsletters')
-                $count_newsletter++;
-            elseif ($publish->tag == 'conference-proceedings')
-                $count_conference_proceeding++;
-            elseif ($publish->tag == 'multimedia-resources')
-                $count_multimedia_resources++;
-        }
-
-        foreach ($publishes as $publish) {
-            if ($publish->is_featured)
-                $count_leadership_legacy++;
-            elseif ($publish->tag == 'economic-advancements')
-                $count_economic_advancements++;
-            elseif ($publish->tag == 'restoring-democracy')
-                $count_restoring_democracy++;
-            elseif ($publish->tag == 'social-development')
-                $count_social_development++;
-            elseif ($publish->tag == 'environmental-vision')
-                $count_environmental_vision++;
-            else
-                $count_other++;
-        }
 
         $object_counter = [
-            $count_feature,
-            $count_newsletter,
-            $count_conference_proceeding,
-            $count_multimedia_resources,
-            $count_leadership_legacy,
+            $total_publication_featured,
+            $total_newsletter_shown,
+            $total_conference_proceeding_shown,
+            $total_multimedia_resources_shown,
+            $total_leadership_featured,
+            $count_economic_advancements_shown,
+            $count_restoring_democracy_shown,
+            $count_social_development_shown,
+            $count_environmental_vision_shown,
+            $count_other_shown,
+        ];
+
+        $object_total_counter = [
+            $total_publication,
+            $total_newsletter,
+            $total_conference_proceeding,
+            $total_multimedia_resources,
+            $total_leadership,
             $count_economic_advancements,
             $count_restoring_democracy,
             $count_social_development,
             $count_environmental_vision,
-            $count_other
+            $count_other,
         ];
 
         return  view('dashboard.dashboard', compact('object_total_counter', 'object_counter'));

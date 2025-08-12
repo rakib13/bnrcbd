@@ -14,13 +14,13 @@ class PublishController extends Controller
     public function index(?string $itemName = null)
     {
         //
-        if ($itemName == null)
-            $publish = Publish::orderBy('tag', 'asc')
-                ->orderBy('is_shown', 'asc')->get();
-        else
+        if ($itemName == null || $itemName == 'featured')
+            $publish = Publish::orderBy('is_featured', 'desc')
+                ->orderBy('tag', 'asc')->get();
+        else {
             $publish = Publish::where('tag', $itemName)
-                ->orderBy('tag', 'asc')
-                ->orderBy('is_shown', 'asc')->get();
+                ->orderBy('is_shown', 'desc')->get();
+        }
 
         return view('dashboard.publications.allPublish', compact('publish'));
         // return response()->json($publish);
@@ -150,8 +150,8 @@ class PublishController extends Controller
     {
         $publish = Publish::findOrFail($id);
 
-        if(Publish::where('tag', $publish->tag)->where('is_shown',1)->count() == 4 && $request->is_shown == 1)
-            return redirect()->back()->with('error', 'Can not add more than 4 in '.$publish->tag.' Item!');
+        if (Publish::where('tag', $publish->tag)->where('is_shown', 1)->count() == 4 && $request->is_shown == 1)
+            return redirect()->back()->with('error', 'Can not add more than 4 in ' . $publish->tag . ' Item!');
 
         $publish->is_shown = $request->is_shown;
         $publish->save();

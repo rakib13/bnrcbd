@@ -12,7 +12,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[0] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/featured') }}">See More...</a>
+                    href="{{ url('/all-publish/featured') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-secondary me-5 mb-4" style="max-width: 26rem;">
@@ -23,7 +23,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[1] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/newsletters') }}">See More...</a>
+                    href="{{ url('/all-publish/newsletters') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-success me-5 mb-4" style="max-width: 26rem;">
@@ -34,7 +34,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[2] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/conference-proceedings') }}">See More...</a>
+                    href="{{ url('/all-publish/conference-proceedings') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-danger me-5 mb-4" style="max-width: 26rem;">
@@ -45,7 +45,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[3] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/multimedia-resources') }}">See More...</a>
+                    href="{{ url('/all-publish/multimedia-resources') }}">See More...</a>
             </div>
         </div>
 
@@ -61,7 +61,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[4] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/leadership-legacy') }}">See More...</a>
+                    href="{{ url('/all-leadership/featured') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-info me-5 mb-4" style="max-width: 26rem;">
@@ -72,7 +72,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[5] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/economic-advancements') }}">See More...</a>
+                    href="{{ url('/all-leadership/economic-advancements') }}">See More...</a>
             </div>
         </div>
         <div class="card bg-light me-5 mb-4" style="max-width: 26rem;">
@@ -83,7 +83,7 @@
                 <p class="card-text text-black fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[5] }} </span></p>
                 <a class="text-primary px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/restoring-democracy') }}">See More...</a>
+                    href="{{ url('/all-leadership/restoring-democracy') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-dark me-5 mb-4" style="max-width: 26rem;">
@@ -94,7 +94,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[6] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/social-development') }}">See More...</a>
+                    href="{{ url('/all-leadership/social-development') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-success me-5 mb-4" style="max-width: 26rem;">
@@ -106,7 +106,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[7] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/environmental-vision') }}">See More...</a>
+                    href="{{ url('/all-leadership/environmental-vision') }}">See More...</a>
             </div>
         </div>
         <div class="card text-white bg-primary me-5 mb-4" style="max-width: 26rem;">
@@ -117,7 +117,7 @@
                 <p class="card-text fst-italic pb-2">Total Book in Archive: <span class="fw-bold">
                         {{ $object_total_counter[8] }} </span></p>
                 <a class="text-white px-2 py-1 me-1 mb-1 fst-italic " style="position: absolute; right: 0; bottom: 0;"
-                    href="{{ url('/all-book/other-sectors') }}">See More...</a>
+                    href="{{ url('/all-leadership/other-sectors') }}">See More...</a>
             </div>
         </div>
     </div>
