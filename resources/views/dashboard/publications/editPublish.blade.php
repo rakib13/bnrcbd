@@ -152,7 +152,7 @@
                             </div>
                             <!-- Submit Button -->
                             <div class="col-md-12">
-                                <button class="btn btn-primary w-100 py-3 " type="submit">Submit</button>
+                                <button class="btn btn-primary w-100 py-3 " type="submit">Update</button>
                             </div>
                         </div> <!-- row -->
                 </div>
