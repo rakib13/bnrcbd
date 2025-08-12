@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <div class="ps-3">
-                            <a href="./archive/archive_home.html" target="_blank" class="text-light small"><i
+                            <a href="{{ route('archive') }}" target="_blank" class="text-light small"><i
                                     class="fas fa-archive text-white me-2"></i>
                                 Archive </a>
                         </div>

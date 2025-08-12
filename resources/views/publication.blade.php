@@ -38,7 +38,7 @@
 </div>
 <!-- Header End -->
 
-<div class="container-fluid py-5">
+<div class="container-fluid py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-12" style="text-align: justify;">
@@ -68,8 +68,8 @@
     </div>
 </div>
 <!-- Blog Start -->
-<div class="container-fluid blog py-5">
-    <div class="container py-5">
+<div class="container-fluid blog py-1">
+    <div class="container py-3">
         <!-- START archive filter (horizontal) -->
         <div class="w-100">
             <h4 class="text-primary text-center mb-4">A Search and Filter Options</h4>
@@ -94,9 +94,9 @@
                 <i class="fas fa-user icon"></i>
                 <select id="authorFilter">
                     <option value="">All Authors</option>
-                    <option value="BNRC Researchers">BNRC Researchers</option>
-                    <option value="External Collaborators">External Collaborators</option>
-                    <option value="Joint Publications">Joint Publications</option>
+                    <option value="bnrc researchers">BNRC Researchers</option>
+                    <option value="external collaborators">External Collaborators</option>
+                    <option value="joint publications">Joint Publications</option>
                 </select>
             </div>
 
@@ -104,10 +104,10 @@
                 <i class="fas fa-book icon"></i>
                 <select id="topicFilter">
                     <option value="">All Topics</option>
-                    <option value="Political Studies">Political Studies</option>
-                    <option value="Economic Studies">Economic Studies</option>
-                    <option value="Social Studies">Social Studies</option>
-                    <option value="Others">Others</option>
+                    <option value="political studies">Political Studies</option>
+                    <option value="economic studies">Economic Studies</option>
+                    <option value="social studies">Social Studies</option>
+                    <option value="others">Others</option>
                 </select>
             </div>
 
@@ -115,13 +115,13 @@
                 <i class="fas fa-file-alt icon"></i>
                 <select id="typeFilter">
                     <option value="">All Types</option>
-                    <option value="Research Papers">Research Papers</option>
-                    <option value="Policy Briefs">Policy Briefs</option>
-                    <option value="Reports and Analyses">Reports and Analyses</option>
-                    <option value="Books and Monographs">Books and Monographs</option>
-                    <option value="Case Studies">Case Studies</option>
-                    <option value="Conference Proceedings">Conference Proceedings</option>
-                    <option value="Newsletters">Newsletters</option>
+                    <option value="research rapers">Research Papers</option>
+                    <option value="policy briefs">Policy Briefs</option>
+                    <option value="reports and analyses">Reports and Analyses</option>
+                    <option value="books and monographs">Books and Monographs</option>
+                    <option value="case studies">Case Studies</option>
+                    <option value="conference proceedings">Conference Proceedings</option>
+                    <option value="newsletters">Newsletters</option>
                 </select>
             </div>
 
@@ -132,15 +132,14 @@
             </div>
         </div>
 
-
-
         <!-- Search and Filter Section -->
-
-
         <!-- Publications List -->
-        {{-- <div class="row" id="publicationList">
+        <div class="row" id="publicationList">
             @foreach ($publishes as $publish)
-                <div class="col-md-6 col-lg-4 blog-item mb-4" data-title="{{ strtolower($publish->book_title) }}">
+                <!-- <div class="col-md-6 col-lg-4 blog-item mb-4"
+                    data-title="{{ strtolower($publish->book_title) }}"
+                    data-author="{{ strtolower($publish->book_author) }}"
+                    data-type="{{ strtolower($publish->type ?? '') }}">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title">{{ $publish->book_title }}</h5>
@@ -150,10 +149,10 @@
                                 {{ \Carbon\Carbon::parse($publish->publish_date)->format('F Y') }}
                             </p>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                </div> -->
             @endforeach
-        </div> --}}
+        </div> 
 
         <!-- filter end -->
 
@@ -175,7 +174,7 @@
                         policy and change.</p>
                 </div>
 
-       {{-- Dynamic Newsletter Items from Database --}}
+           {{-- Dynamic Newsletter Items from Database --}}
                 @forelse ($feature as $item)
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="blog-item">
@@ -201,109 +200,6 @@
                 @empty
                     <p>No Featured found.</p>
                 @endforelse
-
-
-                <!-- Blog Item 1 -->
-                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/pdf-cover/publications/points2.JPG" alt="Sample Image 1" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/d447cd3cc6.html.html">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">An outline of the structure reforms
-                                of
-                                the
-                                state.1</a>
-                            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Blog Item 2 -->
-                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/pdf-cover/publications/points3.JPG" alt="Sample Image 2" class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/4454557727.html">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">An outline of the structure reforms
-                                of
-                                the
-                                state.2</a>
-                            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Blog Item 3 -->
-                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/pdf-cover/publications/English Book.JPG" alt="Sample Image 3"
-                                class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/3f84f1b121.html">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">An outline of the structure reforms
-                                of
-                                the
-                                state.3</a>
-                            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Blog Item 4 -->
-                <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/pdf-cover/publications/Bangla Book.jpg" alt="Sample Image 4"
-                                class="img-fluid">
-                            <div class="blog-categiry pdf-link py-2 px-4"
-                                data-pdf="https://heyzine.com/flip-book/46cb9c96d4.html">
-                                <span>View Details</span>
-                            </div>
-                        </div>
-                        <div class="blog-content p-4">
-                            <div class="blog-comment d-flex justify-content-between mb-3">
-                                <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025
-                                </div>
-                            </div>
-                            <a href="#" class="h5 d-inline-block mb-3">An outline of the structure reforms
-                                of
-                                the
-                                state.4</a>
-                            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div> -->
 
             </div>
         </section>
@@ -452,42 +348,100 @@
     <!-- Footer Start -->
     @include('layouts.footer')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('DOMContentLoaded', () => {
             const searchBox = document.getElementById('searchBox');
+            const authorFilter = document.getElementById('authorFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            const topicFilter = document.getElementById('topicFilter');
             const clearBtn = document.getElementById('clearFilters');
-            const items = document.querySelectorAll('.blog-item');
-            const publicationList = document.getElementById('publicationList');
 
-            // Hide all initially
-            // items.forEach(item => item.style.display = 'none');
-            publicationList.style.display = 'none';
+            const allItems = document.querySelectorAll('.blog-item');
 
-            function filterPublications() {
+            function filterItems() {
                 const keyword = searchBox.value.trim().toLowerCase();
+                const author = authorFilter.value.trim().toLowerCase();
+                const type = typeFilter.value.trim().toLowerCase();
+                const topic = topicFilter.value.trim().toLowerCase();
+
                 let anyVisible = false;
 
-                items.forEach(item => {
-                    const title = item.dataset.title || '';
-                    const matched = keyword !== '' && title.includes(keyword);
-                    item.style.display = matched ? 'block' : 'none';
-                    if (matched) anyVisible = true;
+                allItems.forEach(item => {
+                const title = (item.dataset.title || '').toLowerCase();
+                const itemAuthor = (item.dataset.author || '').toLowerCase();
+                const itemType = (item.dataset.type || '').toLowerCase();
+                const itemTopic = (item.dataset.topic || '').toLowerCase();
+
+                const matchesKeyword = !keyword || title.includes(keyword) || itemAuthor.includes(keyword);
+                const matchesAuthor = !author || itemAuthor.includes(author);
+                const matchesType = !type || itemType === type;
+                const matchesTopic = !topic || itemTopic === topic;
+
+                const show = matchesKeyword && matchesAuthor && matchesType && matchesTopic;
+
+                item.style.display = show ? '' : 'none';
+
+                if (show) anyVisible = true;
                 });
 
-                publicationList.style.display = anyVisible ? 'flex' : 'none';
+                // Hide sections with no visible items (optional)
+                document.querySelectorAll('section.pdf-gallery').forEach(section => {
+                const visibleItems = section.querySelectorAll('.blog-item:not([style*="display: none"])');
+                section.style.display = visibleItems.length ? '' : 'none';
+                });
+
+                // Show or hide no results message
+                let noResults = document.getElementById('noResultsMessage');
+                if (!noResults) {
+                noResults = document.createElement('p');
+                noResults.id = 'noResultsMessage';
+                noResults.style.textAlign = 'center';
+                noResults.style.marginTop = '1rem';
+                noResults.textContent = 'No publications found.';
+                document.body.appendChild(noResults);
+                }
+                noResults.style.display = anyVisible ? 'none' : 'block';
             }
 
             function clearFilters() {
+                // Reset inputs/selects to default empty
                 searchBox.value = '';
-                items.forEach(item => item.style.display = 'none');
-                publicationList.style.display = 'none';
+                authorFilter.value = '';
+                typeFilter.value = '';
+                topicFilter.value = '';
+
+                // Show all items
+                allItems.forEach(item => (item.style.display = ''));
+
+                // Show all sections
+                document.querySelectorAll('section.pdf-gallery').forEach(section => {
+                section.style.display = '';
+                });
+
+                // Hide no results message if any
+                const noResults = document.getElementById('noResultsMessage');
+                if (noResults) noResults.style.display = 'none';
             }
 
-            searchBox.addEventListener('input', filterPublications);
-            clearBtn.addEventListener('click', clearFilters);
-        });
+            // Attach listeners
+            [searchBox, authorFilter, typeFilter,topicFilter].forEach(el => {
+                if (el) {
+                el.addEventListener('input', filterItems);
+                el.addEventListener('change', filterItems);
+                }
+            });
+
+            clearBtn.addEventListener('click', e => {
+                e.preventDefault();
+                clearFilters();
+            });
+
+            // Initial state
+            clearFilters();
+            });
+
     </script>
 
 
-    </body>
+</body>
 
 </html>

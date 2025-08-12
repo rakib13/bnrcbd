@@ -12,6 +12,8 @@ use App\Http\Controllers\PublishController;
 use App\Http\Controllers\LeadershipController;
 use App\Http\Controllers\FeedbackController;
 
+use App\Http\Controllers\ArchiveController;
+
 use Illuminate\Support\Facades\Mail;
 
 Route::get('/', [IndexController::class, 'index']);
@@ -60,3 +62,12 @@ Route::post('/feedback/send', [FeedbackController::class, 'send'])->name('feedba
 
 //     return 'Test email sent!';
 // });
+
+
+// Archive link check
+Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
+
+// Dashboard (protected)
+// Route::get('/dashboard', [ArchiveController::class, 'dashboard'])
+//     ->middleware('auth')
+//     ->name('dashboard.dashboard');  // your existing dashboard route name

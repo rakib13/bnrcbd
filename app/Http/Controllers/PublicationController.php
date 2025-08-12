@@ -14,7 +14,7 @@ class PublicationController extends Controller
     public function index()
     {
         //return view('publication');
-        // $publishes = Publish::all(); // Or use pagination like Publish::latest()->paginate(9)
+         $publishes = Publish::all(); // Or use pagination like Publish::latest()->paginate(9)
         // return view('publication', compact('publishes'));
 
         // Tareq change here......... for fetch data from db and show the form...
@@ -28,6 +28,6 @@ class PublicationController extends Controller
 
             $feature = Publish::where('is_featured', '1')->get();
 
-        return view('publication', compact('multimediaResources', 'newsletters', 'conferenceProceedings','feature'));
+        return view('publication', compact('multimediaResources', 'newsletters', 'conferenceProceedings','feature','publishes'));
     }
 }
