@@ -62,7 +62,7 @@
                                          </div>
                                          <div>
                                              <h5 class="text-white">Address</h5>
-                                             <p class="mb-0">House # 59, Flat # C-3, Road # 1, Block-l, Banani,
+                                             <p class="mb-0">House # 59, Flat # C-2, Road # 1, Block-l, Banani,
                                                  Dhaka-1213</p>
                                          </div>
                                      </div>
