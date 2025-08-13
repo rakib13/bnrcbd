@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 <div class="col-12 mt-5 mb-3">
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mx-auto" href="./about.html">More
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mx-auto" href="./about">More
                         Information</a>
                 </div>
             </div>
@@ -167,7 +167,7 @@
             </p>
 
             <div class="col-12 mt-5 mb-3">
-                <a class="btn btn-primary rounded-pill py-3 px-5 mx-auto" href="./publications.html">More
+                <a class="btn btn-primary rounded-pill py-3 px-5 mx-auto" href="./publication">More
                     Information</a>
             </div>
         </div>
@@ -245,7 +245,7 @@
                 </span>
             </p>
             <div class="col-12 mt-5 mb-3">
-                <a class="btn btn-primary rounded-pill py-3 px-5 mx-auto" href="./leadershiplegacy.html">More
+                <a class="btn btn-primary rounded-pill py-3 px-5 mx-auto" href="./leadership-legacy">More
                     Information</a>
             </div>
         </div>

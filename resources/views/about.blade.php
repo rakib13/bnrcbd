@@ -689,16 +689,16 @@
 
                         <!-- tareq Rahman................................ -->
                         <!-- <div id="Acting Chairperson" class="about-item-content bg-white rounded p-5 h-100 section"> -->
-                        <h4 class="text-primary text-center">Acting Chairperson Tareque Rahman</h4>
+                        <h4 class="text-primary text-center">Acting Chairman Tarique Rahman</h4>
                         <div style="text-align: center; margin: 30px 0;">
                             <img src="img/tareqrahman.jpg" alt="Ziaur Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">
-                                Tareque
+                                Tarique
                                 Rahman</p>
                         </div>
                         <p> Tarique Rahman (Born: 20 November 1967) is the Acting Chairman of the Bangladesh
-                            Nationalist Party (BNP). He previously served as the Senior Vice-Chairman and Senior
+                            Nationalist Party-BNP. He previously served as the Senior Vice-Chairman and Senior
                             Joint Secretary of the party.
                         </p>
                         <section>
@@ -860,7 +860,7 @@
 
                     <!-- Board of dirctor................................ -->
                     <div id="director" class="about-item-content bg-white rounded p-5 h-100 section">
-                        <h4 class="text-primary text-center">Dirctor</h4>
+                        <h4 class="text-primary text-center">Chairman</h4>
                         <div style="text-align: center; margin: 30px 0;">
                             <img src="img/amirkahsru.jpg" alt="Ziaur Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">

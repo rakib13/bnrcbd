@@ -104,7 +104,7 @@
                 <i class="fas fa-book icon"></i>
                 <select id="topicFilter">
                     <option value="">All Topics</option>
-                    <option value="political studies">Political Studies</option>
+                    <option value="political study">Political Studies</option>
                     <option value="economic studies">Economic Studies</option>
                     <option value="social studies">Social Studies</option>
                     <option value="others">Others</option>
@@ -136,7 +136,7 @@
         <!-- Publications List -->
         <div class="row" id="publicationList">
             @foreach ($publishes as $publish)
-                <!-- <div class="col-md-6 col-lg-4 blog-item mb-4"
+                <div class="col-md-6 col-lg-4 blog-item mb-4"
                     data-title="{{ strtolower($publish->book_title) }}"
                     data-author="{{ strtolower($publish->book_author) }}"
                     data-type="{{ strtolower($publish->type ?? '') }}">
@@ -150,7 +150,7 @@
                             </p>
                         </div>
                      </div>
-                </div> -->
+                </div>
             @endforeach
         </div> 
 
@@ -348,7 +348,7 @@
     <!-- Footer Start -->
     @include('layouts.footer')
     <script>
-                    document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('DOMContentLoaded', () => {
             const searchBox = document.getElementById('searchBox');
             const authorFilter = document.getElementById('authorFilter');
             const typeFilter = document.getElementById('typeFilter');
