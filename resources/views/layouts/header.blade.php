@@ -71,9 +71,9 @@
                                 target="_blank"><i class="fab fa-facebook-f text-white "></i></a>
                             <a class="btn p-0 text-primary me-3" href="#"><i
                                     class="fab fa-twitter text-white "></i></a>
-                            <a class="btn p-0 text-primary me-3" href="#"><i
+                            <a class="btn p-0 text-primary me-3" href="https://www.instagram.com/bnrcbd" target="_blank"><i
                                     class="fab fa-instagram text-white "></i></a>
-                            <a class="btn p-0 text-primary me-0" href="#"><i
+                            <a class="btn p-0 text-primary me-0" href="https://www.linkedin.com/company/bnrcbd" target="_blank"><i
                                     class="fab fa-linkedin-in text-white "></i></a>
                         </div>
                         <div class="input-group input-group-sm ms-2">
