@@ -184,11 +184,11 @@
                                     onclick="featuredSection(event)">
                                     Newsletters
                                 </button>
-                                <button class="custom-dropdown-btn" data-target="conferenceproceedings"
+                                <button class="custom-dropdown-btn" data-target="conference-proceedings"
                                     onclick="featuredSection(event)">
                                     Conference Proceedings
                                 </button>
-                                <button class="custom-dropdown-btn" data-target="multimediaresources"
+                                <button class="custom-dropdown-btn" data-target="multimedia-resources"
                                     onclick="featuredSection(event)">
                                     Multimedia Resources
                                 </button>

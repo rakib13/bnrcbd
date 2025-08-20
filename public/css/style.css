@@ -1570,6 +1570,33 @@ ol {
   display: block;
 }
 
+/* raesearch and publication cars all same size code below  */
+
+/* Make the row handle equal heights */
+/* .pdf-gallery .row {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* Each column behaves like a flexbox */
+/* .pdf-gallery .row > div {
+    display: flex;
+} */
+
+/* Force the blog-item (card) to stretch */
+/* .blog-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%; */
+
+    .blog-img img {
+    width: 100%;              /* full width */
+    height: 300px;            /* fixed height (adjust as needed) */
+    object-fit: cover;        /* crop the image without distortion */
+    border-radius: 8px;       /* keep smooth corners (optional) */
+}
+
+
 /* ...............reserch and publication start.............................end .... */
 
 
