@@ -25,7 +25,6 @@
 </div>
 <!-- Modal Search End -->
 
-
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb">
     <div class="container text-center py-5" style="max-width: 900px;">
@@ -134,25 +133,29 @@
 
         <!-- Search and Filter Section -->
         <!-- Publications List -->
-        <div class="row" id="publicationList">
+        <div class="row" id="publicationList" class="pdf-gallery">
             @foreach ($publishes as $publish)
-                <div class="col-md-6 col-lg-4 blog-item mb-4"
-                    data-title="{{ strtolower($publish->book_title) }}"
-                    data-author="{{ strtolower($publish->book_author) }}"
-                    data-type="{{ strtolower($publish->type ?? '') }}">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $publish->book_title }}</h5>
-                            <p class="card-text">
-                                <strong>Author:</strong> {{ $publish->book_author }}<br>
-                                <strong>Published:</strong>
-                                {{ \Carbon\Carbon::parse($publish->publish_date)->format('F Y') }}
-                            </p>
-                        </div>
-                     </div>
+            <div class="col-md-6 col-lg-4 blog-item mb-4" data-title="{{ strtolower($publish->book_title) }}"
+                data-author="{{ strtolower($publish->book_author) }}" data-type="{{ strtolower($publish->type ?? '') }}"
+                data-pdf="{{ $publish->link }}">
+                <!-- Make sure this contains the correct PDF URL -->
+
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ $publish->cover_image ?? 'default.jpg' }}" class="card-img-top" alt="cover">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $publish->book_title }}</h5>
+                        <p class="card-text">
+                            <strong>Author:</strong> {{ $publish->book_author }}<br>
+                            <strong>Published:</strong>
+                            {{ \Carbon\Carbon::parse($publish->publish_date)->format('F Y') }}
+                        </p>
+                        <button class="btn btn-primary view-pdf-btn" data-pdf="{{ $publish->link }}">View
+                            Details</button>
+                    </div>
                 </div>
+            </div>
             @endforeach
-        </div> 
+        </div>
 
         <!-- filter end -->
 
@@ -174,37 +177,34 @@
                         policy and change.</p>
                 </div>
 
-           {{-- Dynamic Newsletter Items from Database --}}
+                {{-- Dynamic Newsletter Items from Database --}}
                 @forelse ($feature as $item)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                    alt="{{ $item->book_title }}">
-                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                    <span>View Details</span>
-                                </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span>
-                                        {{ $item->book_author }}</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
-                                </div>
-                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="{{ asset($item->thumbnail) }}" class="img-fluid" alt="{{ $item->book_title }}">
+                            <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                <span>View Details</span>
                             </div>
                         </div>
+                        <div class="blog-content p-4">
+                            <div class="blog-comment d-flex justify-content-between mb-3">
+                                <div class="small"><span class="fa fa-user text-primary"></span>
+                                    {{ $item->book_author }}</div>
+                                <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                    {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                            </div>
+                            <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                            <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                        </div>
                     </div>
+                </div>
                 @empty
-                    <p>No Featured found.</p>
+                <p>No Featured found.</p>
                 @endforelse
 
             </div>
         </section>
-
-
 
         <!-- another row..............................Newsletters -->
 
@@ -225,29 +225,28 @@
 
                 {{-- Dynamic Newsletter Items from Database --}}
                 @forelse ($newsletters as $item)
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                    alt="{{ $item->book_title }}">
-                                <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                    <span>View Details</span>
-                                </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span>
-                                        {{ $item->book_author }}</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                        {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
-                                </div>
-                                <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="{{ asset($item->thumbnail) }}" class="img-fluid" alt="{{ $item->book_title }}">
+                            <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                <span>View Details</span>
                             </div>
                         </div>
+                        <div class="blog-content p-4">
+                            <div class="blog-comment d-flex justify-content-between mb-3">
+                                <div class="small"><span class="fa fa-user text-primary"></span>
+                                    {{ $item->book_author }}</div>
+                                <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                    {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                            </div>
+                            <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                            <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                        </div>
                     </div>
+                </div>
                 @empty
-                    <p>No Newsletters found.</p>
+                <p>No Newsletters found.</p>
                 @endforelse
 
                 <!-- Blog Item another row...........................Conference Proceedings -->
@@ -263,29 +262,29 @@
                         </div>
 
                         @forelse ($conferenceProceedings as $item)
-                            <div class="col-sm-6 col-lg-4 col-xl-3">
-                                <div class="blog-item">
-                                    <div class="blog-img">
-                                        <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                            alt="{{ $item->book_title }}">
-                                        <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                            <span>View Details</span>
-                                        </div>
-                                    </div>
-                                    <div class="blog-content p-4">
-                                        <div class="blog-comment d-flex justify-content-between mb-3">
-                                            <div class="small"><span class="fa fa-user text-primary"></span>
-                                                {{ $item->book_author }}</div>
-                                            <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                                {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
-                                        </div>
-                                        <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                        <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
                                     </div>
                                 </div>
+                                <div class="blog-content p-4">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small"><span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}</div>
+                                        <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
                             </div>
+                        </div>
                         @empty
-                            <p>No Conference Proceedings found.</p>
+                        <p>No Conference Proceedings found.</p>
                         @endforelse
                     </div>
                 </section>
@@ -304,34 +303,32 @@
                         </div>
 
                         @forelse ($multimediaResources as $item)
-                            <div class="col-sm-6 col-lg-4 col-xl-3">
-                                <div class="blog-item">
-                                    <div class="blog-img">
-                                        <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
-                                            alt="{{ $item->book_title }}">
-                                        <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
-                                            <span>View Details</span>
-                                        </div>
-                                    </div>
-                                    <div class="blog-content p-4">
-                                        <div class="blog-comment d-flex justify-content-between mb-3">
-                                            <div class="small"><span class="fa fa-user text-primary"></span>
-                                                {{ $item->book_author }}</div>
-                                            <div class="small"><span class="fa fa-calendar text-primary"></span>
-                                                {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
-                                        </div>
-                                        <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
-                                        <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="{{ asset($item->thumbnail) }}" class="img-fluid"
+                                        alt="{{ $item->book_title }}">
+                                    <div class="blog-categiry pdf-link py-2 px-4" data-pdf="{{ $item->link }}">
+                                        <span>View Details</span>
                                     </div>
                                 </div>
+                                <div class="blog-content p-4">
+                                    <div class="blog-comment d-flex justify-content-between mb-3">
+                                        <div class="small"><span class="fa fa-user text-primary"></span>
+                                            {{ $item->book_author }}</div>
+                                        <div class="small"><span class="fa fa-calendar text-primary"></span>
+                                            {{ \Carbon\Carbon::parse($item->publish_date)->format('d M Y') }}</div>
+                                    </div>
+                                    <a href="#" class="h5 d-inline-block mb-3">{{ $item->book_title }}</a>
+                                    <p class="mb-3">{{ Str::limit($item->book_summary, 100) }}</p>
+                                </div>
                             </div>
+                        </div>
                         @empty
-                            <p>No Multimedia Resources found.</p>
+                        <p>No Multimedia Resources found.</p>
                         @endforelse
                     </div>
                 </section>
-
-
 
                 <!-- Modal -->
                 <div class="custom-overlay" id="customPdfModal" style="display:none">
@@ -344,104 +341,115 @@
     </div>
     <!-- Blog End -->
 
-
     <!-- Footer Start -->
     @include('layouts.footer')
     <script>
-            document.addEventListener('DOMContentLoaded', () => {
-            const searchBox = document.getElementById('searchBox');
-            const authorFilter = document.getElementById('authorFilter');
-            const typeFilter = document.getElementById('typeFilter');
-            const topicFilter = document.getElementById('topicFilter');
-            const clearBtn = document.getElementById('clearFilters');
+        document.addEventListener("DOMContentLoaded", function() {
+            // === FILTERING ===
+            const searchBox = document.getElementById("searchBox");
+            const yearFrom = document.getElementById("yearFrom");
+            const yearTo = document.getElementById("yearTo");
+            const authorFilter = document.getElementById("authorFilter");
+            const topicFilter = document.getElementById("topicFilter");
+            const typeFilter = document.getElementById("typeFilter");
+            const clearFilters = document.getElementById("clearFilters");
+            const cards = document.querySelectorAll("#publicationList .blog-item");
+            // Hide all publications by default
+            cards.forEach(card => card.style.display = "none");
 
-            const allItems = document.querySelectorAll('.blog-item');
-
-            function filterItems() {
-                const keyword = searchBox.value.trim().toLowerCase();
-                const author = authorFilter.value.trim().toLowerCase();
-                const type = typeFilter.value.trim().toLowerCase();
-                const topic = topicFilter.value.trim().toLowerCase();
-
-                let anyVisible = false;
-
-                allItems.forEach(item => {
-                const title = (item.dataset.title || '').toLowerCase();
-                const itemAuthor = (item.dataset.author || '').toLowerCase();
-                const itemType = (item.dataset.type || '').toLowerCase();
-                const itemTopic = (item.dataset.topic || '').toLowerCase();
-
-                const matchesKeyword = !keyword || title.includes(keyword) || itemAuthor.includes(keyword);
-                const matchesAuthor = !author || itemAuthor.includes(author);
-                const matchesType = !type || itemType === type;
-                const matchesTopic = !topic || itemTopic === topic;
-
-                const show = matchesKeyword && matchesAuthor && matchesType && matchesTopic;
-
-                item.style.display = show ? '' : 'none';
-
-                if (show) anyVisible = true;
+            function filterCards() {
+                const searchText = searchBox.value.toLowerCase().trim();
+                const fromYear = parseInt(yearFrom.value) || null;
+                const toYear = parseInt(yearTo.value) || null;
+                const author = authorFilter.value.toLowerCase();
+                const topic = topicFilter.value.toLowerCase();
+                const type = typeFilter.value.toLowerCase();
+                let foundAny = false;
+                cards.forEach(card => {
+                    const title = card.dataset.title || "";
+                    const authorData = card.dataset.author || "";
+                    const typeData = card.dataset.type || "";
+                    const topicData = card.dataset.topic || "";
+                    // Extract year from text
+                    const publishedText = card.querySelector('.card-text').textContent;
+                    const yearMatch = publishedText.match(/(\d{4})/);
+                    const year = yearMatch ? parseInt(yearMatch[1]) : 0;
+                    let match = true;
+                    if (searchText && !title.includes(searchText) && !authorData.includes(searchText))
+                        match = false;
+                    if (fromYear && year < fromYear) match = false;
+                    if (toYear && year > toYear) match = false;
+                    if (author && !authorData.includes(author)) match = false;
+                    if (topic && !topicData.includes(topic)) match = false;
+                    if (type && !typeData.includes(type)) match = false;
+                    card.style.display = match ? "block" : "none";
+                    if (match) foundAny = true;
                 });
-
-                // Hide sections with no visible items (optional)
-                document.querySelectorAll('section.pdf-gallery').forEach(section => {
-                const visibleItems = section.querySelectorAll('.blog-item:not([style*="display: none"])');
-                section.style.display = visibleItems.length ? '' : 'none';
-                });
-
-                // Show or hide no results message
-                let noResults = document.getElementById('noResultsMessage');
-                if (!noResults) {
-                noResults = document.createElement('p');
-                noResults.id = 'noResultsMessage';
-                noResults.style.textAlign = 'center';
-                noResults.style.marginTop = '1rem';
-                noResults.textContent = 'No publications found.';
-                document.body.appendChild(noResults);
+                // Show/hide no results
+                let noResults = document.getElementById("noResults");
+                if (!foundAny) {
+                    if (!noResults) {
+                        const msg = document.createElement("div");
+                        msg.id = "noResults";
+                        msg.className = "col-12 text-center text-muted py-4";
+                        msg.innerHTML = "<h5>No publications found matching your criteria</h5>";
+                        document.getElementById("publicationList").appendChild(msg);
+                    }
+                } else if (noResults) {
+                    noResults.remove();
                 }
-                noResults.style.display = anyVisible ? 'none' : 'block';
             }
-
-            function clearFilters() {
-                // Reset inputs/selects to default empty
-                searchBox.value = '';
-                authorFilter.value = '';
-                typeFilter.value = '';
-                topicFilter.value = '';
-
-                // Show all items
-                allItems.forEach(item => (item.style.display = ''));
-
-                // Show all sections
-                document.querySelectorAll('section.pdf-gallery').forEach(section => {
-                section.style.display = '';
-                });
-
-                // Hide no results message if any
-                const noResults = document.getElementById('noResultsMessage');
-                if (noResults) noResults.style.display = 'none';
-            }
-
-            // Attach listeners
-            [searchBox, authorFilter, typeFilter,topicFilter].forEach(el => {
-                if (el) {
-                el.addEventListener('input', filterItems);
-                el.addEventListener('change', filterItems);
-                }
+            // Add event listeners
+            [searchBox, yearFrom, yearTo, authorFilter, topicFilter, typeFilter].forEach(el => {
+                el.addEventListener("input", filterCards);
+                el.addEventListener("change", filterCards);
             });
-
-            clearBtn.addEventListener('click', e => {
+            // Clear filters
+            clearFilters.addEventListener("click", (e) => {
                 e.preventDefault();
-                clearFilters();
+                searchBox.value = "";
+                yearFrom.value = "";
+                yearTo.value = "";
+                authorFilter.value = "";
+                topicFilter.value = "";
+                typeFilter.value = "";
+                // Hide all cards when clearing filters
+                cards.forEach(card => {
+                    card.style.display = "none";
+                });
+                // Remove no results message if it exists
+                const noResults = document.getElementById("noResults");
+                if (noResults) noResults.remove();
             });
-
-            // Initial state
-            clearFilters();
+        });
+        // === PDF MODAL ===
+        const viewButtons = document.querySelectorAll('.view-pdf-btn');
+        const pdfModal = document.getElementById('customPdfModal');
+        const pdfFrame = document.getElementById('customPdfFrame');
+        const closeBtn = document.getElementById('customCloseBtn');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const pdfUrl = this.getAttribute('data-pdf');
+                if (!pdfUrl) {
+                    alert('PDF not available for this publication');
+                    return;
+                }
+                pdfFrame.src = pdfUrl + "#toolbar=0"; // load pdf
+                pdfModal.style.display = 'flex';
             });
-
+        });
+        closeBtn.addEventListener('click', function() {
+            pdfModal.style.display = 'none';
+            pdfFrame.src = '';
+        });
+        pdfModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                pdfModal.style.display = 'none';
+                pdfFrame.src = '';
+            }
+        });
     </script>
 
-
-</body>
+    </body>
 
 </html>

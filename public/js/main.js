@@ -112,7 +112,7 @@
 // ....................publication js.....................................
 
 document.addEventListener("DOMContentLoaded", function () {
-    const pdfmodal = document.getElementById("customPdfFrame");
+    const pdfmodal = document.getElementById("customPdfModal");
     const pdfiframe = document.getElementById("customPdfFrame");
     const pdfcloseBtn = document.getElementById("customCloseBtn"); // ✅ Fixed
 
