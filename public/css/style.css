@@ -1647,3 +1647,114 @@ ol {
   cursor: pointer;
   z-index: 10;
 }
+
+/* <!-- Custom Styles --> */
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f9fafb;
+    color: #374151;
+    line-height: 1.7;
+}
+
+/* 🌟 Header Section */
+.bg-breadcrumb {
+    background: linear-gradient(135deg, #0d6efd, #4e9cff);
+    padding: 80px 0;
+    position: relative;
+}
+.bg-breadcrumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+}
+.bg-breadcrumb h4 {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.breadcrumb {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    font-size: 15px;
+}
+.breadcrumb-item a {
+    color: #f3f6fa;
+    text-decoration: none;
+}
+.breadcrumb-item.active {
+    font-weight: 600;
+}
+
+.feedback-form {
+    max-width: 900px;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.feedback-form .form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+}
+
+.feedback-form textarea {
+    resize: none;
+}
+
+.feedback-form .form-check-input {
+    cursor: pointer;
+}
+
+.feedback-form .btn-primary {
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.feedback-form .btn-primary:hover {
+    background-color: #0d6efd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.2);
+}
+
+/* text design */
+
+.info-card {
+    background: #fff;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: #f3f6fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.info-text {
+    color: #634b4b;          /* Soft dark gray for better readability */
+    line-height: 1.8;        /* More spacing between lines */
+    font-size: 1rem;         /* Increase text size slightly */
+    text-align: justify;     /* Keep justification */
+    overflow: visible;       /* Prevent text clipping */
+    white-space: normal;     /* Allow wrapping */
+}
+
+.custom-text {
+    color: #fd0d0d;   /* Change to any color you want */
+    font-size: 1rem;  /* Optional: adjust size */
+    line-height: 1.7; /* Optional: better readability */
+}
+
+/* share your thought provacy  check box   END */

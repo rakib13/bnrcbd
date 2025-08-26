@@ -47,174 +47,145 @@
 <div class="container-fluid bg-light py-2">
     <div class="container py-3">
         <div class="row justify-content-center">
-            <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="w-100">
-                    <h4 class="text-primary mb-4">Share Your Perspective, Make an
-                        Impact</h4>
-                </div>
-                <p class="mt-1 mb-4 text-justify">
-                    Community engagement fuels progress by bringing diverse perspectives together to shape impactful
-                    initiatives. Your feedback— whether about the BNRC, the BNP, or national and international
-                    issues—helps identify opportunities, address challenges, and inspire meaningful change. By
-                    sharing your insights, you contribute to solutions that drive the collective growth of our
-                    country. Together, we can refine ideas, strengthen collaboration, and build a future that
-                    reflects the aspirations of generations to come. Submit your thoughts using the form below and
-                    join the conversation that makes a difference.
-                </p>
-            </div>
+          <div class="container my-5">
+    <div class="container my-5">
+    <div class="row g-4 justify-content-center">
 
-            <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="w-100">
-                    <h4 class="text-primary mb-4">How We Use Your Input</h4>
+        <!-- Section Card -->
+        <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="info-card p-4 rounded-4 shadow-sm h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-comments text-primary"></i>
+                    </div>
+                    <h4 class="text-primary mb-0">Share Your Perspective, Make an Impact</h4>
                 </div>
-                <p class="mt-1 mb-4 text-justify">
-                    Your contributions play a vital role in shaping policy briefs, research publications, and
-                    strategic discussions, ensuring that informed perspectives drive meaningful change. Submissions
-                    may be referenced in reports or policy recommendations to support evidence-based
-                    decision-making. Rest assured, all shared insights are utilized solely for research and
-                    development purposes, maintaining the integrity and focus of BNRC’s mission.
+                <p class="custom-text text-justify">
+                    Community engagement fuels progress by bringing diverse perspectives together to shape impactful initiatives. Your feedback—whether about the BNRC, the BNP, or national and international issues—helps identify opportunities, address challenges, and inspire meaningful change. By sharing your insights, you contribute to solutions that drive the collective growth of our country. Together, we can refine ideas, strengthen collaboration, and build a future that reflects the aspirations of generations to come. Submit your thoughts using the form below and join the conversation that makes a difference.
                 </p>
             </div>
-            <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="w-100">
-                    <h4 class="text-primary mb-4">Confidentiality & Privacy</h4>
-                </div>
-                <p class="mt-1 mb-4 text-justify">
-                    Your privacy is important to us. Any personal details you provide will remain protected and will
-                    never be disclosed without your consent. You have the option to submit your thoughts anonymously
-                    or
-                    choose to have your name credited for recognition. For more details on how we handle your data,
-                    please review our Privacy Policy.
-                </p>
-            </div>
+        </div>
 
-            <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="w-100">
-                    <h4 class="text-primary mb-4">Submission Guidelines</h4>
+        <!-- Section Card -->
+        <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="info-card p-4 rounded-4 shadow-sm h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-lightbulb text-warning"></i>
+                    </div>
+                    <h4 class="text-primary mb-0">How We Use Your Input</h4>
                 </div>
-                <p class="mt-1 mb-4 text-justify">
-                    When sharing your thoughts, please ensure they are grounded in reliable and well-sourced
-                    information to maintain factual accuracy. We encourage a professional and respectful approach to
-                    discussions, fostering a constructive exchange of ideas. Additionally, submissions should be
-                    policy-oriented, focusing on actionable insights that contribute to national development and
-                    meaningful research.
-                </p>
+                <p class="custom-text text-justify">
+                   Your contributions play a vital role in shaping policy briefs, research publications, and strategic discussions, ensuring that informed perspectives drive meaningful change. Submissions may be referenced in reports or policy recommendations to support evidence-based decision-making. Rest assured, all shared insights are utilized solely for research and development purposes, maintaining the integrity and focus of BNRC’s mission.
             </div>
-            <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="w-100">
-                    <h4 class="text-primary mb-4">Terms & Conditions</h4>
-                </div>
-                <p class="mt-1 mb-4 text-justify">
-                    By sharing your insights, you grant BNRC permission to reference them in research publications,
-                    policy discussions, and strategic recommendations. All contributions should align with ethical
-                    research practices and uphold the principles of national interest, ensuring constructive and
-                    meaningful discourse.
-                </p>
-            </div>
+        </div>
 
-             <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
+        <!-- Section Card -->
+        <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="info-card p-4 rounded-4 shadow-sm h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-shield-alt text-success"></i>
+                    </div>
+                    <h4 class="text-primary mb-0">Confidentiality & Privacy</h4>
+                </div>
+                <p class="custom-text text-justify">
+                    Your privacy is important to us. Any personal details you provide will remain protected and will never be disclosed without your consent. You have the option to submit your thoughts anonymously or choose to have your name credited for recognition. For more details on how we handle your data, please review our Privacy Policy.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section Card -->
+        <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="info-card p-4 rounded-4 shadow-sm h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-book-open text-info"></i>
+                    </div>
+                    <h4 class="text-primary mb-0">Submission Guidelines</h4>
+                </div>
+                <p class="custom-text text-justify">
+                    When sharing your thoughts, please ensure they are grounded in reliable and well-sourced information to maintain factual accuracy. We encourage a professional and respectful approach to discussions, fostering a constructive exchange of ideas. Additionally, submissions should be policy-oriented, focusing on actionable insights that contribute to national development and meaningful research.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section Card -->
+        <div class="col-lg-10 col-md-11 col-sm-12 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="info-card p-4 rounded-4 shadow-sm h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-file-contract text-danger"></i>
+                    </div>
+                    <h4 class="text-primary mb-0">Terms & Conditions</h4>
+                </div>
+                <p class="custom-text text-justify">
+                    By sharing your insights, you grant BNRC permission to reference them in research publications, policy discussions, and strategic recommendations. All contributions should align with ethical research practices and uphold the principles of national interest, ensuring constructive and meaningful discourse.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data" class="feedback-form">
                 @csrf
-                <h4 class="text-primary mb-4">Submit Your Thoughts:</h4>
+                <div class="card shadow-lg border-0 rounded-4 p-4">
+                    <h3 class="text-primary fw-bold mb-4 text-center">💬 Submit Your Thoughts</h3>
 
-                <!-- Submission Status Checkboxes -->
-                <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
-                    <h2 class="h6 text-black mb-0 me-3">Select your preferred submission status:</h2>
+                    <!-- Submission Status -->
+                    <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+                        <h6 class="text-dark fw-semibold mb-0 me-3">Choose Submission Type:</h6>
 
-                    <div class="form-check d-flex align-items-center m-0">
-                        <input class="form-check-input me-2" type="checkbox" name="anonymous_check" id="anonymousCheck"
-                            onchange="toggleSection('anonymousSection', this)">
-                        <label class="form-check-label" for="anonymousCheck">A. Remain anonymous</label>
+                        <div class="form-check d-flex align-items-center m-0">
+                            <input class="form-check-input me-2" type="checkbox" name="anonymous_check" id="anonymousCheck"
+                                onchange="toggleSection('anonymousSection', this)">
+                            <label class="form-check-label fw-medium" for="anonymousCheck">Remain Anonymous</label>
+                        </div>
+
+                        <div class="form-check d-flex align-items-center m-0">
+                            <input class="form-check-input me-2" type="checkbox" name="recognized_check" id="recognizedCheck"
+                                onchange="toggleSection('recognizedSection', this)">
+                            <label class="form-check-label fw-medium" for="recognizedCheck">Be Recognized</label>
+                        </div>
                     </div>
 
-                    <div class="form-check d-flex align-items-center m-0">
-                        <input class="form-check-input me-2" type="checkbox" name="recognized_check"
-                            id="recognizedCheck" onchange="toggleSection('recognizedSection', this)">
-                        <label class="form-check-label" for="recognizedCheck">B. Be recognized</label>
+                    <!-- Anonymous Section -->
+                    <div id="anonymousSection" style="display:none;" class="p-3 bg-light rounded-3 border mb-4">
+                        <h5 class="text-muted fw-bold mb-3">Anonymous Feedback ✨</h5>
+                        <textarea name="anonymous_feedback" class="form-control mb-3" rows="4"
+                            placeholder="Write your feedback here..."></textarea>
+                        <input type="file" class="form-control">
+                    </div>
+
+                    <!-- Recognized Section -->
+                    <div id="recognizedSection" style="display:none;" class="p-3 bg-light rounded-3 border mb-4">
+                        <h5 class="text-muted fw-bold mb-3">Recognized Feedback 👤</h5>
+                        <textarea name="recognized_feedback" class="form-control mb-3" rows="4"
+                            placeholder="Write your feedback here..."></textarea>
+                        <input type="file" class="form-control mb-3">
+                        <input type="text" class="form-control mb-3" name="name" placeholder="Your Name">
+                        <input type="email" class="form-control mb-3" name="email" placeholder="Your Email">
+                        <input type="text" class="form-control mb-3" name="mobile" placeholder="Your Mobile Number">
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" name="agree_terms" id="agreeTerms" required>
+                        <label class="form-check-label small" for="agreeTerms">
+                            I agree to the <a href="terms.html" class="text-decoration-none">terms</a> &
+                            <a href="privacy.html" class="text-decoration-none">privacy policy</a>.
+                        </label>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill shadow-sm">Submit</button>
                     </div>
                 </div>
+        </form>
 
-                <!-- Anonymous Section -->
-                <div id="anonymousSection" style="display: none;" class="mt-4">
-                    <h5>Anonymous Feedback</h5>
-                    <div class="mb-3">
-                        <textarea name="anonymous_feedback" class="form-control" placeholder="Your feedback..." required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <input type="file" class="form-control" name="anonymous_file">
-                    </div>
-                </div>
-
-                <!-- Recognized Section -->
-                <div id="recognizedSection" style="display: none;" class="mt-4">
-                    <h5>Recognized Feedback</h5>
-                    <div class="mb-3">
-                        <textarea name="recognized_feedback" class="form-control" placeholder="Your feedback..." required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <input type="file" class="form-control" name="recognized_file">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" name="mobile" placeholder="Your Mobile Number"
-                            required>
-                    </div>
-                </div>
-
-                <!-- Terms Checkbox -->
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" name="agree_terms" id="agreeTerms" required>
-                    <label class="form-check-label" for="agreeTerms">
-                        I agree to the <a href="terms.html" target="_blank">terms</a> and <a href="privacy.html"
-                            target="_blank">privacy policy</a>.
-                    </label>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="text-center mb-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form> 
-
-            <!-- <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data">
-                @csrf
-
-                <div>
-                    <input type="checkbox" id="anonymousCheck" name="anonymous_check"
-                        onchange="toggleSection('anonymousSection', this)">
-                    <label for="anonymousCheck">A. Remain anonymous</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="recognizedCheck" name="recognized_check"
-                        onchange="toggleSection('recognizedSection', this)">
-                    <label for="recognizedCheck">B. Be recognized</label>
-                </div>
-
-                <div id="anonymousSection" style="display:none;">
-                    <textarea name="anonymous_feedback" placeholder="Your feedback..."></textarea>
-                    <input type="file" name="anonymous_file">
-                </div>
-
-                <div id="recognizedSection" style="display:none;">
-                    <textarea name="recognized_feedback" placeholder="Your feedback..."></textarea>
-                    <input type="file" name="recognized_file">
-                    <input type="text" name="name" placeholder="Your Name">
-                    <input type="email" name="email" placeholder="Your Email">
-                    <input type="text" name="mobile" placeholder="Your Mobile Number">
-                </div>
-
-                <div>
-                    <input type="checkbox" id="agreeTerms" name="agree_terms" required>
-                    <label for="agreeTerms">I agree to the terms and privacy policy.</label>
-                </div>
-
-                <button type="submit">Submit</button>
-            </form> -->
+            
         </div>
     </div>
 </div>
@@ -285,6 +256,8 @@
         }
     }
 </script> -->
+
+<script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
