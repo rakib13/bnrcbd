@@ -112,7 +112,7 @@
                         <!-- Simple Contact Info -->
                         <div class="footer-contact text-white">
                             <p style="margin:0;">Address : House # 59, Flat # C-2, Road # 1, Block-l, Banani, Dhaka-1213</p>
-                            <p style="margin:0;">E-mail  : info.org@gmail.com</p>
+                            <p style="margin:0;">E-mail  : info@bnrcbd.org</p>
                             <p style="margin:0;">Hotline : +88 09613241978</p>
                         </div>
                     </div>
