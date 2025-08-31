@@ -1020,6 +1020,11 @@
   /* Optional: space between images */
 }
 
+.footer-contact p {
+    margin: 0;   /* removes top & bottom space */
+    padding: 1px 0; /* keeps little breathing room */
+}
+
 /*** Footer End ***/
 
 /*** copyright Start ***/

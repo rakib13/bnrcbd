@@ -32,7 +32,7 @@ class FeedbackController extends Controller
         }
 
         // Send mail with form data
-        Mail::to('your-email@example.com')->send(new FeedbackMail($request->all()));
+        Mail::to('info@bnrcbd.org')->send(new FeedbackMail($request->all()));
 
         return back()->with('success', 'Thank you! Your feedback has been sent.');
     }

@@ -24,10 +24,10 @@
                                  <a href="./leadership-legacy"><i class="fas fa-angle-right me-2"></i>
                                      Leadership
                                      Legacy</a>
-                                 <a href="https://roadtodemocracy.com/"><i class="fas fa-angle-right me-2"></i>
+                                 <!-- <a href="https://roadtodemocracy.com/"><i class="fas fa-angle-right me-2"></i>
                                      RTD</a>
                                  <a href="#"><i class="fas fa-angle-right me-2"></i>
-                                     Archive</a>
+                                     Archive</a> -->
                              </div>
 
                          </div>
@@ -51,7 +51,7 @@
                          </div>
                      </div>
                  </div>
-                 <div class="pt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                 <!-- <div class="pt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
                      <div class="row g-0">
                          <div class="col-12">
                              <div class="row g-4">
@@ -92,32 +92,32 @@
                              </div>
                          </div>
                      </div>
-                 </div>
+                 </div> -->
              </div>
 
-             <div class="col-xl-3">
-                 <div class="footer-item">
-                     <!-- <h5 class="text-white mb-3">Newsletter</h5>
-                     <div class="position-relative rounded-pill mb-3">
-                         <input class="form-control rounded-pill w-100 py-2 ps-3 pe-3" type="text"
-                             placeholder="Enter your email">
-                         <button type="button"
-                             class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-1 mt-1 me-1">SignUp</button>
-                     </div> -->
-                     <div class="d-flex flex-shrink-0">
-                         <div class="footer-btn d-flex px-2">
-                             <a class="btn btn-md-square rounded-circle me-3"
-                                 href="https://www.facebook.com/bnrc.org" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                             <a class="btn btn-md-square rounded-circle me-3" href="#"><i
-                                     class="fab fa-twitter"></i></a>
-                             <a class="btn btn-md-square rounded-circle me-3" href="https://www.instagram.com/bnrcbd" target="_blank"><i
-                                     class="fab fa-instagram"></i></a>
-                             <a class="btn btn-md-square rounded-circle me-0" href="https://www.linkedin.com/company/bnrcbd" target="_blank"><i
-                                     class="fab fa-linkedin-in"></i></a>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+            <div class="col-xl-3">
+                <div class="footer-item">
+                    <!-- Social Media Icons -->
+                    <div class="d-flex flex-shrink-0">
+                        <div class="footer-btn d-flex px-0">
+                            <a class="btn btn-md-square rounded-circle me-3" href="https://www.facebook.com/bnrc.org" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-md-square rounded-circle me-3" href="https://www.instagram.com/bnrcbd" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-md-square rounded-circle me-0" href="https://www.linkedin.com/company/bnrcbd" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Cards Block -->
+                    <div class="mt-2 pt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                        <!-- Simple Contact Info -->
+                        <div class="footer-contact text-white">
+                            <p style="margin:0;">Address : House # 59, Flat # C-2, Road # 1, Block-l, Banani, Dhaka-1213</p>
+                            <p style="margin:0;">E-mail  : info.org@gmail.com</p>
+                            <p style="margin:0;">Hotline : +88 09613241978</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
          </div>
      </div>
  </div>
