@@ -117,6 +117,7 @@ class PublishController extends Controller
         $publish->topic = $request->topic;
         $publish->type = $request->type;
         $publish->tag = $request->tag;
+        $publish->user_infos_id = Auth::user()->id;
 
         // Handle Thumbnail upload
         if ($request->hasFile('thumbnail')) {

@@ -112,6 +112,7 @@ class LeadershipController extends Controller
         $leadership->link = $request->link;
         //$leadership->category_of_publication = $request->category_of_publication;
         $leadership->tag = $request->tag;
+        $leadership->user_infos_id = Auth::user()->id;
 
         // Handle Thumbnail upload
         if ($request->hasFile('thumbnail')) {
