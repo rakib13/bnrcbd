@@ -55,5 +55,22 @@
                     Leadership Post Add
                 </a>
             </li>
+            @if (Auth::user()->role == 'admin')
+                <li>
+                    <hr>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/user-list') }}">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        User List
+                    </a>
+                </li>
+                                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/create-user') }}">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        User Create
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>

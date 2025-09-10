@@ -22,6 +22,11 @@ Route::get('/publication', [PublicationController::class, 'index']);
 Route::get('/leadership-legacy', [LeadershipLegacyController::class, 'index']);
 Route::get('/share-your-thought', [ShareYourThoughtController::class, 'index']);
 
+Route::get('/user-list', [UserInfoController::class, 'index']);
+Route::get('/create-user', [UserInfoController::class, 'createUser']);
+Route::post('/create-user', [UserInfoController::class, 'storeUser']);
+Route::post('/is-user-activated/{id}', [UserInfoController::class, 'updateUserActivate']);
+
 Route::get('/reg', [UserInfoController::class, 'create']);
 Route::post('/reg', [UserInfoController::class, 'store'])->name('userInfo.store');
 
