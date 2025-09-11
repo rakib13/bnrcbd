@@ -15,7 +15,7 @@
                             <th>E-Mail</th>
                             <th>Role</th>
                             <th>Created Date</th>
-                            <th>Featured</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </thead>
                         <tbody class="text-center">
@@ -48,12 +48,11 @@
                                         @endif
                                     </th>
                                     <th>
-                                        <a class="btn btn-success" href="{{ url('/show-publish/' . $row->id) }}">
+                                        <a class="btn btn-success" href="{{ url('/show-user/' . $row->id) }}">
                                             <i class="fas fa-binoculars"></i>
                                         </a>
-                                        <a class="btn btn-warning" href="{{ url('/edit-publish/' . $row->id) }}">
+                                        <a class="btn btn-warning" href="{{ url('/edit-user/' . $row->id) }}">
                                             <i class="fas fa-edit"></i></a>
-                                        {{-- <a class="btn btn-danger"><i class="fas fa-trash"></i></a> --}}
                                     </th>
                                 </tr>
                             @endforeach

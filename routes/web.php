@@ -25,6 +25,10 @@ Route::get('/share-your-thought', [ShareYourThoughtController::class, 'index']);
 Route::get('/user-list', [UserInfoController::class, 'index']);
 Route::get('/create-user', [UserInfoController::class, 'createUser']);
 Route::post('/create-user', [UserInfoController::class, 'storeUser']);
+Route::get('/show-user/{id}', [UserInfoController::class, 'show']);
+// Route::get('/edit-user/{id}', [UserInfoController::class, 'edit']);
+// Route::post('/update-user/{id}', [UserInfoController::class, 'update']);
+
 Route::post('/is-user-activated/{id}', [UserInfoController::class, 'updateUserActivate']);
 
 Route::get('/reg', [UserInfoController::class, 'create']);

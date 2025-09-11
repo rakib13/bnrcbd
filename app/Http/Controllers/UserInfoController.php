@@ -18,7 +18,7 @@ class UserInfoController extends Controller
         return view('dashboard.userInfo.allUser', compact('users'));
     }
 
-        /**
+    /**
      * Show the form for creating a new resource.
      */
     public function createUser()
@@ -27,7 +27,7 @@ class UserInfoController extends Controller
         return view('dashboard.userInfo.createUser');
     }
 
-        /**
+    /**
      * Store a newly created resource in storage.
      */
     public function storeUser(Request $request)
@@ -58,7 +58,7 @@ class UserInfoController extends Controller
         return redirect('/user-list')->with('status', 'Registration successful. Please login.');
     }
 
-        /*
+    /*
     Status IS FEATURED
     */
     public function updateUserActivate(Request $request, $id)
@@ -68,7 +68,7 @@ class UserInfoController extends Controller
         $user->is_active = $request->is_active;
         $user->save();
 
-        if($request->is_active == 1)
+        if ($request->is_active == 1)
             return redirect()->back()->with('success', 'The following user has been activated!');
         else
             return redirect()->back()->with('status', 'The Following user has been deactivated!');
@@ -117,9 +117,11 @@ class UserInfoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UserInfo $userInfo)
+    public function show($id)
     {
         //
+        $userInfo = UserInfo::findOrFail($id);
+        return view('dashboard.userInfo.showUser', compact('userInfo'));
     }
 
     /**
