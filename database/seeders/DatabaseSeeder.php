@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         'email' => 'tareq@example.com',
         'password' => bcrypt('12345'),
         'role' => 'user',
-        'is_archive' => false,
     ]);
      // UserInfo::factory()->count(10)->create(); 
     }

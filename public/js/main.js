@@ -819,14 +819,15 @@ function searchDocument() {
 
 // this regidtration role script ...................start
 // Example: Show archive checkbox when role is admin
-    document.getElementById('role').addEventListener('change', function () {
-        const isArchiveDiv = document.querySelector('.form-check').parentElement;
-        if (this.value === 'admin') {
-            isArchiveDiv.classList.remove('d-none');
-        } else {
-            isArchiveDiv.classList.add('d-none');
-        }
-    });
+
+    // document.getElementById('role').addEventListener('change', function () {
+    //     const isArchiveDiv = document.querySelector('.form-check').parentElement;
+    //     if (this.value === 'admin') {
+    //         isArchiveDiv.classList.remove('d-none');
+    //     } else {
+    //         isArchiveDiv.classList.add('d-none');
+    //     }
+    // });
 
     // this regidtration role script ...................end
 

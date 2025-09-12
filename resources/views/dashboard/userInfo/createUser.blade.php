@@ -66,16 +66,6 @@
                                 </div>
                             </div>
 
-                            <!-- Archive (Hidden) -->
-                            <div class="col-md-6 d-none">
-                                <div class="form-check mt-4">
-                                    <input class="form-check-input" type="checkbox" id="is_archive" name="is_archive"
-                                        value="1">
-                                    <label class="form-check-label" for="is_archive"><strong>Is Archive
-                                            User</strong></label>
-                                </div>
-                            </div>
-
                             <!-- Submit Button -->
                             <div class="col-md-12">
                                 <button class="btn btn-primary w-100 py-2" type="submit">Create</button>

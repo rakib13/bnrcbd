@@ -21,7 +21,6 @@ class UserInfoSeeder extends Seeder
         $userInfo->role = 'user';
         $userInfo->is_archive = false;
         $userInfo->save();
-
     
     }
 }

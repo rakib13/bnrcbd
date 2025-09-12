@@ -41,7 +41,6 @@ class UserInfoController extends Controller
             'password'   => 'required|string|min:5',
             'role'       => 'required|string',
             'is_active'  => 'nullable|boolean',
-            'is_archive' => 'nullable|boolean',
             'is_deleted' => 'nullable|boolean',
         ]);
 
@@ -52,7 +51,6 @@ class UserInfoController extends Controller
         $userInfo->password = bcrypt($request->password);
         $userInfo->role = $request->role;
         $userInfo->is_active = $request->is_active ?? false;
-        $userInfo->is_archive = $request->is_archive ?? false;
         $userInfo->is_deleted = $request->is_deleted ?? false;
         $userInfo->save();
 
@@ -99,7 +97,6 @@ class UserInfoController extends Controller
             'password'   => 'required|string|min:5',
             'role'       => 'required|string',
             'is_active'  => 'nullable|boolean',
-            'is_archive' => 'nullable|boolean',
             'is_deleted' => 'nullable|boolean',
         ]);
 
@@ -110,7 +107,6 @@ class UserInfoController extends Controller
         $userInfo->password = bcrypt($request->password);
         $userInfo->role = $request->role;
         $userInfo->is_active = $request->is_active ?? false;
-        $userInfo->is_archive = $request->is_archive ?? false;
         $userInfo->is_deleted = $request->is_deleted ?? false;
         $userInfo->save();
 
@@ -146,7 +142,6 @@ class UserInfoController extends Controller
             'password' => 'sometimes|string|min:6',
             'role' => 'sometimes|string',
             'is_active' => 'sometimes|boolean',
-            'is_archive' => 'sometimes|boolean',
             'is_deleted' => 'sometimes|boolean',
         ]);
 

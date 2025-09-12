@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable; //add line tareq
 
 
@@ -21,13 +22,12 @@ class UserInfo extends Authenticatable //Model change here //add line tareq
         'password',
         'role',
         'is_active',
-        'is_archive',
         'is_deleted'
     ];
 
     public function publishListing() : HasMany{
         return $this->hasMany(
-            \App\Models\UserInfos::class,
+            UserInfo::class,
             'user_infos_id'
         );
     }
