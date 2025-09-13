@@ -127,32 +127,39 @@ class UserInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(UserInfo $userInfo)
+    public function edit($id)
     {
         //
+        $userInfo = UserInfo::findOrFail($id);
+        return view('dashboard.userInfo.editUser', compact('userInfo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, UserInfo $userInfo)
+    public function update(Request $request, $id)
     {
+        $userInfo = UserInfo::findOrFail($id);
+
         $validated = $request->validate([
-            'full_name' => 'sometimes|string|max:255',
-            'user_name' => 'sometimes|string|max:255|unique:user_infos,user_name,' . $userInfo->id,
-            'email' => 'sometimes|email|unique:user_infos,email,' . $userInfo->id,
-            'password' => 'sometimes|string|min:6',
-            'role' => 'sometimes|string',
-            'is_active' => 'sometimes|boolean',
-            'is_deleted' => 'sometimes|boolean',
+            'full_name'  => 'required|string|max:255',
+            'password'   => 'required|string|min:5',
+            'role'       => 'required|string'
         ]);
 
-        // if (isset($validated['password'])) {
-        //     $validated['password'] = Hash::make($validated['password']);
-        // }
+        // if($request->password != $request->confirm_password)
+        //     return redirect()->back()->with('error','Password Did not match');
 
-        // $userInfo->update($validated);
-        // return response()->json($userInfo);
+        return response()->json($request->confirm_password);
+
+        // $userInfo->full_name = $request->full_name;
+        // $userInfo->user_name = $request->user_name;
+        // $userInfo->email = $request->email;
+        //  $userInfo->password = bcrypt($request->password);
+        // $userInfo->role = $request->role;
+        // $userInfo->save();
+
+        //  return redirect('/user-list')->with('status', 'User Info Updated Successfully!');
     }
 
     /**
