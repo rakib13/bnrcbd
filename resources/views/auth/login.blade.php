@@ -152,12 +152,23 @@
                     }
                 },
                 error: function(xhr) {
-                    let message = 'Login failed.';
-                    if (xhr.responseJSON && xhr.responseJSON.message) {
-                        message = xhr.responseJSON.message;
+                let message = 'Login failed.';
+                errorBox.removeClass('d-none alert-danger alert-warning');
+
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    message = xhr.responseJSON.message;
+
+                    if (message.toLowerCase().includes('inactive')) {
+                        // Yellow alert for inactive user
+                        errorBox.addClass('alert-warning');
+                    } else {
+                        // Red alert for invalid credentials
+                        errorBox.addClass('alert-danger');
                     }
-                    errorBox.removeClass('d-none').text(message);
-                },
+                }
+
+                errorBox.text(message);
+            },
                 complete: function() {
                     btn.prop('disabled', false).text('Login');
                 }

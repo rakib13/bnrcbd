@@ -19,38 +19,86 @@ class loginController extends Controller
         return view('auth.login');
     }
 
-    public function loginUser(Request $request)
-    {
+    // public function loginUser(Request $request)
+    // {
 
-        $credentials = $request->only('email', 'password');
+    //     $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+    //     if (Auth::attempt($credentials)) {
+    //         $request->session()->regenerate();
 
-            // ✅ Return JSON if it's an AJAX request
-            if ($request->ajax()) {
-                return response()->json([
-                    'success' => true,
-                    'redirect_url' => route('dashboard.dashboard'),
-                ]);
-            }
+    //         // ✅ Return JSON if it's an AJAX request
+    //         if ($request->ajax()) {
+    //             return response()->json([
+    //                 'success' => true,
+    //                 'redirect_url' => route('dashboard.dashboard'),
+    //             ]);
+    //         }
 
-            // fallback for non-AJAX
-            $this->dashboard();
-        }
+    //         // fallback for non-AJAX
+    //         $this->dashboard();
+    //     }
 
-        // return JSON for AJAX
-        if ($request->ajax()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid credentials.',
-            ], 401);
-        }
+    //     // return JSON for AJAX
+    //     if ($request->ajax()) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Invalid credentials.',
+    //         ], 401);
+    //     }
 
-        return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ])->withInput();
+    //     return back()->withErrors([
+    //         'email' => 'Invalid credentials.',
+    //     ])->withInput();
+    // }
+
+public function loginUser(Request $request)
+{
+    $credentials = $request->only('email', 'password');
+
+    // Find user by email
+    $user = UserInfo::where('email', $credentials['email'])->first();
+
+    if (!$user || $user->is_deleted) {
+        return $this->sendLoginError($request, 'Invalid credentials.');
     }
+
+    // Check password
+    if (!Hash::check($credentials['password'], $user->password)) {
+        return $this->sendLoginError($request, 'Invalid credentials.');
+    }
+
+    // Check if inactive
+    if ($user->is_active == 0) {
+        return $this->sendLoginError($request, 'Your account is inactive. Please contact admin.');
+    }
+
+    // Login active user
+    Auth::login($user);
+    $request->session()->regenerate();
+
+    if ($request->ajax()) {
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('dashboard.dashboard'),
+        ]);
+    }
+
+    return redirect()->route('dashboard.dashboard');
+}
+
+private function sendLoginError($request, $message)
+{
+    if ($request->ajax()) {
+        return response()->json([
+            'success' => false,
+            'message' => $message,
+        ], 401);
+    }
+
+    return back()->withErrors(['email' => $message])->withInput();
+}
+
 
     public function logout(Request $request)
     {
