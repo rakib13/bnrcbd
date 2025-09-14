@@ -46,7 +46,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="password" class="form-control" id="password" name="password"
-                                        value="" placeholder="Password" required>
+                                        value="" placeholder="Password">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="password" class="form-control" id="confirm_password" value=""
-                                        placeholder="Confirm Password" required>
+                                        placeholder="Confirm Password">
                                     <label for="confirm_password">Confirm Password</label>
                                 </div>
                             </div>

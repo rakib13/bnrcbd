@@ -71,7 +71,7 @@ class UserInfoController extends Controller
         if ($request->is_active == 1)
             return redirect()->back()->with('success', 'The following user has been activated!');
         else
-            return redirect()->back()->with('status', 'The Following user has been deactivated!');
+            return redirect()->back()->with('error', 'The Following user has been deactivated!');
     }
 
     /**
@@ -140,26 +140,36 @@ class UserInfoController extends Controller
     public function update(Request $request, $id)
     {
         $userInfo = UserInfo::findOrFail($id);
-
-        $validated = $request->validate([
-            'full_name'  => 'required|string|max:255',
-            'password'   => 'required|string|min:5',
-            'role'       => 'required|string'
-        ]);
+        if($request->password != null || $request->password != ''){
+            $validated = $request->validate([
+                'full_name'  => 'required|string|max:255',
+                'user_name'  => 'required|string|max:255',
+                'password'   => 'string|min:5',
+                'role'       => 'required|string'
+            ]);
+        }
+        else{
+            $validated = $request->validate([
+                'full_name'  => 'required|string|max:255',
+                'user_name'  => 'required|string|max:255',
+                'role'       => 'required|string'
+            ]);
+        }
 
         // if($request->password != $request->confirm_password)
         //     return redirect()->back()->with('error','Password Did not match');
 
-        return response()->json($request->confirm_password);
+        // return response()->json($request->confirm_password);
 
-        // $userInfo->full_name = $request->full_name;
-        // $userInfo->user_name = $request->user_name;
+        $userInfo->full_name = $request->full_name;
+        $userInfo->user_name = $request->user_name;
         // $userInfo->email = $request->email;
-        //  $userInfo->password = bcrypt($request->password);
-        // $userInfo->role = $request->role;
-        // $userInfo->save();
+        if($request->password != null || $request->password != '')
+            $userInfo->password = bcrypt($request->password);
+        $userInfo->role = $request->role;
+        $userInfo->save();
 
-        //  return redirect('/user-list')->with('status', 'User Info Updated Successfully!');
+         return redirect('/user-list')->with('status', 'User Info Updated Successfully!');
     }
 
     /**
