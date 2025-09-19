@@ -5,7 +5,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{ asset('/img/favicon/favicon-96x96.png')}}" sizes="96x96" />
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -21,24 +21,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link rel="stylesheet" href="lib/animate/animate.min.css" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('lib/animate/animate.min.css') }}" />
+    <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Spinner Start -->
     <div id="preloader">
-        <img src="./img/logo-bnrc.png" alt="Logo" width="200px">
-        <img src="./img/pre-loader.gif" alt="">
+        <img src="{{ asset('/img/logo-bnrc.png') }}" alt="Logo" width="200px">
+        <img src="{{ asset('/img/pre-loader.gif') }}" alt="">
         <!-- <p>Loading...</p> -->
     </div>
     <!-- Spinner End -->
@@ -105,7 +105,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div id="top-logo" class="px-1 py-1 shadow shadow-1 rounded-pill">
                 <a href="#" class="navbar-brand d-flex align-items-center p-0 me-0 ">
-                    <img src="./img/nav-logo.png" alt="Logo BNRC">
+                    <img src="{{ asset('/img/nav-logo.png') }}" alt="Logo BNRC">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

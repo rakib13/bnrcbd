@@ -4,7 +4,7 @@
 <meta content="" name="keywords">
 <meta content="" name="description">
 
-<link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="{{ asset('/img/favicon/favicon-96x96.png') }}" sizes="96x96" />
 
 
 <!-- Google Web Fonts -->
@@ -23,15 +23,15 @@
 
 <!-- Libraries Stylesheet -->
 <link rel="stylesheet" href="/lib/animate/animate.min.css" />
-<link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-<link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="{{ asset('/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
 
 <!-- Customized Bootstrap Stylesheet -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 
 <!-- Template Stylesheet -->
-<link href="/css/style.css" rel="stylesheet">
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 {{-- Include a CSS/JS library for popups, e.g., SweetAlert2, or write custom CSS/JS --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

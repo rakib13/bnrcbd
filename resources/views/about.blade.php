@@ -29,7 +29,7 @@
 <!-- Header Start -->
 <div class="container-fluid position-relative p-0">
     <!-- Background Image -->
-    <img src="./img/about image.jpg" alt="BNRC Background" class="w-100" style="height: auto;">
+    <img src="{{ asset('/img/about image.jpg') }}" alt="BNRC Background" class="w-100" style="height: auto;">
 
     <!-- Overlay with background color and animation -->
     <div class="position-absolute top-50 start-50 translate-middle text-center px-4 py-3 animated-banner">
@@ -67,7 +67,7 @@
                                     leadership and inspire progress for the betterment of Bangladesh.</p>
                             </div>
                             <div class="mission-img">
-                                <img src="img/mission.jpg" alt="Mission illustration" class="img-fluid rounded">
+                                <img src="{{ asset('img/mission.jpg') }}" alt="Mission illustration" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                                     democratic values.</p>
                             </div>
                             <div class="vision-img">
-                                <img src="img/mission.jpg" alt="vision illustration" class="img-fluid rounded">
+                                <img src="{{ asset('img/mission.jpg') }}" alt="vision illustration" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>
@@ -691,7 +691,7 @@
                         <!-- <div id="Acting Chairperson" class="about-item-content bg-white rounded p-5 h-100 section"> -->
                         <h4 class="text-primary text-center">Acting Chairman Tarique Rahman</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="img/tareqrahman.jpg" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/tareqrahman.jpg') }}" alt="Ziaur Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">
                                 Tarique
@@ -862,7 +862,7 @@
                     <div id="director" class="about-item-content bg-white rounded p-5 h-100 section">
                         <h4 class="text-primary text-center">Chairman</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="img/amirkahsru.jpg" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/amirkahsru.jpg') }}" alt="Ziaur Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">Mr.
                                 Amir Khasru Mahmud Chowdhury</p>
@@ -923,7 +923,7 @@
                     <div id="ceo" class="about-item-content bg-white rounded p-5 h-100 section">
                         <h4 class="text-primary text-center">The Chief Executive Officer (CEO)</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="img/zabiullah.jpg" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/zabiullah.jpg') }}" alt="Ziaur Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">Mr.
                                 Md.
