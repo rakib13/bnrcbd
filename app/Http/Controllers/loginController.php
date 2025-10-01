@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\UserInfo;
 use App\Models\Publish;
 use App\Models\Leadership;
+use App\Models\LoginVerification;
 
 use Illuminate\Http\Request;
 
@@ -19,86 +20,69 @@ class loginController extends Controller
         return view('auth.login');
     }
 
-    // public function loginUser(Request $request)
-    // {
 
-    //     $credentials = $request->only('email', 'password');
+    public function loginUser(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
-    //     if (Auth::attempt($credentials)) {
-    //         $request->session()->regenerate();
+        // Find user by email
+        $user = UserInfo::where('email', $credentials['email'])->first();
 
-    //         // ✅ Return JSON if it's an AJAX request
-    //         if ($request->ajax()) {
-    //             return response()->json([
-    //                 'success' => true,
-    //                 'redirect_url' => route('dashboard.dashboard'),
-    //             ]);
-    //         }
+        if (!$user || $user->is_deleted) {
+            return $this->sendLoginError($request, 'Invalid credentials.');
+        }
 
-    //         // fallback for non-AJAX
-    //         $this->dashboard();
-    //     }
+        // Check password
+        if (!Hash::check($credentials['password'], $user->password)) {
+            return $this->sendLoginError($request, 'Invalid credentials.');
+        }
 
-    //     // return JSON for AJAX
-    //     if ($request->ajax()) {
-    //         return response()->json([
-    //             'success' => false,
-    //             'message' => 'Invalid credentials.',
-    //         ], 401);
-    //     }
+        // Check if inactive
+        if ($user->is_active == 0) {
+            return $this->sendLoginError($request, 'Your account is inactive. Please contact admin.');
+        }
 
-    //     return back()->withErrors([
-    //         'email' => 'Invalid credentials.',
-    //     ])->withInput();
-    // }
 
-public function loginUser(Request $request)
-{
-    $credentials = $request->only('email', 'password');
+        // GENERATE Verificaiton Code / OTP
+        $this->generateOTP($user->id);
+        // return $this->sendLoginError($request, 'OTP Generated ' . $user->id);
 
-    // Find user by email
-    $user = UserInfo::where('email', $credentials['email'])->first();
+        // SEND code to WHatsapp
 
-    if (!$user || $user->is_deleted) {
-        return $this->sendLoginError($request, 'Invalid credentials.');
+        $authLogin = $this->sendToWhatapp($user->id);
+        // return $this->sendLoginError($request, 'OTP Generated ' . $authLogin->otp);
+
+        // Load OTP Form
+
+        $done = $this->verifyOTP($user->id, $authLogin->otp);
+        if ($done == null)
+            return $this->sendLoginError($request, 'Invalid OTP.');
+
+        // Login active user
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'redirect_url' => route('dashboard.dashboard'),
+            ]);
+        }
+
+        // return redirect()->route('dashboard.dashboard');
     }
 
-    // Check password
-    if (!Hash::check($credentials['password'], $user->password)) {
-        return $this->sendLoginError($request, 'Invalid credentials.');
+    private function sendLoginError($request, $message)
+    {
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => false,
+                'message' => $message,
+            ], 401);
+        }
+
+        return back()->withErrors(['email' => $message])->withInput();
     }
-
-    // Check if inactive
-    if ($user->is_active == 0) {
-        return $this->sendLoginError($request, 'Your account is inactive. Please contact admin.');
-    }
-
-    // Login active user
-    Auth::login($user);
-    $request->session()->regenerate();
-
-    if ($request->ajax()) {
-        return response()->json([
-            'success' => true,
-            'redirect_url' => route('dashboard.dashboard'),
-        ]);
-    }
-
-    return redirect()->route('dashboard.dashboard');
-}
-
-private function sendLoginError($request, $message)
-{
-    if ($request->ajax()) {
-        return response()->json([
-            'success' => false,
-            'message' => $message,
-        ], 401);
-    }
-
-    return back()->withErrors(['email' => $message])->withInput();
-}
-
 
     public function logout(Request $request)
     {
@@ -108,6 +92,42 @@ private function sendLoginError($request, $message)
         return redirect()->route('login');
     }
 
+    public function generateOTP($user_id)
+    {
+        $otp = rand(100000, 999999);
+
+        $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
+            ->first();
+
+        if ($loginVerificaion == null)
+            $loginVerificaion = new LoginVerification;
+
+        $loginVerificaion->user_infos_id = $user_id;
+        $loginVerificaion->otp = $otp;
+        $loginVerificaion->is_verified = 0;
+        $loginVerificaion->save();
+    }
+
+    public function sendToWhatapp($user_id) // SEnd OTP to the mail for NOw
+    {
+        $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
+            ->first();
+
+        return $loginVerificaion;
+    }
+
+    public function verifyOTP($user_id, $otp)
+    {
+        $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
+            ->where('otp', $otp)
+            ->first();
+
+        $loginVerificaion->is_verified = true;
+        $loginVerificaion->save();
+        // $loginVerificaion->delete();
+
+        return 'deleted';
+    }
 
     public function dashboard()
     {

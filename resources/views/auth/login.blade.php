@@ -44,79 +44,40 @@
         <div id="mission" class="bg-white rounded px-5 py-4 w-50 section active mx-auto">
 
             <h4 class="text-primary text-center mt-2" class="col-12">Login</h4>
-            {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                </div>
-            @endif --}}
+
             <div id="error-message" class="alert alert-danger d-none"></div>
-            <!-- <div class="row g-4 justify-content-center mt-1">
-                <form id="login-form" action="{{ route('login.submit') }}" method="POST">
-                    @csrf
-                    <div class="col-12">
-                        <div class="mx-auto">
+
+            <div class="login-wrapper">
+                <div class="row g-4 justify-content-center mt-1">
+                    <form id="login-form" action="{{ route('login.submit') }}" method="POST">
+                        @csrf
+                        <div class="col-12 position-relative">
+                            <i class="bi bi-envelope input-icon"></i>
                             <div class="form-floating">
                                 <input type="text" class="form-control border-0" name="email" id="email"
-                                    value="" placeholder="Email">
-                                <label for="name">Email</label>
+                                    placeholder="Email">
+                                <label for="email">Email</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="mx-auto">
+
+                        <div class="col-12 position-relative mt-3">
+                            <i class="bi bi-lock input-icon"></i>
                             <div class="form-floating">
                                 <input type="password" class="form-control border-0" name="password" id="password"
-                                    value="" placeholder="Password">
-                                <label for="name">Password</label>
+                                    placeholder="Password">
+                                <label for="password">Password</label>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-12 mt-3">
-                        <div class="mx-auto">
-                            <div class="form-floating">
-                                <button type="button" id="login-btn"
-                                    class="btn btn-primary w-100 py-3 my-2">Login</button>
-                                Not A Registered User,<a href="./reg">Register</a>.
+                        <div class="col-12 mt-4">
+                            <button type="submit" id="login-btn" class="btn btn-primary w-100 py-3 my-2">Login</button>
+                            <div class="text-center mt-2">
+                                Not a registered user? <a href="./reg">Register</a>.
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div> -->
-            <div class="login-wrapper">
-    <div class="row g-4 justify-content-center mt-1">
-        <form id="login-form" action="{{ route('login.submit') }}" method="POST">
-            @csrf
-            <div class="col-12 position-relative">
-                <i class="bi bi-envelope input-icon"></i>
-                <div class="form-floating">
-                    <input type="text" class="form-control border-0" name="email" id="email"
-                        placeholder="Email">
-                    <label for="email">Email</label>
+                    </form>
                 </div>
             </div>
-
-            <div class="col-12 position-relative mt-3">
-                <i class="bi bi-lock input-icon"></i>
-                <div class="form-floating">
-                    <input type="password" class="form-control border-0" name="password" id="password"
-                        placeholder="Password">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-
-            <div class="col-12 mt-4">
-                <button type="submit" id="login-btn"
-                    class="btn btn-primary w-100 py-3 my-2">Login</button>
-                <div class="text-center mt-2">
-                    Not a registered user? <a href="./reg">Register</a>.
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
         </div>
     </div>
 </div>
@@ -128,8 +89,8 @@
 <!-- Bootstrap Icons CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <script>
-    $(document).ready(function() {
-        $('#login-btn').on('click', function() {
+    $(document).ready(function () {
+        $('#login-btn').on('click', function () {
             const btn = $(this);
             const errorBox = $('#error-message');
 
@@ -143,7 +104,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function(res) {
+                success: function (res) {
                     if (res.success && res.redirect_url) {
                         window.location.href = res.redirect_url;
                     } else {
@@ -151,25 +112,25 @@
                             'Login failed. Invalid response.');
                     }
                 },
-                error: function(xhr) {
-                let message = 'Login failed.';
-                errorBox.removeClass('d-none alert-danger alert-warning');
+                error: function (xhr) {
+                    let message = 'Login failed.';
+                    errorBox.removeClass('d-none alert-danger alert-warning');
 
-                if (xhr.responseJSON && xhr.responseJSON.message) {
-                    message = xhr.responseJSON.message;
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        message = xhr.responseJSON.message;
 
-                    if (message.toLowerCase().includes('inactive')) {
-                        // Yellow alert for inactive user
-                        errorBox.addClass('alert-warning');
-                    } else {
-                        // Red alert for invalid credentials
-                        errorBox.addClass('alert-danger');
+                        if (message.toLowerCase().includes('inactive')) {
+                            // Yellow alert for inactive user
+                            errorBox.addClass('alert-warning');
+                        } else {
+                            // Red alert for invalid credentials
+                            errorBox.addClass('alert-danger');
+                        }
                     }
-                }
 
-                errorBox.text(message);
-            },
-                complete: function() {
+                    errorBox.text(message);
+                },
+                complete: function () {
                     btn.prop('disabled', false).text('Login');
                 }
             });
