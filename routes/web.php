@@ -80,3 +80,7 @@ Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
 // Route::get('/dashboard', [ArchiveController::class, 'dashboard'])
 //     ->middleware('auth')
 //     ->name('dashboard.dashboard');  // your existing dashboard route name
+
+//otp verified 
+Route::get('/otp/{user_id}', [LoginController::class, 'showOtpForm'])->name('otp.form');
+Route::post('/otp/verify', [LoginController::class, 'verifyOTP'])->name('otp.verify');

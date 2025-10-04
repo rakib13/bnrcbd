@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+//namespace App\Http\Controllers\Mail;
+
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Models\UserInfo;
 use App\Models\Publish;
@@ -50,26 +53,35 @@ class loginController extends Controller
         // SEND code to WHatsapp
 
         $authLogin = $this->sendToWhatapp($user->id);
+        if (!$authLogin) {
+            return $this->sendLoginError($request, 'Unable to send OTP.');
+        }
         // return $this->sendLoginError($request, 'OTP Generated ' . $authLogin->otp);
 
         // Load OTP Form
 
-        $done = $this->verifyOTP($user->id, $authLogin->otp);
-        if ($done == null)
-            return $this->sendLoginError($request, 'Invalid OTP.');
+        // $done = $this->verifyOTP($user->id, $authLogin->otp);
+        // if ($done == null)
+        //     return $this->sendLoginError($request, 'Invalid OTP.');
 
         // Login active user
-        Auth::login($user);
-        $request->session()->regenerate();
+        // Auth::login($user);
+        // $request->session()->regenerate();
 
-        if ($request->ajax()) {
-            return response()->json([
-                'success' => true,
-                'redirect_url' => route('dashboard.dashboard'),
-            ]);
-        }
+        // if ($request->ajax()) {
+        //     return response()->json([
+        //         'success' => true,
+        //         'redirect_url' => route('dashboard.dashboard'),
+        //     ]);
+        // }
 
         // return redirect()->route('dashboard.dashboard');
+        // return redirect()->route('otp.form', ['user_id' => $user->id]);
+        // ✅ Instead of verifying OTP immediately, redirect to OTP form
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('otp.form', ['user_id' => $user->id])
+        ]);
     }
 
     private function sendLoginError($request, $message)
@@ -108,25 +120,71 @@ class loginController extends Controller
         $loginVerificaion->save();
     }
 
+    // public function verifyOTP($user_id, $otp)
+    // {
+    //     $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
+    //         ->where('otp', $otp)
+    //         ->first();
+
+    //     $loginVerificaion->is_verified = true;
+    //     $loginVerificaion->save();
+    //     // $loginVerificaion->delete();
+
+    //     return 'deleted';
+    // }
+
+
+    public function verifyOTP(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|integer',
+            'otp' => 'required|string',
+        ]);
+
+        $loginVerification = LoginVerification::where('user_infos_id', $request->user_id)
+            ->where('otp', $request->otp)
+            ->first();
+
+        if (!$loginVerification) {
+            return back()->withErrors(['Invalid OTP. Please try again.']);
+        }
+
+        // Mark verified
+        $loginVerification->is_verified = true;
+        $loginVerification->save();
+        $loginVerification->delete();
+
+        // Log user in
+        $user = UserInfo::find($request->user_id);
+        Auth::login($user);
+        $request->session()->regenerate();
+
+
+        return redirect()->route('dashboard.dashboard');
+    }
+
     public function sendToWhatapp($user_id) // SEnd OTP to the mail for NOw
     {
         $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
             ->first();
 
+        $user = UserInfo::find($user_id);
+
+        $otp = $loginVerificaion->otp;
+        $toEmail = $user->email;
+
+        Mail::raw("Your OTP code is: $otp", function ($message) use ($toEmail) {
+            $message->to($toEmail)
+                ->subject('Your OTP Code');
+        });
+
+
         return $loginVerificaion;
     }
 
-    public function verifyOTP($user_id, $otp)
+    public function showOtpForm($user_id)
     {
-        $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
-            ->where('otp', $otp)
-            ->first();
-
-        $loginVerificaion->is_verified = true;
-        $loginVerificaion->save();
-        // $loginVerificaion->delete();
-
-        return 'deleted';
+        return view('auth.otp', ['user_id' => $user_id]);
     }
 
     public function dashboard()
