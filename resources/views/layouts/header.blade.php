@@ -113,6 +113,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
+                     {{-- <div id="nav-logo">
+                        <a href="./" class="navbar-brand d-flex align-items-center p-0 me-0 ">
+                            <img src="./img/nav-logo.png" alt="Logo BNRC">
+                        </a>
+                    </div> --}}
                     <a href="./" class="nav-item nav-link border-right active"><strong>Home</strong></a>
                     <!-- <a href="./about.html" class="nav-item nav-link"><strong>About BNRC</strong></a> -->
                     <!-- about navbar start -->

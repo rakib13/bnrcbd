@@ -146,7 +146,8 @@ class loginController extends Controller
             ->first();
 
         if (!$loginVerification) {
-            return back()->withErrors(['Invalid OTP. Please try again.']);
+            // return back()->withErrors(['Invalid OTP. Please try again.']);
+            return response()->json(['success' => false, 'message' => 'Invalid OTP. Please try again.']);
         }
 
         // Mark verified
@@ -160,7 +161,12 @@ class loginController extends Controller
         $request->session()->regenerate();
 
 
-        return redirect()->route('dashboard.dashboard');
+        // return redirect()->route('dashboard.dashboard');
+        return response()->json([
+            'success' => true,
+            'message' => 'OTP verified successfully.',
+            'redirect_url' => route('dashboard.dashboard')
+        ]);
     }
 
     public function sendToWhatapp($user_id) // SEnd OTP to the mail for NOw
