@@ -7,7 +7,7 @@
 <!-- Banner Design -->
 <!-- Carousel Start -->
 <div class="header-carousel owl-carousel">
-    <div class="header-carousel-item bg-banner">
+    {{-- <div class="header-carousel-item bg-banner">
         <div class="carousel-caption">
             <div class="container">
                 <div class="row g-4 align-items-center">
@@ -61,7 +61,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+    <div class="calrousel-img position-relative">
+    <video autoplay muted loop playsinline class="w-100 rounded">
+        <source src="{{ asset('img/VIDEO.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
 </div>
 
 <!-- Introduction Start -->
