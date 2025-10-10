@@ -29,12 +29,13 @@
 <!-- Header Start -->
 <div class="container-fluid position-relative p-0">
     <!-- Background Image -->
-    <img src="{{ asset('/img/about image.jpg') }}" alt="BNRC Background" class="w-100" style="height: auto;">
+    <img src="{{ asset('/img/about image3.jpg') }}" alt="BNRC Background" class="w-100" style="height: auto;">
 
     <!-- Overlay with background color and animation -->
     <div class="position-absolute top-50 start-50 translate-middle text-center px-4 py-3 animated-banner">
-        <h1 class="bnrc-title animate-slide-up">BNRC - Bangladesh Nationalist Research Centre</h1>
-        <p class="bnrc-tagline animate-fade-in delay-1">Empowering Leadership Through Research and Innovation.</p>
+         {{-- <h1 class="bnrc-title animate-slide-up">BNRC - Bangladesh Nationalist Research Centre</h1> --}}
+        {{-- <h1 class="bnrc-title animate-slide-up"> Research and Analysis for Bangladesh </h1> --}}
+        {{-- <p class="bnrc-tagline animate-fade-in delay-1">Empowering Leadership Through Research and Innovation.</p> --}}
     </div>
 </div>
 <!-- Header End -->
@@ -64,10 +65,46 @@
                                     and national unity. Through intellectual rigor and collaboration, the BNRC aims
                                     to
                                     empower
+                                    leadership and inspire progress for the betterment of Bangladesh....... The BNRC is committed to conducting high-quality research and analysis on
+                                    national
+                                    and
+                                    international issues, providing strategic insights to the Bangladesh Nationalist
+                                    Party,
+                                    and
+                                    contributing to the development of policies that promote sustainable growth,
+                                    social
+                                    justice,
+                                    and national unity. Through intellectual rigor and collaboration, the BNRC aims
+                                    to
+                                    empower
+                                    leadership and inspire progress for the betterment of Bangladesh. The BNRC is committed to conducting high-quality research and analysis on
+                                    national
+                                    and
+                                    international issues, providing strategic insights to the Bangladesh Nationalist
+                                    Party,
+                                    and
+                                    contributing to the development of policies that promote sustainable growth,
+                                    social
+                                    justice,
+                                    and national unity. Through intellectual rigor and collaboration, the BNRC aims
+                                    to
+                                    empower
+                                    leadership and inspire progress for the betterment of Bangladesh. The BNRC is committed to conducting high-quality research and analysis on
+                                    national
+                                    and
+                                    international issues, providing strategic insights to the Bangladesh Nationalist
+                                    Party,
+                                    and
+                                    contributing to the development of policies that promote sustainable growth,
+                                    social
+                                    justice,
+                                    and national unity. Through intellectual rigor and collaboration, the BNRC aims
+                                    to
+                                    empower
                                     leadership and inspire progress for the betterment of Bangladesh.</p>
                             </div>
                             <div class="mission-img">
-                                <img src="{{ asset('img/mission.jpg') }}" alt="Mission illustration" class="img-fluid rounded">
+                                <img src="{{ asset('img/mission1.jpg') }}" alt="Mission illustration" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>
@@ -79,10 +116,26 @@
                                     policymaking
                                     and fostering innovation to support the nation's socio-economic progress and
                                     uphold
+                                    democratic values.......   To be the leading research institution in Bangladesh, driving evidence-based
+                                    policymaking
+                                    and fostering innovation to support the nation's socio-economic progress and
+                                    uphold
+                                    democratic values. To be the leading research institution in Bangladesh, driving evidence-based
+                                    policymaking
+                                    and fostering innovation to support the nation's socio-economic progress and
+                                    uphold
+                                    democratic values. To be the leading research institution in Bangladesh, driving evidence-based
+                                    policymaking
+                                    and fostering innovation to support the nation's socio-economic progress and
+                                    uphold
+                                    democratic values. To be the leading research institution in Bangladesh, driving evidence-based
+                                    policymaking
+                                    and fostering innovation to support the nation's socio-economic progress and
+                                    uphold
                                     democratic values.</p>
                             </div>
                             <div class="vision-img">
-                                <img src="{{ asset('img/mission.jpg') }}" alt="vision illustration" class="img-fluid rounded">
+                                <img src="{{ asset('img/vision img.jpg') }}" alt="vision illustration" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>

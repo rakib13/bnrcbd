@@ -1279,9 +1279,12 @@ ol {
 }
 
 #vision .vision-img img {
-  max-width: 200px;
+  /* max-width: 200px; */
+  max-width: 500px;
+  /* width: 100%;
+  height: auto; */
   width: 100%;
-  height: auto;
+  height: 200px;
   object-fit: cover;
 }
 
