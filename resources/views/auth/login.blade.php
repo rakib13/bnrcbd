@@ -49,7 +49,7 @@
 
             <div class="login-wrapper">
                 <div class="row g-4 justify-content-center mt-1">
-                    <form id="login-form" action="{{ route('login.submit') }}" method="POST">
+                    <form id="login-form" action="{{ url('/login') }}" method="POST">
                         @csrf
                         <div class="col-12 position-relative">
                             <i class="bi bi-envelope input-icon"></i>

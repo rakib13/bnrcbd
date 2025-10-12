@@ -35,8 +35,8 @@ Route::get('/reg', [UserInfoController::class, 'create']);
 Route::post('/reg', [UserInfoController::class, 'store'])->name('userInfo.store');
 
 // Login routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'loginUser'])->name('login.submit');
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'loginUser']);
 
 // Dashboard (only for authenticated users)
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth')->name('dashboard.dashboard');
