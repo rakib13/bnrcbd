@@ -53,7 +53,7 @@
                         <h4 class="text-primary text-center">Mission</h4>
                         <div class="mission-content d-flex align-items-start justify-content-between">
                             <div class="mission-text">
-                                                            <p>
+                                <p>
                                     The BNRC is committed to conducting high-quality research and analysis on national
                                     and international issues, providing strategic insights to the Bangladesh Nationalist
                                     Party, and contributing to the development of policies that promote sustainable growth,
@@ -75,7 +75,7 @@
                     </div>
                     <div id="vision" class="about-item-content bg-white rounded p-5 h-100 section">
                         <h4 class="text-primary text-center">Vision</h4>
-                        <div class="vision-content">
+                        <div class="vision-content d-flex align-items-start justify-content-between">
                             <div class="vision-text">
                                 <p>To be the leading research institution in Bangladesh, driving evidence-based
                                     policymaking
@@ -99,7 +99,7 @@
                                     uphold
                                     democratic values.</p>
                             </div>
-                            <div class="vision-img">
+                            <div class="vision-img  ms-4">
                                 <img src="{{ asset('img/vision img.jpg') }}" alt="vision illustration" class="img-fluid rounded">
                             </div>
                         </div>
