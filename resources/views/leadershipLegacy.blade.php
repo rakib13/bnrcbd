@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main-body')
 
-@include('layouts.header')
+@section('main-body-content')
 
 <!-- Navbar & Hero End -->
 
@@ -657,11 +656,6 @@
 
 </div>
 
-
 <!-- Service End -->
 
-<!-- Footer Start -->
-@include('layouts.footer')
-</body>
-
-</html>
+@endsection

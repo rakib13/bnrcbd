@@ -32,7 +32,7 @@ Route::post('/update-user/{id}', [UserInfoController::class, 'update']);
 Route::post('/is-user-activated/{id}', [UserInfoController::class, 'updateUserActivate']);
 
 Route::get('/reg', [UserInfoController::class, 'create']);
-Route::post('/reg', [UserInfoController::class, 'store'])->name('userInfo.store');
+Route::post('/reg', [UserInfoController::class, 'store']);
 
 // Login routes
 Route::get('/login', [LoginController::class, 'showLoginForm']);

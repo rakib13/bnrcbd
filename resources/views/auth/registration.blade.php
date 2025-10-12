@@ -47,7 +47,7 @@
                 <div class="card-body p-5">
                     <h3 class="text-center text-primary mb-4">User Registration</h3>
 
-                    <form action="{{ route('userInfo.store') }}" method="POST">
+                    <form action="{{ url('/reg') }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <!-- Full Name -->

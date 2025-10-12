@@ -101,7 +101,7 @@ class loginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login');
+        return redirect('/login');
     }
 
     public function generateOTP($user_id)
@@ -119,20 +119,6 @@ class loginController extends Controller
         $loginVerificaion->is_verified = 0;
         $loginVerificaion->save();
     }
-
-    // public function verifyOTP($user_id, $otp)
-    // {
-    //     $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
-    //         ->where('otp', $otp)
-    //         ->first();
-
-    //     $loginVerificaion->is_verified = true;
-    //     $loginVerificaion->save();
-    //     // $loginVerificaion->delete();
-
-    //     return 'deleted';
-    // }
-
 
     public function verifyOTP(Request $request)
     {

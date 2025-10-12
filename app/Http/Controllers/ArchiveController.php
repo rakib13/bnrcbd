@@ -19,6 +19,6 @@ class ArchiveController extends Controller
 
         session()->forget('archive');
 
-        return redirect()->route('login');
+        return redirect('/login');
     }
 }
