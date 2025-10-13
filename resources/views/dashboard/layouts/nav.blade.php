@@ -6,7 +6,7 @@
             <div class="ms-auto d-flex align-items-center">
                 <span class="text-dark me-3">Welcome, {{ Auth::user()->user_name ?? 'User' }}</span>
                 {{-- <button class="btn btn-danger btn-md">Logout</button> --}}
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ url('logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-danger btn-md" type="submit">
                         <i class="fas fa-sign-in-alt text-white"></i>

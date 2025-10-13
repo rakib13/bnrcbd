@@ -147,7 +147,7 @@
                         </div>
                     </div>
 
-                    <form method="POST" action="{{ route('feedback.send') }}" enctype="multipart/form-data"
+                    <form method="POST" action="{{ url('/sendFeedback') }}" enctype="multipart/form-data"
                         class="feedback-form">
                         @csrf
                         <div class="card shadow-lg border-0 rounded-4 p-4">
@@ -207,8 +207,6 @@
                             </div>
                         </div>
                     </form>
-
-
                 </div>
             </div>
         </div>

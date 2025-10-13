@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="{{ asset('/img/favicon/favicon-96x96.png')}}" sizes="96x96" />
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> --}}
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('lib/animate/animate.min.css') }}" />
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <div class="ps-3">
-                            <a href="{{ route('archive') }}" target="_blank" class="text-light small"><i
+                            <a href="{{ url('archive') }}" target="_blank" class="text-light small"><i
                                     class="fas fa-archive text-white me-2"></i>
                                 Archive </a>
                         </div>

@@ -106,7 +106,7 @@
                             </figure>
                         </div>
                         <div class="mx-auto">
-                            <img src="img/bnrc-letter.jpg" class="img-fluid rounded w-90" style="max-height: 600px;"
+                            <img src="{{ asset('img/bnrc-letter.jpg') }}" class="img-fluid rounded w-90" style="max-height: 600px;"
                                 alt="Authorization Letter by Khaleda Zia">
                         </div>
                     </div>
@@ -132,21 +132,21 @@
                                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
                                     <div class="blog-item">
                                         <div class="blog-img">
-                                            <img src="img/pdf-cover/publications/points2.JPG" alt="Sample Image 2">
+                                            <img src="{{ asset('img/pdf-cover/publications/points2.JPG') }}" alt="Sample Image 2">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                                     <div class="blog-item">
                                         <div class="blog-img">
-                                            <img src="img/pdf-cover/publications/points3.JPG" alt="Sample Image 3">
+                                            <img src="{{ asset('img/pdf-cover/publications/points3.JPG') }}" alt="Sample Image 3">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
                                     <div class="blog-item">
                                         <div class="blog-img">
-                                            <img src="img/pdf-cover/publications/English Book.JPG" alt="Sample Image 3">
+                                            <img src="{{ asset('img/pdf-cover/publications/English Book.JPG') }}" alt="Sample Image 3">
                                         </div>
                                     </div>
                                 </div>
@@ -270,7 +270,7 @@
                 <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="./img/A.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <img src="{{ asset('img/A.jpg') }}" class="img-fluid rounded-top w-100" alt="">
                             <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i
                                         class="fab fa-facebook-f"></i></a>
@@ -291,7 +291,7 @@
                 <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="./img/B.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <img src="{{ asset('img/B.jpg') }}" class="img-fluid rounded-top w-100" alt="">
                             <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i
                                         class="fab fa-facebook-f"></i></a>
@@ -312,7 +312,7 @@
                 <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="./img/C.jpg" class="img-fluid rounded-top w-100" alt="">
+                            <img src="{{ asset('img/C.jpg') }}" class="img-fluid rounded-top w-100" alt="">
                             <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i
                                         class="fab fa-facebook-f"></i></a>

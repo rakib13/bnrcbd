@@ -182,7 +182,7 @@
                     <div id="leaders" class="about-item-content bg-white rounded p-5 h-100 section">
                         <h4 class="text-primary text-center">Shaheed President Ziaur Rahman</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="img/ziaurrahman.jpg" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/ziaurrahman.jpg') }}" alt="Ziaur Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">
                                 Shaheed
@@ -506,7 +506,7 @@
                         <!-- <div id="Chairperson" class="about-item-content bg-white rounded p-5 h-100 section"> -->
                         <h4 class="text-primary text-center">Chairperson Begum Khaleda Zia</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="img/khaledazia.jpg" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/khaledazia.jpg') }}" alt="Begum Khaleda Zia"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">
                                 Khaleda
@@ -709,7 +709,7 @@
                         <!-- <div id="Acting Chairperson" class="about-item-content bg-white rounded p-5 h-100 section"> -->
                         <h4 class="text-primary text-center">Acting Chairman Tarique Rahman</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="{{ asset('img/tareqrahman.jpg') }}" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/tareqrahman.jpg') }}" alt="Tarique Rahman"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">
                                 Tarique
@@ -880,7 +880,7 @@
                     <div id="director" class="about-item-content bg-white rounded p-5 h-100 section">
                         <h4 class="text-primary text-center">Chairman</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="{{ asset('img/amirkahsru.jpg') }}" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/amirkahsru.jpg') }}" alt="Amir Khasru Mahmud Chowdhury"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">Mr.
                                 Amir Khasru Mahmud Chowdhury</p>
@@ -941,7 +941,7 @@
                     <div id="ceo" class="about-item-content bg-white rounded p-5 h-100 section">
                         <h4 class="text-primary text-center">The Chief Executive Officer (CEO)</h4>
                         <div style="text-align: center; margin: 30px 0;">
-                            <img src="{{ asset('img/zabiullah.jpg') }}" alt="Ziaur Rahman"
+                            <img src="{{ asset('img/zabiullah.jpg') }}" alt="Md. Ismail Zabihullah"
                                 style="border: 4px solid #ccc; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
                             <p style="margin-top: 10px; font-style: italic; color: #555; text-align:center;">Mr.
                                 Md.
