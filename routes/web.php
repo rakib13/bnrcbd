@@ -63,23 +63,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // share your thought send mail
 Route::post('/feedback/send', [FeedbackController::class, 'send'])->name('feedback.send');
-// Route::get('/test-mail', function () {
-//     Mail::raw('This is a test email from Laravel', function ($message) {
-//         $message->to('rahmantareq11@example.com')
-//             ->subject('Test Mail');
-//     });
-
-//     return 'Test email sent!';
-// });
-
 
 // Archive link check
 Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
-
-// Dashboard (protected)
-// Route::get('/dashboard', [ArchiveController::class, 'dashboard'])
-//     ->middleware('auth')
-//     ->name('dashboard.dashboard');  // your existing dashboard route name
 
 //otp verified 
 Route::get('/otp/{user_id}', [LoginController::class, 'showOtpForm'])->name('otp.form');
