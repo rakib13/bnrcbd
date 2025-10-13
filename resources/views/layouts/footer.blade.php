@@ -7,7 +7,7 @@
                      <div class="row g-4">
                          <div class="col-md-6 col-lg-6 col-xl-4">
                              <div class="footer-item">
-                                 <a href="index.html" class="p-0 ms-0">
+                                 <a href="./" class="p-0 ms-0">
                                      <!-- <h3 class="text-danger"><i class="fab fa-slack me-3"></i></h3> -->
                                      <img src="img/nav-logo.png" class="img-fluid" style="height: 80px;"
                                          alt="BNRL Logo">
