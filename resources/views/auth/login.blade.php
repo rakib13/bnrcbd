@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-@include('layouts.header')
+@extends('layouts.main-body')
 
 <!-- Navbar & Hero End -->
+@section('main-body-content')
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,8 +81,6 @@
 </div>
 
 <!-- Registration End -->
-
-@include('layouts.footer')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap Icons CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -138,6 +134,4 @@
     });
 </script>
 
-</body>
-
-</html>
+@endsection

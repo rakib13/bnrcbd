@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-//namespace App\Http\Controllers\Mail;
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+
 use App\Models\UserInfo;
 use App\Models\Publish;
 use App\Models\Leadership;
 use App\Models\LoginVerification;
 
-use Illuminate\Http\Request;
 
 class loginController extends Controller
 {

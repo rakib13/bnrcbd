@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main-body')
 
-@include('layouts.header')
-
+<!-- Navbar & Hero End -->
+@section('main-body-content')
 <!-- Navbar & Hero End -->
 
 <!-- Modal Search Start -->
@@ -133,12 +132,5 @@
     </div> <!-- row -->
 </div> <!-- container -->
 
-
-
 <!-- Registration End -->
-
-@include('layouts.footer')
-
-</body>
-
-</html>
+@endsection
