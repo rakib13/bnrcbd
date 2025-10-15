@@ -1,4 +1,7 @@
- @include('layouts.header')
+@extends('layouts.main-body')
+
+<!-- Navbar & Hero End -->
+@section('main-body-content')
 
 <div class="container mt-5">
     <h3 class="text-center mb-4">Enter OTP</h3>
@@ -61,4 +64,4 @@ $(function () {
 });
 </script>
 
-@include('layouts.footer')
+@endsection
