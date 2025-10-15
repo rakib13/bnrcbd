@@ -1,4 +1,4 @@
-{{-- @include('layouts.header') --}}
+ @include('layouts.header')
 
 <div class="container mt-5">
     <h3 class="text-center mb-4">Enter OTP</h3>
@@ -61,4 +61,4 @@ $(function () {
 });
 </script>
 
-{{-- @include('layouts.footer') --}}
+@include('layouts.footer')
