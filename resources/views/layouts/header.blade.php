@@ -81,7 +81,7 @@
                                 <button class="btn ps-2 pt-1 pe-2 pb-1 m-0" type="button" onclick="searchDocument()">
                                     <i class=" fas fa-search text-white"></i></button>
 
-                                <a href="/login" target="" class="text-light ps-5">
+                                <a href="./login" class="text-light ps-5">
                                     <i class="fas fa-sign-in-alt text-white"></i>
                                     Member Login </a>
                             </div>

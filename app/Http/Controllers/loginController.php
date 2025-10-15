@@ -14,13 +14,12 @@ use App\Models\Leadership;
 use App\Models\LoginVerification;
 
 
-class loginController extends Controller
+class LoginController extends Controller
 {
     public function showLoginForm()
     {
         return view('auth.login');
     }
-
 
     public function loginUser(Request $request)
     {

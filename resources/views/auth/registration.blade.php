@@ -120,7 +120,7 @@
                             <div class="col-md-12">
                                 <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
                                 <div class="text-center mt-3">
-                                    Already registered? <a href="{{ url('/login') }}">Login</a>
+                                    Already registered? <a href="./login">Login</a>
                                 </div>
                             </div>
                         </div> <!-- row -->
