@@ -62,7 +62,7 @@
 
         <div class="calrousel-img position-relative">
             <video autoplay muted loop playsinline class="w-100 rounded">
-                <source src="{{ asset('img/VIDEO.mp4') }}" type="video/mp4">
+                <source src="{{ asset('img/BNRC FINAL 2.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
