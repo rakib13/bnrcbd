@@ -142,7 +142,7 @@
                         <!-- Make sure this contains the correct PDF URL -->
 
                         <div class="card h-100 shadow-sm">
-                            <img src="{{ $publish->cover_image ?? 'default.jpg' }}" class="card-img-top" alt="cover">
+                            <img src="{{ $publish->cover_image ?? '' }}" class="card-img-top" alt="cover">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $publish->book_title }}</h5>
                                 <p class="card-text">
@@ -168,7 +168,6 @@
 
             </div>
             <section id="featured" class="pdf-gallery">
-
                 <div class="row g-4 justify-content-center">
                     <div class="w-100">
                         <h4 class="text-primary mb-4">Featured</h4>

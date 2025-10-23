@@ -677,9 +677,9 @@ window.onload = () => {
 
 /*......... leadership button click and pdf handling start legacy ...........start............*/
 
-var myCarousel = new bootstrap.Carousel(document.getElementById('headerCarousel'), {
-  interval: 3000 // change slide every 3 seconds
-});
+// var myCarousel = new bootstrap.Carousel(document.getElementById('headerCarousel'), {
+//   interval: 3000 // change slide every 3 seconds
+// });
 
 // PDF Modal Handling
 document.addEventListener('DOMContentLoaded', () => {

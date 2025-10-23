@@ -32,7 +32,7 @@
     <div id="headerCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner h-100">
             <div class="carousel-item active h-100">
-                <img src="img/leadership.jpg" class="d-block w-100 h-100" style="object-fit: cover; object-position: top center;"
+                <img src="{{ asset('img/leadership.jpg') }}" class="d-block w-100 h-100" style="object-fit: cover; object-position: top center;"
                     alt="Slide 1">
             </div>
             {{-- <div class="carousel-item h-100">
