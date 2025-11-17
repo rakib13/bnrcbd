@@ -46,7 +46,7 @@
                     <div id="vision" class="about-item-content bg-white rounded p-5 h-100 section active">
                         <h4 class="text-primary text-center">Vision</h4>
 
-                        <div class="vision-content d-flex align-items-start justify-content-between">
+                        <div class="mission-img mt-3 mt-md-0 ms-md-4 text-center text-md-start">
 
                             <div class="vision-text">
                                 <p>
