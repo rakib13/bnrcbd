@@ -36,11 +36,19 @@
 <body>
 
     <!-- Spinner Start -->
-    <div id="preloader">
-        <img src="{{ asset('/img/logo-bnrc.png') }}" alt="Logo" width="200px">
-        <img src="{{ asset('/img/pre-loader.gif') }}" alt="">
-        <!-- <p>Loading...</p> -->
+<div id="preloader">
+    <div class="loader-box">
+        <img src="{{ asset('/img/logo-bnrc.png') }}" class="pre-logo" alt="Logo">
+
+        <div class="loading-dots">
+            <span>■</span>
+            <span>■</span>
+            <span>■</span>
+            <span>■</span>
+            <span>■</span>
+        </div>
     </div>
+</div>
     <!-- Spinner End -->
 
 
@@ -119,16 +127,18 @@
                         </a>
                     </div> --}}
                     {{-- <a href="{{ url('/') }}" class="nav-item nav-link border-right active"><strong>Home</strong></a> --}}
-                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}"><strong>Home</strong></a>
-                   </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/') ? 'active-home' : '' }}" href="{{ url('/') }}">
+                        <strong>Home</strong>
+                    </a>
+                </li>
                     <!-- <a href="./about.html" class="nav-item nav-link"><strong>About BNRC</strong></a> -->
                     <!-- about navbar start -->
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <a href="{{ url('/about/mission') }}" class="nav-item nav-link" data-bs-toggle="dropdown">
                             <span class="about-label">
                                 <strong>About BNRC</strong>
-                                <span class="arrow">▼</span>
+                                {{-- <span class="arrow">▼</span> --}}
                             </span>
                         </a>
                     
@@ -180,8 +190,8 @@
                     <!-- about navbar end -->
                     <!-- .........publication start................... -->
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"><strong>Research & Publications</strong>
-                            <span class="arrow">▼</span>
+                        <a class="nav-link"><strong>Research & Publications</strong>
+                            {{-- <span class="arrow">▼</span> --}}
                         </a>
                     
                         <div class="dropdown-menu custom-dropdown-menu">
@@ -211,9 +221,9 @@
                     </div>
                     <!-- leadershiip legacy nav bar start -->
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle">
+                        <a class="nav-link">
                             <strong>Leadership Legacy</strong>
-                            <span class="arrow">▼</span>
+                            {{-- <span class="arrow">▼</span> --}}
                         </a>
                     
                         <div class="dropdown-menu custom-dropdown-menu">
