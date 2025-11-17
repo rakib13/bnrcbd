@@ -101,76 +101,226 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
+    // Generate OTPs (called in loginUser)
     public function generateOTP($user_id)
     {
-        $otp = rand(100000, 999999);
+        $otp_user = rand(100000, 999999);
+        $otp_admin = rand(100000, 999999);
 
-        $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
-            ->first();
+        // Store only user OTP in DB
+        $loginVerification = LoginVerification::updateOrCreate(
+            ['user_infos_id' => $user_id],
+            ['otp' => $otp_user, 'is_verified' => 0]
+        );
 
-        if ($loginVerificaion == null)
-            $loginVerificaion = new LoginVerification;
-
-        $loginVerificaion->user_infos_id = $user_id;
-        $loginVerificaion->otp = $otp;
-        $loginVerificaion->is_verified = 0;
-        $loginVerificaion->save();
+        // Store admin OTP in session
+        session(['admin_otp_' . $user_id => $otp_admin]);
     }
 
-    public function verifyOTP(Request $request)
+    // Send OTP emails
+    public function sendOTPs($user_id)
+    {
+        $loginVerification = LoginVerification::where('user_infos_id', $user_id)->first();
+        $user = UserInfo::find($user_id);
+
+        $otp_user = $loginVerification->otp;
+        $otp_admin = session('admin_otp_' . $user_id);
+
+        $adminEmail = "sajedurtareq@gmail.com"; // static admin email
+
+        // Send User OTP
+        Mail::raw("Your OTP is: $otp_user", function ($msg) use ($user) {
+            $msg->to($user->email)->subject('User Login OTP');
+        });
+
+        // Send Admin OTP
+        Mail::raw("Admin OTP for user {$user->email}: $otp_admin", function ($msg) use ($adminEmail) {
+            $msg->to($adminEmail)->subject('Admin Approval OTP');
+        });
+    }
+    // public function verifyOTP(Request $request)
+    // {
+    //     $request->validate([
+    //         'user_id' => 'required|integer',
+    //         'otp' => 'required|string',
+    //     ]);
+
+    //     $loginVerification = LoginVerification::where('user_infos_id', $request->user_id)
+    //         ->where('otp', $request->otp)
+    //         ->first();
+
+    //     if (!$loginVerification) {
+    //         // return back()->withErrors(['Invalid OTP. Please try again.']);
+    //         return response()->json(['success' => false, 'message' => 'Invalid OTP. Please try again.']);
+    //     }
+
+    //     // Mark verified
+    //     $loginVerification->is_verified = true;
+    //     $loginVerification->save();
+    //     $loginVerification->delete();
+
+    //     // Log user in
+    //     $user = UserInfo::find($request->user_id);
+    //     Auth::login($user);
+    //     $request->session()->regenerate();
+
+
+    //     // return redirect()->route('dashboard.dashboard');
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'OTP verified successfully.',
+    //         'redirect_url' => route('dashboard.dashboard')
+    //     ]);
+    // }
+
+    // public function sendToWhatapp($user_id) // SEnd OTP to the mail for NOw
+    // {
+    //     $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
+    //         ->first();
+
+    //     $user = UserInfo::find($user_id);
+
+    //     $otp = $loginVerificaion->otp;
+    //     $toEmail = $user->email;
+
+    //     Mail::raw("Your OTP code is: $otp", function ($message) use ($toEmail) {
+    //         $message->to($toEmail)
+    //             ->subject('Your OTP Code');
+    //     });
+
+
+    //     return $loginVerificaion;
+    // }
+
+
+    public function sendToWhatapp($user_id)
+    {
+        $loginVerification = LoginVerification::where('user_infos_id', $user_id)->first();
+        $user = UserInfo::find($user_id);
+
+        $otp_user = $loginVerification->otp;
+        $otp_admin = session('admin_otp_' . $user_id); // GET FROM SESSION
+
+        $adminEmail = "sajedurtareq@gmail.com";
+
+        // Send User OTP
+        Mail::raw("Your OTP is: $otp_user", function ($msg) use ($user) {
+            $msg->to($user->email)->subject('User Login OTP');
+        });
+
+        // Send Admin OTP
+        Mail::raw("Admin OTP for user {$user->email}: $otp_admin", function ($msg) use ($adminEmail) {
+            $msg->to($adminEmail)->subject('Admin Login Approval OTP');
+        });
+
+        return $loginVerification;
+    }
+
+    // public function verifyOTP(Request $request)
+    // {
+    //     $request->validate([
+    //         'user_id' => 'required|integer',
+    //         'otp_user' => 'required|string',
+    //         'otp_admin' => 'required|string',
+    //     ]);
+
+    //     $loginVerification = LoginVerification::where('user_infos_id', $request->user_id)->first();
+
+    //     if (!$loginVerification) {
+    //         return response()->json(['success' => false, 'message' => 'OTP record not found.']);
+    //     }
+
+    //     // Read JSON OTP
+    //     $otpData = json_decode($loginVerification->otp, true);
+
+    //     if (
+    //         $otpData['user'] != $request->otp_user ||
+    //         $otpData['admin'] != $request->otp_admin
+    //     ) {
+    //         return response()->json(['success' => false, 'message' => 'Invalid OTPs.']);
+    //     }
+
+    //     // Mark as verified
+    //     $loginVerification->is_verified = 1;
+    //     $loginVerification->save();
+
+    //     // Delete OTP
+    //     $loginVerification->delete();
+
+    //     // Login user
+    //     $user = UserInfo::find($request->user_id);
+    //     Auth::login($user);
+    //     $request->session()->regenerate();
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'OTP verified successfully.',
+    //         'redirect_url' => route('dashboard.dashboard')
+    //     ]);
+    // }
+
+
+    public function verifyUserOTP(Request $request)
     {
         $request->validate([
             'user_id' => 'required|integer',
-            'otp' => 'required|string',
+            'otp' => 'required|string'
         ]);
 
-        $loginVerification = LoginVerification::where('user_infos_id', $request->user_id)
+        $record = LoginVerification::where('user_infos_id', $request->user_id)
             ->where('otp', $request->otp)
             ->first();
 
-        if (!$loginVerification) {
-            // return back()->withErrors(['Invalid OTP. Please try again.']);
-            return response()->json(['success' => false, 'message' => 'Invalid OTP. Please try again.']);
+        if (!$record) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid OTP.'
+            ]);
         }
 
-        // Mark verified
-        $loginVerification->is_verified = true;
-        $loginVerification->save();
-        $loginVerification->delete();
+        // User OTP is correct → redirect to admin OTP
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('otp.admin_form', $request->user_id)
+        ]);
+    }
+    public function verifyAdminOTP(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|integer',
+            'otp' => 'required|string'
+        ]);
 
-        // Log user in
+        $adminOtp = session('admin_otp_' . $request->user_id);
+
+        if (!$adminOtp) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Admin OTP expired.'
+            ]);
+        }
+
+        if ($adminOtp != $request->otp) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid Admin OTP.'
+            ]);
+        }
+
+        // ✅ Both OTPs verified → delete DB record and session
+        LoginVerification::where('user_infos_id', $request->user_id)->delete();
+        session()->forget('admin_otp_' . $request->user_id);
+
+        // Login user
         $user = UserInfo::find($request->user_id);
         Auth::login($user);
         $request->session()->regenerate();
 
-
-        // return redirect()->route('dashboard.dashboard');
         return response()->json([
             'success' => true,
-            'message' => 'OTP verified successfully.',
             'redirect_url' => route('dashboard.dashboard')
         ]);
     }
-
-    public function sendToWhatapp($user_id) // SEnd OTP to the mail for NOw
-    {
-        $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
-            ->first();
-
-        $user = UserInfo::find($user_id);
-
-        $otp = $loginVerificaion->otp;
-        $toEmail = $user->email;
-
-        Mail::raw("Your OTP code is: $otp", function ($message) use ($toEmail) {
-            $message->to($toEmail)
-                ->subject('Your OTP Code');
-        });
-
-
-        return $loginVerificaion;
-    }
-
     public function showOtpForm($user_id)
     {
         return view('auth.otp', ['user_id' => $user_id]);

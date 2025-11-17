@@ -1,22 +1,28 @@
 @extends('layouts.main-body')
-
-<!-- Navbar & Hero End -->
 @section('main-body-content')
 
 <div class="container mt-5">
     <h3 class="text-center mb-4">Enter OTP</h3>
-
     <div id="alert-box" class="text-center mb-3"></div>
 
-    <form id="otpForm" method="POST" class="w-50 mx-auto" onsubmit="return false;">
+    <form id="otpForm" class="w-50 mx-auto" onsubmit="return false;">
         @csrf
         <input type="hidden" name="user_id" id="user_id" value="{{ $user_id }}">
 
-        <div class="mb-3">
-            <label for="otp" class="form-label">OTP Code</label>
+        <!-- Step 1: User OTP -->
+        <div id="user-otp-section" class="mb-3">
+            <label for="user_otp" class="form-label">Your OTP</label>
             <input type="text" class="form-control text-center fs-4 fw-bold"
-                   name="otp" id="otp" maxlength="6" pattern="\d*" autocomplete="off"
+                   name="user_otp" id="user_otp" maxlength="6" pattern="\d*" autocomplete="off"
                    placeholder="Enter 6-digit OTP" required>
+        </div>
+
+        <!-- Step 2: Admin OTP (hidden initially) -->
+        <div id="admin-otp-section" class="mb-3" style="display:none;">
+            <label for="admin_otp" class="form-label">Admin OTP</label>
+            <input type="text" class="form-control text-center fs-4 fw-bold"
+                   name="admin_otp" id="admin_otp" maxlength="6" pattern="\d*" autocomplete="off"
+                   placeholder="Enter 6-digit Admin OTP">
         </div>
     </form>
 </div>
@@ -24,39 +30,66 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(function () {
-    const otpInput = $('#otp');
+    const userInput = $('#user_otp');
+    const adminInput = $('#admin_otp');
     const alertBox = $('#alert-box');
+    const userId = $('#user_id').val();
 
-    otpInput.on('input', function () {
+    // Step 1: Verify User OTP
+    userInput.on('input', function () {
         const otp = $(this).val().trim();
-        const userId = $('#user_id').val();
-
         if (otp.length === 6) {
             $.ajax({
-                url: "{{ route('otp.verify') }}",
+                url: "{{ route('otp.verify_user') }}",
                 type: "POST",
-                dataType: "json",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    otp: otp,
-                    user_id: userId
-                },
+                data: {_token: "{{ csrf_token() }}", otp: otp, user_id: userId},
                 beforeSend: function() {
-                    otpInput.prop('disabled', true);
-                    alertBox.html('<div class="alert alert-info">🔄 Verifying OTP...</div>');
+                    userInput.prop('disabled', true);
+                    alertBox.html('<div class="alert alert-info">🔄 Verifying User OTP...</div>');
                 },
                 success: function(response) {
                     if (response.success) {
-                        // ✅ Redirect instantly
-                        window.location.href = response.redirect_url;
+                        alertBox.html('<div class="alert alert-success">✅ User OTP verified. Enter Admin OTP.</div>');
+                        $('#user-otp-section').hide();
+                        $('#admin-otp-section').show();
+                        adminInput.focus();
                     } else {
                         alertBox.html('<div class="alert alert-danger">❌ ' + response.message + '</div>');
-                        otpInput.prop('disabled', false).val('').focus();
+                        userInput.prop('disabled', false).val('').focus();
                     }
                 },
                 error: function() {
                     alertBox.html('<div class="alert alert-danger">⚠️ Server error. Please try again.</div>');
-                    otpInput.prop('disabled', false);
+                    userInput.prop('disabled', false);
+                }
+            });
+        }
+    });
+
+    // Step 2: Verify Admin OTP
+    adminInput.on('input', function () {
+        const otp = $(this).val().trim();
+        if (otp.length === 6) {
+            $.ajax({
+                url: "{{ route('otp.verify_admin') }}",
+                type: "POST",
+                data: {_token: "{{ csrf_token() }}", otp: otp, user_id: userId},
+                beforeSend: function() {
+                    adminInput.prop('disabled', true);
+                    alertBox.html('<div class="alert alert-info">🔄 Verifying Admin OTP...</div>');
+                },
+                success: function(response) {
+                    if (response.success) {
+                        alertBox.html('<div class="alert alert-success">✅ Admin OTP verified. Redirecting...</div>');
+                        window.location.href = response.redirect_url;
+                    } else {
+                        alertBox.html('<div class="alert alert-danger">❌ ' + response.message + '</div>');
+                        adminInput.prop('disabled', false).val('').focus();
+                    }
+                },
+                error: function() {
+                    alertBox.html('<div class="alert alert-danger">⚠️ Server error. Please try again.</div>');
+                    adminInput.prop('disabled', false);
                 }
             });
         }

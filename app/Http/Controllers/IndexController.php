@@ -25,40 +25,169 @@ class IndexController extends Controller
     }
 
     // Research and publications 
+    // public function publication()
+    // {
+    //     $publishes = Publish::all(); // Or use pagination like Publish::latest()->paginate(9)
+
+    //     $multimediaResources = Publish::where('tag', 'multimedia-resources')
+    //         ->where('is_shown', '1')->get();
+    //     $newsletters = Publish::where('tag', 'newsletters')
+    //         ->where('is_shown', '1')->get();
+    //     $conferenceProceedings = Publish::where('tag', 'conference-proceedings')
+    //         ->where('is_shown', '1')->get();
+
+    //     $feature = Publish::where('is_featured', '1')->get();
+
+    //     return view('publication', compact('multimediaResources', 'newsletters', 'conferenceProceedings', 'feature', 'publishes'));
+    // }
+
+
     public function publication()
     {
-        $publishes = Publish::all(); // Or use pagination like Publish::latest()->paginate(9)
+        $publishes = Publish::orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
 
         $multimediaResources = Publish::where('tag', 'multimedia-resources')
-            ->where('is_shown', '1')->get();
+            ->where('is_shown', '1')
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
         $newsletters = Publish::where('tag', 'newsletters')
-            ->where('is_shown', '1')->get();
+            ->where('is_shown', '1')
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
         $conferenceProceedings = Publish::where('tag', 'conference-proceedings')
-            ->where('is_shown', '1')->get();
+            ->where('is_shown', '1')
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
 
-        $feature = Publish::where('is_featured', '1')->get();
+        $feature = Publish::where('is_featured', '1')
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
 
-        return view('publication', compact('multimediaResources', 'newsletters', 'conferenceProceedings', 'feature', 'publishes'));
+        return view('publication', compact(
+            'multimediaResources',
+            'newsletters',
+            'conferenceProceedings',
+            'feature',
+            'publishes'
+        ));
     }
 
     // Leadesrship LEgacy
+    // public function leadershipLegacy()
+    // {
+    //     $restoringdemocracy = Leadership::where('tag', 'restoring-democracy')
+    //         ->where('is_shown', '1')->get();
+    //     $socialdevelopment = Leadership::where('tag', 'social-development')
+    //         ->where('is_shown', '1')->get();
+    //     $economicesadvancment = Leadership::where('tag', 'economic-advancements')
+    //         ->where('is_shown', '1')->get();
+    //     $environmentalvision = Leadership::where('tag', 'environmental-vision')
+    //         ->where('is_shown', '1')->get();
+    //     $othersectors = Leadership::where('tag', 'other-sectors')
+    //         ->where('is_shown', '1')->get();
+
+    //     $feature = Leadership::where('is_featured', '1')->get();
+
+    //     return view('leadershipLegacy', compact('restoringdemocracy', 'socialdevelopment', 'economicesadvancment', 'environmentalvision', 'othersectors', 'feature'));
+    // }
+
+    // tareq create dthe method
+
+
+    // leadership legacy
     public function leadershipLegacy()
     {
-        $restoringdemocracy = Leadership::where('tag', 'restoring-democracy')
-        ->where('is_shown', '1')->get();
-        $socialdevelopment = Leadership::where('tag', 'social-development')
-        ->where('is_shown', '1')->get();
-        $economicesadvancment = Leadership::where('tag', 'economic-advancements')
-        ->where('is_shown', '1')->get();
-        $environmentalvision = Leadership::where('tag', 'environmental-vision')
-        ->where('is_shown', '1')->get();
-        $othersectors = Leadership::where('tag', 'other-sectors')
-        ->where('is_shown', '1')->get();
+        $items = Leadership::where('tag', 'leadership-legacy')
+            ->where('is_shown', 1)
+            ->get();
 
-        $feature = Leadership::where('is_featured', '1')->get();
+        // Fetch 4 featured items
+        $feature = Leadership::where('is_featured', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
 
-        return view('leadershipLegacy', compact('restoringdemocracy', 'socialdevelopment', 'economicesadvancment', 'environmentalvision', 'othersectors','feature'));
+        return view('leadership.leadershiplegacy', compact('items', 'feature'));
     }
+    // Restoring Democracy Page
+    public function restoringDemocracy()
+    {
+        $restoringDemocracy = Leadership::where('tag', 'restoring-democracy')
+            ->where('is_shown', '1')->get();
+        // Fetch 4 featured items
+        $feature = Leadership::where('is_featured', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('leadership.restoringdemocracy', compact('restoringDemocracy', 'feature'));
+    }
+
+    // Economic Advancements Page
+    public function economicAdvancements()
+    {
+        $economicAdvancements = Leadership::where('tag', 'economic-advancements')
+            ->where('is_shown', '1')->get();
+        // Fetch 4 featured items
+        $feature = Leadership::where('is_featured', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('leadership.economicadvancements', compact('economicAdvancements', 'feature'));
+    }
+
+    // Social Development Page
+    public function socialDevelopment()
+    {
+        $socialDevelopment = Leadership::where('tag', 'social-development')
+            ->where('is_shown', '1')->get();
+        // Fetch 4 featured items
+        $feature = Leadership::where('is_featured', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('leadership.socialdevelopment', compact('socialDevelopment', 'feature'));
+    }
+
+    // Environmental Vision Page
+    public function environmentalVision()
+    {
+        $environmentalVision = Leadership::where('tag', 'environmental-vision')
+            ->where('is_shown', '1')->get();
+        // Fetch 4 featured items
+        $feature = Leadership::where('is_featured', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('leadership.environmental', compact('environmentalVision', 'feature'));
+    }
+
+    // Other Sectors Page
+    public function otherSectors()
+    {
+        $otherSectors = Leadership::where('tag', 'other-sectors')
+            ->where('is_shown', '1')->get();
+        // Fetch 4 featured items
+        $feature = Leadership::where('is_featured', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('leadership.othersectors', compact('otherSectors', 'feature'));
+    }
+
+    // tareq create dthe method END.................
 
     // Share you thought 
     public function shareYourThought()
@@ -94,5 +223,4 @@ class IndexController extends Controller
 
         return back()->with('success', 'Thank you! Your feedback has been sent.');
     }
-    
 }

@@ -63,3 +63,66 @@ Route::get('/edit-leadership/{id}', [LeadershipController::class, 'edit']);
 Route::post('/update-leadership/{id}', [LeadershipController::class, 'update']);
 Route::post('/is-shown-leadership/{id}', [LeadershipController::class, 'updateIsShown']);
 Route::post('/is-featured-leadership/{id}', [LeadershipController::class, 'updateIsFeatured']);
+
+
+//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Route::prefix('about')->group(function () {
+    Route::view('/mission', 'about.mission');
+    Route::view('/vision', 'about.vision');
+    Route::view('/formation', 'about.formation');
+    Route::view('/functions', 'about.functions');
+    Route::view('/leaders', 'about.leaders');
+    Route::view('/director', 'about.director');
+    Route::view('/researchteam', 'about.researchteam');
+});
+////////////////.................publication..
+
+Route::get('/publication/featured', [PublishController::class, 'featured'])->name('publication.featured');
+Route::get('/publication/newsletters', [PublishController::class, 'newsletters'])->name('publication.newsletters');
+Route::get('/publication/conference', [PublishController::class, 'conference'])->name('publication.conference');
+Route::get('/publication/multimedia', [PublishController::class, 'multimedia'])->name('publication.multimedia');
+
+
+//...............leadership legacy page 
+
+Route::get('/leadership-legacy', [IndexController::class, 'leadershipLegacy'])
+    ->name('leadership.leadershiplegacy');
+
+// Sub-pages
+Route::get('/leadership-legacy/restoring-democracy', [IndexController::class, 'restoringDemocracy'])
+    ->name('leadership.restoringdemocracy');
+
+Route::get('/leadership-legacy/economic-advancements', [IndexController::class, 'economicAdvancements'])
+    ->name('leadership.economicadvancements');
+
+Route::get('/leadership-legacy/social-development', [IndexController::class, 'socialDevelopment'])
+    ->name('leadership.socialdevelopment');
+
+Route::get('/leadership-legacy/environmental-vision', [IndexController::class, 'environmentalVision'])
+    ->name('leadership.environmental');
+
+Route::get('/leadership-legacy/other-sectors', [IndexController::class, 'otherSectors'])
+    ->name('leadership.othersectors');
+
+
+///otp
+// Show user login form
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Process login → generate user OTP + admin OTP
+Route::post('/login', [LoginController::class, 'loginUser'])->name('login.post');
+
+// User OTP form
+Route::get('/otp/user/{user_id}', [LoginController::class, 'showUserOtpForm'])->name('otp.user_form');
+
+// Verify User OTP
+Route::post('/otp/verify-user', [LoginController::class, 'verifyUserOTP'])->name('otp.verify_user');
+
+// Admin OTP form
+Route::get('/otp/admin/{user_id}', [LoginController::class, 'showAdminOtpForm'])->name('otp.admin_form');
+
+// Verify Admin OTP
+Route::post('/otp/verify-admin', [LoginController::class, 'verifyAdminOTP'])->name('otp.verify_admin');
+
+// Dashboard
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard.dashboard');

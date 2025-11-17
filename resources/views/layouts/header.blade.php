@@ -58,9 +58,9 @@
                             </a>
                         </div>
                         <div class="ps-3">
-                            <a href="{{ url('archive') }}" target="_blank" class="text-light small"><i
-                                    class="fas fa-archive text-white me-2"></i>
-                                Archive </a>
+                            {{-- <a href="{{ url('archive') }}" target="_blank" class="text-light small"><i
+                                    class="fas fa-archive text-white me-2"></i> --}}
+                                 </a>
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                                 <button class="btn ps-2 pt-1 pe-2 pb-1 m-0" type="button" onclick="searchDocument()">
                                     <i class=" fas fa-search text-white"></i></button>
 
-                                <a href="./login" class="text-light ps-5">
+                                {{-- <a href="./login" class="text-light ps-5">
                                     <i class="fas fa-sign-in-alt text-white"></i>
-                                    Member Login </a>
+                                    Member Login </a> --}}
                             </div>
                             <div class="ps-6">
 
@@ -113,137 +113,129 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                     {{-- <div id="nav-logo">
-                        <a href="./" class="navbar-brand d-flex align-items-center p-0 me-0 ">
-                            <img src="./img/nav-logo.png" alt="Logo BNRC">
+                    {{-- <div id="nav-logo">
+                        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
+                            <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
                         </a>
                     </div> --}}
-                    <a href="./" class="nav-item nav-link border-right active"><strong>Home</strong></a>
+                    {{-- <a href="{{ url('/') }}" class="nav-item nav-link border-right active"><strong>Home</strong></a> --}}
+                   <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}"><strong>Home</strong></a>
+                   </li>
                     <!-- <a href="./about.html" class="nav-item nav-link"><strong>About BNRC</strong></a> -->
                     <!-- about navbar start -->
                     <div class="nav-item dropdown">
-                        <a href="./about" class="nav-item nav-link dropdown-toggle" id="aboutDropdownToggle"
-                            role="button" onclick="handleAboutClick(event)">
+                        <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <span class="about-label">
                                 <strong>About BNRC</strong>
                                 <span class="arrow">▼</span>
                             </span>
                         </a>
+                    
                         <div class="dropdown-menu custom-dropdown-menu">
+                    
                             <div class="d-flex flex-row flex-wrap gap-2">
-                                <!-- Main Buttons -->
-                                <button class="custom-dropdown-btn active" onclick="showSection('mission', event)">
+                                <!-- Main Pages -->
+                                <a href="{{ url('/about/mission') }}" class="custom-dropdown-btn">
                                     Mission
-                                </button>
-
-                                <button class="custom-dropdown-btn" onclick="showSection('vision', event)">
+                                </a>
+                    
+                                <a href="{{ url('/about/vision') }}" class="custom-dropdown-btn">
                                     Vision
-                                </button>
-
-                                <button class="custom-dropdown-btn" onclick="showSection('formation', event)">
+                                </a>
+                    
+                                <a href="{{ url('/about/formation') }}" class="custom-dropdown-btn">
                                     Formation of BNRC
-                                </button>
-
-                                <button class="custom-dropdown-btn" onclick="showSection('functions', event)">
+                                </a>
+                    
+                                <a href="{{ url('/about/functions') }}" class="custom-dropdown-btn">
                                     Functions of BNRC
-                                </button>
+                                </a>
                             </div>
-
+                    
                             <!-- Leadership & Governance -->
                             <div class="position-relative mt-2">
                                 <button class="custom-dropdown-btn" onclick="toggleSubmenu('lg-submenu')">
                                     Leadership & Governance
                                 </button>
+                    
                                 <div id="lg-submenu" class="submenu-column d-none">
-                                    <button class="btn btn-link text-start w-100 my-1"
-                                        onclick="showSection('leaders', event)">
+                    
+                                    <a href="{{ url('/about/leaders') }}" class="btn btn-link text-start w-100 my-1">
                                         Our Supreme Leaders
-                                    </button>
-                                    <button class="btn btn-link text-start w-100 my-1"
-                                        onclick="showSection('director', event)">
+                                    </a>
+                    
+                                    <a href="{{ url('/about/director') }}" class="btn btn-link text-start w-100 my-1">
                                         Board of Directors
-                                    </button>
-                                    <button class="btn btn-link text-start w-100 my-1"
-                                        onclick="showSection('ceo', event)">
+                                    </a>
+                    
+                                    <a href="{{ url('/about/researchteam') }}" class="btn btn-link text-start w-100 my-1">
                                         The Research Team
-                                    </button>
-
+                                    </a>
                                 </div>
                             </div>
+                    
                         </div>
                     </div>
                     <!-- about navbar end -->
                     <!-- .........publication start................... -->
                     <div class="nav-item dropdown">
-                        <a href="./publication" target="_blank" class="nav-link dropdown-toggle"><strong>Research
-                                &
-                                Publications</strong>
-                            <span class="arrow">▼</span></a>
+                        <a class="nav-link dropdown-toggle"><strong>Research & Publications</strong>
+                            <span class="arrow">▼</span>
+                        </a>
+                    
                         <div class="dropdown-menu custom-dropdown-menu">
                             <div class="d-flex flex-row flex-wrap gap-2 p-2">
-                                <button class="custom-dropdown-btn active" data-target="featured"
-                                    onclick="featuredSection(event)">
-                                    Featured
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="newsletters"
-                                    onclick="featuredSection(event)">
-                                    Newsletters
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="conference-proceedings"
-                                    onclick="featuredSection(event)">
-                                    Conference Proceedings
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="multimedia-resources"
-                                    onclick="featuredSection(event)">
-                                    Multimedia Resources
-                                </button>
-
+                    
+                                <a href="{{ route('publication.featured') }}" class="custom-dropdown-btn">Featured</a>
+                    
+                                <a href="{{ route('publication.newsletters') }}" class="custom-dropdown-btn">Newsletters</a>
+                    
+                                <a href="{{ route('publication.conference') }}" class="custom-dropdown-btn">Conference Proceedings</a>
+                    
+                                <a href="{{ route('publication.multimedia') }}" class="custom-dropdown-btn">Multimedia Resources</a>
+                    
                             </div>
                         </div>
                     </div>
                     <!-- ..................publication end.................. -->
-                    <div id="nav-logo">
+                    {{-- <div id="nav-logo">
                         <a href="./" class="navbar-brand d-flex align-items-center p-0 me-0 ">
                             <img src="./img/nav-logo.png" alt="Logo BNRC">
+                        </a>
+                    </div> --}}
+                    <div id="nav-logo">
+                        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
+                            <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
                         </a>
                     </div>
                     <!-- leadershiip legacy nav bar start -->
                     <div class="nav-item dropdown">
-                        <a href="./leadership-legacy" target="_blank"
-                            class="nav-link dropdown-toggle"><strong>Leadership
-                                Legacy</strong>
-                            <span class="arrow">▼</span></a>
+                        <a class="nav-link dropdown-toggle">
+                            <strong>Leadership Legacy</strong>
+                            <span class="arrow">▼</span>
+                        </a>
+                    
                         <div class="dropdown-menu custom-dropdown-menu">
                             <div class="d-flex flex-row flex-wrap gap-2 p-2">
-                                <button class="custom-dropdown-btn active" data-target="LeadershipLegacy"
-                                    onclick="highlightLegacySection(event)">
-                                    Leadership Legacy
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="restoringdemocracy"
-                                    onclick="highlightLegacySection(event)">
-                                    Restoring Democracy
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="economicadvancements"
-                                    onclick="highlightLegacySection(event)">
-                                    Economic Advancements
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="socialdevelopment"
-                                    onclick="highlightLegacySection(event)">
-                                    Social Development
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="environmental"
-                                    onclick="highlightLegacySection(event)">
-                                    Environmental Vision
-                                </button>
-                                <button class="custom-dropdown-btn" data-target="othersectors"
-                                    onclick="highlightLegacySection(event)">
-                                    Other Sectors
-                                </button>
+                    
+                                <a href="{{ route('leadership.leadershiplegacy') }}" class="custom-dropdown-btn">Leadership Legacy</a>
+                    
+                                <a href="{{ route('leadership.restoringdemocracy') }}" class="custom-dropdown-btn">Restoring Democracy</a>
+                    
+                                <a href="{{ route('leadership.economicadvancements') }}" class="custom-dropdown-btn">Economic Advancements</a>
+                    
+                                <a href="{{ route('leadership.socialdevelopment') }}" class="custom-dropdown-btn">Social Development</a>
+                    
+                                <a href="{{ route('leadership.environmental') }}" class="custom-dropdown-btn">Environmental Vision</a>
+                    
+                                <a href="{{ route('leadership.othersectors') }}" class="custom-dropdown-btn">Other Sectors</a>
+                    
                             </div>
                         </div>
                     </div>
                     <!-- leadership legacy end -->
-                    <a href="./share-your-thought" class="nav-item nav-link"><strong>Share your
+                    <a href="{{ url('/share-your-thought') }}" class="nav-item nav-link"><strong>Share your
                             thoughts</strong></a>
                 </div>
             </div>

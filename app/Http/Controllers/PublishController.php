@@ -185,4 +185,78 @@ class PublishController extends Controller
     {
         //
     }
+
+
+    // new method added 
+
+    public function featured()
+    {
+        $feature = Publish::where('is_featured', 1)
+            ->where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        $publishes = Publish::where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->get();
+
+        return view('publication.featured', compact('feature', 'publishes'));
+    }
+
+    public function newsletters()
+    {
+        $newsletters = Publish::where('tag', 'newsletters')
+            ->where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        $publishes = Publish::where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('publication.newsletters', compact('newsletters', 'publishes'));
+    }
+
+    public function conference()
+    {
+        // $conferenceProceedings = Publish::where('tag', 'conference-proceedings')->orderBy('publish_date', 'desc')->take(4)->get();
+        // $publishes = Publish::orderBy('publish_date', 'desc')->take(4)->get();
+
+        // return view('publication.conference', compact('conferenceProceedings', 'publishes'));
+        $conferenceProceedings = Publish::where('tag', 'conference-proceedings')
+            ->where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        $publishes = Publish::where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('publication.conference', compact('conferenceProceedings', 'publishes'));
+    }
+
+    public function multimedia()
+    {
+        // $multimediaResources = Publish::where('tag', 'multimedia-resources')->orderBy('publish_date', 'desc')->take(4)->get();
+        // $publishes = Publish::orderBy('publish_date', 'desc')->take(4)->get();
+
+        // return view('publication.multimedia', compact('multimediaResources', 'publishes'));
+        $multimediaResources = Publish::where('tag', 'multimedia-resources')
+            ->where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        $publishes = Publish::where('is_shown', 1)
+            ->orderBy('publish_date', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('publication.multimedia', compact('multimediaResources', 'publishes'));
+    }
 }

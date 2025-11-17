@@ -6,13 +6,18 @@
                  <div class="mb-2">
                      <div class="row g-4">
                          <div class="col-md-6 col-lg-6 col-xl-4">
-                             <div class="footer-item">
+                             {{-- <div class="footer-item">
                                  <a href="./" class="p-0 ms-0">
                                      <!-- <h3 class="text-danger"><i class="fab fa-slack me-3"></i></h3> -->
                                      <img src="img/nav-logo.png" class="img-fluid" style="height: 80px;"
                                          alt="BNRL Logo">
                                  </a>
-                             </div>
+                             </div> --}}
+                              <div id="nav-logo">
+                        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
+                            <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
+                        </a>
+                    </div>
                          </div>
                          <div class="col-md-6 col-lg-6 col-xl-4">
                              <div class="footer-item">
@@ -38,11 +43,13 @@
                                      <div class="col-4">
                                          <div class="footer-instagram">
                                              <a href="https://www.bnpbd.org/" target="_blank">
-                                                 <img src="./img/img-bnp.png" alt="BNP Logo" width="96px">
-                                             </a>
+                                                 {{-- <img src="./img/img-bnp.png" alt="BNP Logo" width="96px"> --}}
+                                            <img src="{{ asset('./img/img-bnp.png') }}" alt="Logo BNRC" class="img-fluid" width="96px">
+                                                </a>
                                              <a href="https://roadtodemocracy.com/" target="_blank">
-                                                 <img src="./img/road-to-democracy.png" alt="Democracy Logo"
-                                                     width="96px">
+                                                 {{-- <img src="./img/road-to-democracy.png" alt="Democracy Logo"
+                                                     width="96px"> --}}
+                                                     <img src="{{ asset('./img/road-to-democracy.png') }}" alt="Logo BNRC" class="img-fluid" alt="Logo BNRC" class="img-fluid" width="96px">
                                              </a>
                                          </div>
                                      </div>
