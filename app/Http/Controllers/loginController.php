@@ -138,60 +138,6 @@ class LoginController extends Controller
             $msg->to($adminEmail)->subject('Admin Approval OTP');
         });
     }
-    // public function verifyOTP(Request $request)
-    // {
-    //     $request->validate([
-    //         'user_id' => 'required|integer',
-    //         'otp' => 'required|string',
-    //     ]);
-
-    //     $loginVerification = LoginVerification::where('user_infos_id', $request->user_id)
-    //         ->where('otp', $request->otp)
-    //         ->first();
-
-    //     if (!$loginVerification) {
-    //         // return back()->withErrors(['Invalid OTP. Please try again.']);
-    //         return response()->json(['success' => false, 'message' => 'Invalid OTP. Please try again.']);
-    //     }
-
-    //     // Mark verified
-    //     $loginVerification->is_verified = true;
-    //     $loginVerification->save();
-    //     $loginVerification->delete();
-
-    //     // Log user in
-    //     $user = UserInfo::find($request->user_id);
-    //     Auth::login($user);
-    //     $request->session()->regenerate();
-
-
-    //     // return redirect()->route('dashboard.dashboard');
-    //     return response()->json([
-    //         'success' => true,
-    //         'message' => 'OTP verified successfully.',
-    //         'redirect_url' => route('dashboard.dashboard')
-    //     ]);
-    // }
-
-    // public function sendToWhatapp($user_id) // SEnd OTP to the mail for NOw
-    // {
-    //     $loginVerificaion = LoginVerification::where('user_infos_id', $user_id)
-    //         ->first();
-
-    //     $user = UserInfo::find($user_id);
-
-    //     $otp = $loginVerificaion->otp;
-    //     $toEmail = $user->email;
-
-    //     Mail::raw("Your OTP code is: $otp", function ($message) use ($toEmail) {
-    //         $message->to($toEmail)
-    //             ->subject('Your OTP Code');
-    //     });
-
-
-    //     return $loginVerificaion;
-    // }
-
 
     public function sendToWhatapp($user_id)
     {
@@ -216,7 +162,7 @@ class LoginController extends Controller
         return $loginVerification;
     }
 
-    // public function verifyOTP(Request $request)
+
     // {
     //     $request->validate([
     //         'user_id' => 'required|integer',
