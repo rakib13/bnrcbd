@@ -1,11 +1,18 @@
-@extends('layouts.main-body')
-@section('main-body-content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter OTP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
 <div class="container mt-5">
     <h3 class="text-center mb-4">Enter OTP</h3>
     <div id="alert-box" class="text-center mb-3"></div>
 
-    <form id="otpForm" class="w-50 mx-auto" onsubmit="return false;">
+    <form id="otpForm" class="w-50 mx-auto" action="javascript:void(0);" method="POST">
         @csrf
         <input type="hidden" name="user_id" id="user_id" value="{{ $user_id }}">
 
@@ -24,6 +31,7 @@
                    name="admin_otp" id="admin_otp" maxlength="6" pattern="\d*" autocomplete="off"
                    placeholder="Enter 6-digit Admin OTP">
         </div>
+
     </form>
 </div>
 
@@ -97,4 +105,5 @@ $(function () {
 });
 </script>
 
-@endsection
+</body>
+</html>
