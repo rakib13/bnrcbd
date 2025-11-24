@@ -118,26 +118,26 @@ class LoginController extends Controller
     }
 
     // Send OTP emails
-    public function sendOTPs($user_id)
-    {
-        $loginVerification = LoginVerification::where('user_infos_id', $user_id)->first();
-        $user = UserInfo::find($user_id);
+    // public function sendOTPs($user_id)
+    // {
+    //     $loginVerification = LoginVerification::where('user_infos_id', $user_id)->first();
+    //     $user = UserInfo::find($user_id);
 
-        $otp_user = $loginVerification->otp;
-        $otp_admin = session('admin_otp_' . $user_id);
+    //     $otp_user = $loginVerification->otp;
+    //     $otp_admin = session('admin_otp_' . $user_id);
 
-        $adminEmail = "sajedurtareq@gmail.com"; // static admin email
+    //     $adminEmail = "sajedurtareq@gmail.com"; // static admin email
 
-        // Send User OTP
-        Mail::raw("Your OTP is: $otp_user", function ($msg) use ($user) {
-            $msg->to($user->email)->subject('User Login OTP');
-        });
+    //     // Send User OTP
+    //     Mail::raw("Your OTP is: $otp_user", function ($msg) use ($user) {
+    //         $msg->to($user->email)->subject('User Login OTP');
+    //     });
 
-        // Send Admin OTP
-        Mail::raw("Admin OTP for user {$user->email}: $otp_admin", function ($msg) use ($adminEmail) {
-            $msg->to($adminEmail)->subject('Admin Approval OTP');
-        });
-    }
+    //     // Send Admin OTP
+    //     Mail::raw("Admin OTP for user {$user->email}: $otp_admin", function ($msg) use ($adminEmail) {
+    //         $msg->to($adminEmail)->subject('Admin Approval OTP');
+    //     });
+    // }
 
     public function sendToWhatapp($user_id)
     {

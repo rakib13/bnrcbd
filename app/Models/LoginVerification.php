@@ -12,8 +12,14 @@ class LoginVerification extends Model
     //
     use HasFactory;
     //
+    // protected $fillable = [
+    //     'id',
+    //     'otp',
+    //     'is_verified'
+    // ];
+
     protected $fillable = [
-        'id',
+        'user_infos_id',
         'otp',
         'is_verified'
     ];
