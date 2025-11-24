@@ -13,11 +13,11 @@
                                          alt="BNRL Logo">
                                  </a>
                              </div> --}}
-                              <div id="nav-logo">
-                        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
-                            <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
-                        </a>
-                    </div>
+                             <div id="nav-logo">
+                                 <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
+                                     <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
+                                 </a>
+                             </div>
                          </div>
                          <div class="col-md-6 col-lg-6 col-xl-4">
                              <div class="footer-item">
@@ -43,13 +43,13 @@
                                      <div class="col-4">
                                          <div class="footer-instagram">
                                              <a href="https://www.bnpbd.org/" target="_blank">
-                                                 {{-- <img src="./img/img-bnp.png" alt="BNP Logo" width="96px"> --}}
-                                            <img src="{{ asset('./img/img-bnp.png') }}" alt="Logo BNRC" class="img-fluid" width="96px">
-                                                </a>
+                                                 <img src="{{ asset('./img/img-bnp.png') }}" alt="Logo BNRC"
+                                                     class="img-fluid" width="96px">
+                                             </a>
                                              <a href="https://roadtodemocracy.com/" target="_blank">
-                                                 {{-- <img src="./img/road-to-democracy.png" alt="Democracy Logo"
-                                                     width="96px"> --}}
-                                                     <img src="{{ asset('./img/road-to-democracy.png') }}" alt="Logo BNRC" class="img-fluid" alt="Logo BNRC" class="img-fluid" width="96px">
+
+                                                 <img src="{{ asset('./img/road-to-democracy.png') }}" alt="Logo BNRC"
+                                                     class="img-fluid" alt="Logo BNRC" class="img-fluid" width="96px">
                                              </a>
                                          </div>
                                      </div>
@@ -102,29 +102,35 @@
                  </div> -->
              </div>
 
-            <div class="col-xl-3">
-                <div class="footer-item">
-                    <!-- Social Media Icons -->
-                    <div class="d-flex flex-shrink-0">
-                        <div class="footer-btn d-flex px-0">
-                            <a class="btn btn-md-square rounded-circle me-3" href="https://www.facebook.com/bnrc.org" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-md-square rounded-circle me-3" href="https://www.instagram.com/bnrcbd" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-md-square rounded-circle me-0" href="https://www.linkedin.com/company/bnrcbd" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
+             <div class="col-xl-3">
+                 <div class="footer-item">
+                     <!-- Social Media Icons -->
+                     <div class="d-flex shrink-0">
+                         <div class="footer-btn d-flex px-0">
+                             <a class="btn btn-md-square rounded-circle me-3" href="https://www.facebook.com/bnrc.org"
+                                 target="_blank"><i class="fab fa-facebook-f"></i></a>
+                             <a class="btn btn-md-square rounded-circle me-3" href="#"><i
+                                     class="fab fa-twitter"></i></a>
+                             <a class="btn btn-md-square rounded-circle me-3" href="https://www.instagram.com/bnrcbd"
+                                 target="_blank"><i class="fab fa-instagram"></i></a>
+                             <a class="btn btn-md-square rounded-circle me-0"
+                                 href="https://www.linkedin.com/company/bnrcbd" target="_blank"><i
+                                     class="fab fa-linkedin-in"></i></a>
+                         </div>
+                     </div>
 
-                    <!-- Contact Cards Block -->
-                    <div class="mt-2 pt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
-                        <!-- Simple Contact Info -->
-                        <div class="footer-contact text-white">
-                            <p style="margin:0;">Address : House # 59, Flat # C-2, Road # 1, Block-l, Banani, Dhaka-1213</p>
-                            <p style="margin:0;">E-mail  : info@bnrcbd.org</p>
-                            <p style="margin:0;">Hotline : +88 09613241978</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                     <!-- Contact Cards Block -->
+                     <div class="mt-2 pt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                         <!-- Simple Contact Info -->
+                         <div class="footer-contact text-white">
+                             <p style="margin:0;">Address : House # 59, Flat # C-2, Road # 1, Block-l, Banani,
+                                 Dhaka-1213</p>
+                             <p style="margin:0;">E-mail : info@bnrcbd.org</p>
+                             <p style="margin:0;">Hotline : +88 09613241978</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
          </div>
      </div>
  </div>
@@ -146,8 +152,9 @@
  <!-- Copyright End -->
 
  <!-- Back to Top -->
- <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-{{-- this script for mobile view toggle button --}}
+ <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i
+         class="fa fa-arrow-up"></i></a>
+ {{-- this script for mobile view toggle button --}}
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
  <!-- JavaScript Libraries -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

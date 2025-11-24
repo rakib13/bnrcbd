@@ -130,7 +130,7 @@
                                         <span>View Details</span>
                                     </div>
                                 </div>
-                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                <div class="blog-content p-4 grow d-flex flex-column">
                                     <div class="blog-comment d-flex justify-content-between mb-3">
                                         <div class="small">
                                             <span class="fa fa-user text-primary"></span>
@@ -305,7 +305,7 @@
                                         <span>View Details</span>
                                     </div>
                                 </div>
-                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                <div class="blog-content p-4 grow d-flex flex-column">
                                     <div class="blog-comment d-flex justify-content-between mb-3">
                                         <div class="small">
                                             <span class="fa fa-user text-primary"></span>
@@ -387,7 +387,7 @@
                                         <span>View Details</span>
                                     </div>
                                 </div>
-                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                <div class="blog-content p-4 grow d-flex flex-column">
                                     <div class="blog-comment d-flex justify-content-between mb-3">
                                         <div class="small">
                                             <span class="fa fa-user text-primary"></span>
@@ -466,7 +466,7 @@
                                         <span>View Details</span>
                                     </div>
                                 </div>
-                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                <div class="blog-content p-4 grow d-flex flex-column">
                                     <div class="blog-comment d-flex justify-content-between mb-3">
                                         <div class="small">
                                             <span class="fa fa-user text-primary"></span>
@@ -543,7 +543,7 @@
                                         <span>View Details</span>
                                     </div>
                                 </div>
-                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                <div class="blog-content p-4 grow d-flex flex-column">
                                     <div class="blog-comment d-flex justify-content-between mb-3">
                                         <div class="small">
                                             <span class="fa fa-user text-primary"></span>
@@ -620,7 +620,7 @@
                                         <span>View Details</span>
                                     </div>
                                 </div>
-                                <div class="blog-content p-4 flex-grow-1 d-flex flex-column">
+                                <div class="blog-content p-4 grow d-flex flex-column">
                                     <div class="blog-comment d-flex justify-content-between mb-3">
                                         <div class="small">
                                             <span class="fa fa-user text-primary"></span>

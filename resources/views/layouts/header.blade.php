@@ -5,7 +5,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" href="{{ asset('/img/favicon/favicon-96x96.png')}}" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{ asset('/img/favicon/favicon-96x96.png') }}" sizes="96x96" />
 
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> --}}
@@ -36,19 +36,19 @@
 <body>
 
     <!-- Spinner Start -->
-<div id="preloader">
-    <div class="loader-box">
-        <img src="{{ asset('/img/logo-bnrc.png') }}" class="pre-logo" alt="Logo">
+    <div id="preloader">
+        <div class="loader-box">
+            <img src="{{ asset('/img/logo-bnrc.png') }}" class="pre-logo" alt="Logo">
 
-        <div class="loading-dots">
-            <span>■</span>
-            <span>■</span>
-            <span>■</span>
-            <span>■</span>
-            <span>■</span>
+            <div class="loading-dots">
+                <span>■</span>
+                <span>■</span>
+                <span>■</span>
+                <span>■</span>
+                <span>■</span>
+            </div>
         </div>
     </div>
-</div>
     <!-- Spinner End -->
 
 
@@ -68,7 +68,7 @@
                         <div class="ps-3">
                             {{-- <a href="{{ url('archive') }}" target="_blank" class="text-light small"><i
                                     class="fas fa-archive text-white me-2"></i> --}}
-                                 </a>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -79,22 +79,17 @@
                                 target="_blank"><i class="fab fa-facebook-f text-white "></i></a>
                             <a class="btn p-0 text-primary me-3" href="#"><i
                                     class="fab fa-twitter text-white "></i></a>
-                            <a class="btn p-0 text-primary me-3" href="https://www.instagram.com/bnrcbd" target="_blank"><i
-                                    class="fab fa-instagram text-white "></i></a>
-                            <a class="btn p-0 text-primary me-0" href="https://www.linkedin.com/company/bnrcbd" target="_blank"><i
-                                    class="fab fa-linkedin-in text-white "></i></a>
+                            <a class="btn p-0 text-primary me-3" href="https://www.instagram.com/bnrcbd"
+                                target="_blank"><i class="fab fa-instagram text-white "></i></a>
+                            <a class="btn p-0 text-primary me-0" href="https://www.linkedin.com/company/bnrcbd"
+                                target="_blank"><i class="fab fa-linkedin-in text-white "></i></a>
                         </div>
                         <div class="input-group input-group-sm ms-2">
                             <div class="input-group-append">
                                 <button class="btn ps-2 pt-1 pe-2 pb-1 m-0" type="button" onclick="searchDocument()">
                                     <i class=" fas fa-search text-white"></i></button>
-
-                                {{-- <a href="./login" class="text-light ps-5">
-                                    <i class="fas fa-sign-in-alt text-white"></i>
-                                    Member Login </a> --}}
                             </div>
                             <div class="ps-6">
-
                             </div>
 
                             <!-- Show result count -->
@@ -121,18 +116,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    {{-- <div id="nav-logo">
-                        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
-                            <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('/') ? 'active-home' : '' }}" href="{{ url('/') }}">
+                            <strong>Home</strong>
                         </a>
-                    </div> --}}
-                    {{-- <a href="{{ url('/') }}" class="nav-item nav-link border-right active"><strong>Home</strong></a> --}}
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active-home' : '' }}" href="{{ url('/') }}">
-                        <strong>Home</strong>
-                    </a>
-                </li>
-                    <!-- <a href="./about.html" class="nav-item nav-link"><strong>About BNRC</strong></a> -->
+                    </li>
                     <!-- about navbar start -->
                     <div class="nav-item dropdown">
                         <a href="{{ url('/about/mission') }}" class="nav-item nav-link" data-bs-toggle="dropdown">
@@ -141,50 +129,52 @@
                                 {{-- <span class="arrow">▼</span> --}}
                             </span>
                         </a>
-                    
+
                         <div class="dropdown-menu custom-dropdown-menu">
-                    
+
                             <div class="d-flex flex-row flex-wrap gap-2">
                                 <!-- Main Pages -->
                                 <a href="{{ url('/about/mission') }}" class="custom-dropdown-btn">
                                     Mission
                                 </a>
-                    
+
                                 <a href="{{ url('/about/vision') }}" class="custom-dropdown-btn">
                                     Vision
                                 </a>
-                    
+
                                 <a href="{{ url('/about/formation') }}" class="custom-dropdown-btn">
                                     Formation of BNRC
                                 </a>
-                    
+
                                 <a href="{{ url('/about/functions') }}" class="custom-dropdown-btn">
                                     Functions of BNRC
                                 </a>
                             </div>
-                    
+
                             <!-- Leadership & Governance -->
                             <div class="position-relative mt-2">
                                 <button class="custom-dropdown-btn" onclick="toggleSubmenu('lg-submenu')">
                                     Leadership & Governance
                                 </button>
-                    
+
                                 <div id="lg-submenu" class="submenu-column d-none">
-                    
+
                                     <a href="{{ url('/about/leaders') }}" class="btn btn-link text-start w-100 my-1">
                                         Our Supreme Leaders
                                     </a>
-                    
-                                    <a href="{{ url('/about/director') }}" class="btn btn-link text-start w-100 my-1">
+
+                                    <a href="{{ url('/about/director') }}"
+                                        class="btn btn-link text-start w-100 my-1">
                                         Board of Directors
                                     </a>
-                    
-                                    <a href="{{ url('/about/researchteam') }}" class="btn btn-link text-start w-100 my-1">
+
+                                    <a href="{{ url('/about/researchteam') }}"
+                                        class="btn btn-link text-start w-100 my-1">
                                         The Research Team
                                     </a>
                                 </div>
                             </div>
-                    
+
                         </div>
                     </div>
                     <!-- about navbar end -->
@@ -193,27 +183,26 @@
                         <a class="nav-link"><strong>Research & Publications</strong>
                             {{-- <span class="arrow">▼</span> --}}
                         </a>
-                    
+
                         <div class="dropdown-menu custom-dropdown-menu">
                             <div class="d-flex flex-row flex-wrap gap-2 p-2">
-                    
-                                <a href="{{ route('publication.featured') }}" class="custom-dropdown-btn">Featured</a>
-                    
-                                <a href="{{ route('publication.newsletters') }}" class="custom-dropdown-btn">Newsletters</a>
-                    
-                                <a href="{{ route('publication.conference') }}" class="custom-dropdown-btn">Conference Proceedings</a>
-                    
-                                <a href="{{ route('publication.multimedia') }}" class="custom-dropdown-btn">Multimedia Resources</a>
-                    
+
+                                <a href="{{ route('publication.featured') }}"
+                                    class="custom-dropdown-btn">Featured</a>
+
+                                <a href="{{ route('publication.newsletters') }}"
+                                    class="custom-dropdown-btn">Newsletters</a>
+
+                                <a href="{{ route('publication.conference') }}"
+                                    class="custom-dropdown-btn">Conference Proceedings</a>
+
+                                <a href="{{ route('publication.multimedia') }}"
+                                    class="custom-dropdown-btn">Multimedia Resources</a>
+
                             </div>
                         </div>
                     </div>
                     <!-- ..................publication end.................. -->
-                    {{-- <div id="nav-logo">
-                        <a href="./" class="navbar-brand d-flex align-items-center p-0 me-0 ">
-                            <img src="./img/nav-logo.png" alt="Logo BNRC">
-                        </a>
-                    </div> --}}
                     <div id="nav-logo">
                         <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
                             <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
@@ -225,22 +214,28 @@
                             <strong>Leadership Legacy</strong>
                             {{-- <span class="arrow">▼</span> --}}
                         </a>
-                    
+
                         <div class="dropdown-menu custom-dropdown-menu">
                             <div class="d-flex flex-row flex-wrap gap-2 p-2">
-                    
-                                <a href="{{ route('leadership.leadershiplegacy') }}" class="custom-dropdown-btn">Leadership Legacy</a>
-                    
-                                <a href="{{ route('leadership.restoringdemocracy') }}" class="custom-dropdown-btn">Restoring Democracy</a>
-                    
-                                <a href="{{ route('leadership.economicadvancements') }}" class="custom-dropdown-btn">Economic Advancements</a>
-                    
-                                <a href="{{ route('leadership.socialdevelopment') }}" class="custom-dropdown-btn">Social Development</a>
-                    
-                                <a href="{{ route('leadership.environmental') }}" class="custom-dropdown-btn">Environmental Vision</a>
-                    
-                                <a href="{{ route('leadership.othersectors') }}" class="custom-dropdown-btn">Other Sectors</a>
-                    
+
+                                <a href="{{ route('leadership.leadershiplegacy') }}"
+                                    class="custom-dropdown-btn">Leadership Legacy</a>
+
+                                <a href="{{ route('leadership.restoringdemocracy') }}"
+                                    class="custom-dropdown-btn">Restoring Democracy</a>
+
+                                <a href="{{ route('leadership.economicadvancements') }}"
+                                    class="custom-dropdown-btn">Economic Advancements</a>
+
+                                <a href="{{ route('leadership.socialdevelopment') }}"
+                                    class="custom-dropdown-btn">Social Development</a>
+
+                                <a href="{{ route('leadership.environmental') }}"
+                                    class="custom-dropdown-btn">Environmental Vision</a>
+
+                                <a href="{{ route('leadership.othersectors') }}" class="custom-dropdown-btn">Other
+                                    Sectors</a>
+
                             </div>
                         </div>
                     </div>

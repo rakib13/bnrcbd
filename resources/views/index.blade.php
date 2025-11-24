@@ -14,7 +14,7 @@
                             <h1 class="display-4 text-danger mb-4">Bangladesh Nationalist Research Centre</h1>
                             <h5 class="text-danger text-uppercase fw-bold mb-4">Advancing Knowledge | Empowering
                                 Policy | Inspiring Action</h5>
-                            <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                            <div class="d-flex justify-content-center justify-content-md-start shrink-0 mb-4">
                                 <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
                                         class="fas fa-play-circle me-2"></i> Watch Video</a>
                                 <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn
@@ -47,7 +47,7 @@
                             <h5 class="text-danger text-uppercase fw-bold mb-4">Advancing Knowledge | Empowering
                                 Policy |
                                 Inspiring Action</h5>
-                            <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
+                            <div class="d-flex justify-content-center justify-content-md-end shrink-0 mb-4">
                                 <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
                                         class="fas fa-play-circle me-2"></i> Watch Video</a>
                                 <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn
