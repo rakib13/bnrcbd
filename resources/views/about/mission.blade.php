@@ -53,10 +53,10 @@
                 <div class="content-area wow fadeInRight" data-wow-delay="0.2s"
                     style="flex: 1; margin-left: 20px;">
 
-                    <div class="about-item-content bg-white rounded p-5 h-100 section active">
+                    <div id="mission" class="about-item-content bg-white rounded p-5 h-100 section active">
                         <h4 class="text-primary text-center">Mission</h4>
 
-                        <div class="mission-img mt-3 mt-md-0 ms-md-4 text-center text-md-start">
+                        <div class="mission-img d-flex flex-column flex-md-row align-items-start mt-3">
 
                             <div class="mission-text">
                                 <p>
