@@ -147,7 +147,7 @@ class LoginController extends Controller
         $otp_user = $loginVerification->otp;
         $otp_admin = session('admin_otp_' . $user_id); // GET FROM SESSION
 
-        $adminEmail = "sajedurtareq@gmail.com";
+        $adminEmail = "rakib.omar13@gmail.com";
 
         // Send User OTP
         Mail::raw("Your OTP is: $otp_user", function ($msg) use ($user) {
