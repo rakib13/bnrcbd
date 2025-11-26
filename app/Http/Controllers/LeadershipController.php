@@ -46,7 +46,7 @@ class LeadershipController extends Controller
             'book_summary'      => 'required|string',
             'book_author'       => 'required|string|min:5',
             'thumbnail'         => 'required | mimes:jpeg,jpg,png,PNG | max:2000',
-            'link'              => 'nullable|string',
+            'link'              => 'nullable | max:10000',
             'publish_date'      => 'required|date',
             'tag'               => 'required|string|max:255',
         ]);
@@ -63,10 +63,20 @@ class LeadershipController extends Controller
             $image_full_name = $image_name . '.' . $ext;
             $upload_path = 'img/pdf-cover/';
             $image_url = $upload_path . $image_full_name;
-            $success = $image->move($upload_path, $image_full_name);
+            $image->move($upload_path, $image_full_name);
             $leadership->thumbnail = $image_url;
         }
-        $leadership->link =  $request->link;
+        $file_link = $request->file('link');
+        if ($file_link) {
+            $file_name = hexdec(uniqid());
+            $ext = strtolower($file_link->getClientOriginalExtension());
+            $file_full_name = $file_name . '.' . $ext;
+            $upload_path = 'pdf/';
+            $file_url = $upload_path . $file_full_name;
+            $file_link->move($upload_path, $file_full_name);
+            $leadership->link = $file_url;
+        }
+        // $leadership->link =  $request->link;
         $leadership->publish_date = $request->publish_date;
         $leadership->tag = $request->tag;
         $leadership->user_infos_id = Auth::user()->id;
@@ -109,7 +119,7 @@ class LeadershipController extends Controller
         $leadership->book_author = $request->book_author;
         $leadership->publish_date = $request->publish_date;
         $leadership->book_summary = $request->book_summary;
-        $leadership->link = $request->link;
+        // $leadership->link = $request->link;
         //$leadership->category_of_publication = $request->category_of_publication;
         $leadership->tag = $request->tag;
         $leadership->user_infos_id = Auth::user()->id;
@@ -133,6 +143,23 @@ class LeadershipController extends Controller
 
             $leadership->thumbnail = $image_url;
         }
+        // Handle File Link upload
+        if ($request->hasFile('link')) {
+            // Delete old file if exists
+            if (file_exists(public_path($leadership->link))) { 
+                unlink(public_path($leadership->link));
+            }
+
+            $file_link = $request->file('link');
+            $file_name = hexdec(uniqid());
+            $ext = strtolower($file_link->getClientOriginalExtension());
+            $file_full_name = $file_name . '.' . $ext;
+            $upload_path = 'pdf/';
+            $file_url = $upload_path . $file_full_name;
+            $file_link->move(public_path($upload_path), $file_full_name);
+
+            $leadership->link = $file_url;
+        }   
 
         $leadership->save();
 
