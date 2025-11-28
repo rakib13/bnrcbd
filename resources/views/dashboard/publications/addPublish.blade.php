@@ -71,7 +71,7 @@
                             <!-- File Link -->
                             <div class="col-md-6">
                                 <div class="form-floating mb-2">
-                                    <input type="text" class="form-control" id="link" name="link"
+                                    <input type="file" class="form-control" id="link" name="link"
                                         placeholder="File Link" required>
                                     <label for="link">File Link</label>
                                 </div>
