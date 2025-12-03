@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main-body')
 
-@include('layouts.header')
+@section('main-body-content')
 
-<body>
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
@@ -83,7 +81,4 @@
 </div>
 <!-- About End -->
 
-@include('layouts.footer')
-
-</body>
-</html>
+@endsection

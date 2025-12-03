@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main-body')
 
-@include('layouts.header')
-
-
-<!-- Navbar & Hero End -->
+@section('main-body-content')
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -757,10 +753,4 @@
 </div>
 <!-- About End -->
 
-<!-- Footer Start -->
-@include('layouts.footer')
-<!-- Footer End -->
-
-</body>
-
-</html>
+@endsection

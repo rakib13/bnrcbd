@@ -1,7 +1,6 @@
 @extends('layouts.main-body')
 
 @section('main-body-content')
-
     <!-- Navbar & Hero End -->
 
     <!-- Modal Search Start -->
@@ -28,14 +27,14 @@
     <!-- Header Start -->
     <div class="container-fluid position-relative p-0">
         {{-- <div class="container text-center py-5" style="max-width: 900px;"> --}}
-            {{-- <h4 class="text-danger display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Publications</h4> --}}
-            <img src="{{ asset('/img/Research and Analysis For Bangladesh.jpg') }}" alt="BNRC Background" class="w-100"
-                style="height: auto;">
-            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-                {{-- <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        {{-- <h4 class="text-danger display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Publications</h4> --}}
+        <img src="{{ asset('/img/Research and Analysis For Bangladesh.jpg') }}" alt="BNRC Background" class="w-100"
+            style="height: auto;">
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            {{-- <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active text-primary">Publications</li> --}}
-            </ol>
-            {{--
+        </ol>
+        {{--
         </div> --}}
     </div>
     <!-- Header End -->
@@ -139,8 +138,8 @@
             <div class="row" id="publicationList" class="pdf-gallery">
                 @foreach ($publishes as $publish)
                     <div class="col-md-6 col-lg-4 blog-item mb-4" data-title="{{ strtolower($publish->book_title) }}"
-                        data-author="{{ strtolower($publish->book_author) }}" data-type="{{ strtolower($publish->type ?? '') }}"
-                        data-pdf="{{ $publish->link }}">
+                        data-author="{{ strtolower($publish->book_author) }}"
+                        data-type="{{ strtolower($publish->type ?? '') }}" data-pdf="{{ $publish->link }}">
                         <!-- Make sure this contains the correct PDF URL -->
 
                         <div class="card h-100 shadow-sm">
@@ -165,8 +164,6 @@
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
 
                 <br>
-                <!-- <h4 class="text-primary">Our Publications</h4> -->
-                <!-- <h1 class="display-4 mb-4">News And Updates</h1> -->
 
             </div>
             <!-- Featured Section -->
@@ -216,22 +213,7 @@
 
         </div>
     </div>
-    <!-- another row..............................Newsletters -->
-    {{--
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js"></script> --}}
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/turn.js') }}"></script>
-    <script src="{{ asset('js/pdf.js') }}"></script>
-    <script>
-        // pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ asset('js/pdf.worker.js') }}";
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
-    </script>
-
-    <!-- Blog Item 5 -->
     <!-- PDF Flipbook Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -267,28 +249,16 @@
             </div>
         </div>
     </div>
+@endsection
 
-    {{-- //this code only show pdf ................................start.......when click viewdetails --}}
-    {{-- <div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">PDF Viewer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <iframe id="pdfViewer" src="" width="100%" height="600px"></iframe>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    {{-- // this code only show pdf ................................start.......when click viewdetails --}}
+@section('footer-content')
+    {{-- <script src="{{ asset('js/turn.js') }}"></script>
+    <script src="{{ asset('js/pdf.js') }}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.js"></script>
 
-    <!-- Footer Start -->
     <script>
-
-
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             // === FILTERING ===
             const searchBox = document.getElementById("searchBox");
             const yearFrom = document.getElementById("yearFrom");
@@ -367,22 +337,25 @@
             });
         });
 
+        // pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ asset('js/pdf.worker.js') }}";
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+
         // === PDF MODAL ===
+        const bookWidth = 1000,
+            bookHeight = 650,
+            pageWidth = bookWidth / 2,
+            pageHeight = bookHeight;
+        let pdfDoc = null,
+            userZoom = 1.0,
+            soundEnabled = true;
+        const flipSound = new Audio('https://www.soundjay.com/buttons/sounds/page-flip-01a.mp3');
 
-        // Set the PDF.js worker path globally once
-
-        // --- Core PDF Rendering Functions ---
-        // $(document).on("click", ".pdf-link, .view-pdf-btn", function () {
-        //     let filePath = $(this).data("pdf");
-        //     showModal(null, filePath);
-        // });
-
-        $(document).on("click", ".view-pdf-btn, .pdf-link", function () {
-                let filePath = $(this).data("pdf");
-                console.log("Loading PDF:", filePath);
-                $('#myModal').modal('show');
-                showModal(null, filePath);
-            });
+        $(document).on("click", ".view-pdf-btn, .pdf-link", function() {
+            let filePath = $(this).data("pdf");
+            console.log("Loading PDF:", filePath);
+            $('#myModal').modal('show');
+            showModal(null, filePath);
+        });
 
         function showModal(event, filePath) {
             let $flipbook = $('#flipbook');
@@ -408,6 +381,53 @@
             // 4. Load PDF immediately
             loadFlipbook(filePath);
         }
+
+        function loadFlipbook(filePath) {
+            let $flipbook = $('#flipbook');
+
+            pdfjsLib.getDocument(filePath).promise.then(function(pdf) {
+                pdfDoc = pdf;
+                $flipbook.empty();
+
+                $('#page-slider').attr('max', pdf.numPages);
+
+                let pagesHtml = "";
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    pagesHtml += `
+                <div class="page">
+                     <canvas id="canvas-${i}"></canvas>
+                </div>`;
+                }
+
+                $flipbook.html(pagesHtml);
+
+                let book = $flipbook.turn({
+                    width: bookWidth,
+                    height: bookHeight,
+                    autoCenter: true,
+                    gradients: true,
+                    acceleration: false,
+                    when: {
+                        turning: function(event, page) {
+                            $('#page-slider').val(page);
+                            if (soundEnabled) flipSound.play();
+                        },
+                        turned: function(event, page) {
+                            reloadPages(page);
+                        }
+                    }
+                });
+
+                attachControls(book);
+
+                // Initial page render
+                renderPage(1);
+            }).catch(err => {
+                console.error("PDF load failed:", err);
+                $flipbook.html('<p style="color:red;">Error loading PDF.</p>');
+            });
+        }
+
         function renderPage(num) {
             if (!pdfDoc || num < 1 || num > pdfDoc.numPages) return;
             let canvas = document.getElementById('canvas-' + num);
@@ -417,7 +437,7 @@
             $(canvas).removeClass('d-none').css('display', 'block');
             $(canvas).siblings('.error-message').remove();
 
-            pdfDoc.getPage(num).then(function (page) {
+            pdfDoc.getPage(num).then(function(page) {
                 const unscaled = page.getViewport({
                     scale: 1
                 });
@@ -440,7 +460,9 @@
                 console.error(`Error rendering page ${num}:`, pageErr);
                 let $pageDiv = $(canvas).closest('.page');
                 if ($pageDiv.length && !$pageDiv.find('.error-message').length) {
-                    $pageDiv.append('<div class="error-message" style="color:red; margin-top: 10px;">Error rendering page: ' + pageErr.message + '</div>');
+                    $pageDiv.append(
+                        '<div class="error-message" style="color:red; margin-top: 10px;">Error rendering page: ' +
+                        pageErr.message + '</div>');
                     $(canvas).addClass('d-none');
                 }
             });
@@ -462,7 +484,6 @@
         }
 
         // --- Control and Event Binding Functions (Defined Globally) ---
-
         function attachControls(book) {
             // 1. Clear previous event listeners using namespaces for safety
             $('#prev, #next, #zoom-in, #zoom-out, #fullscreen, #sound-toggle, #page-slider, #share-btn').off('.flipbook');
@@ -484,7 +505,7 @@
                 });
 
                 // Slider
-                $('#page-slider').on('input change.flipbook', function () {
+                $('#page-slider').on('input change.flipbook', function() {
                     const targetPage = parseInt(this.value) || 1;
                     if (pdfDoc && targetPage >= 1 && targetPage <= pdfDoc.numPages) {
                         book.turn('page', targetPage);
@@ -531,124 +552,6 @@
 
         //    pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ asset('js/pdf.worker.js') }}";
 
-        const bookWidth = 1000,
-            bookHeight = 650,
-            pageWidth = bookWidth / 2,
-            pageHeight = bookHeight;
-        let pdfDoc = null,
-            userZoom = 1.0,
-            soundEnabled = true;
-        const flipSound = new Audio('https://www.soundjay.com/buttons/sounds/page-flip-01a.mp3');
-
-
-        // function loadFlipbook(filePath) {
-        //     let $flipbook = $('#flipbook');
-
-        //     pdfjsLib.getDocument(filePath).promise.then(function(pdf) {
-        //         pdfDoc = pdf;
-        //         $flipbook.empty();
-
-        //         $('#page-slider').attr('max', pdf.numPages);
-
-        //         // 1. Create page elements
-        //         let pagesHtml = '';
-        //         for (let i = 1; i <= pdf.numPages; i++) {
-        //             pagesHtml += '<div class="page"><canvas id="canvas-' + i + '"></canvas></div>';
-        //         }
-        //         $flipbook.append(pagesHtml);
-
-        //         // 2. Initialize turn.js
-        //         $flipbook.turn({
-        //             width: bookWidth,
-        //             height: bookHeight,
-        //             autoCenter: true,
-        //             display: 'double',
-        //             duration: 700,
-        //             elevation: 50,
-        //             gradients: true,
-        //             when: {
-        //                 turning: function(event, page) {
-        //                     $('#page-slider').val(page);
-        //                     renderPage(page);
-        //                     renderPage(page + 1);
-
-        //                     if (soundEnabled) {
-        //                         try {
-        //                             flipSound.currentTime = 0;
-        //                             flipSound.play();
-        //                         } catch (e) {}
-        //                     }
-        //                 },
-        //                 turned: function(event, page, view) {
-        //                     reloadPages(page);
-        //                 }
-        //             }
-        //         });
-
-        //          console.log('PDF loaded with ' + pdf.numPages + ' pages');
-
-
-        //         // 3. Initial page render
-        //         renderPage(1);
-        //         if (pdf.numPages > 1) renderPage(2);
-
-        //         // 4. Attach controls, passing the initialized turn.js instance
-        //         attachControls($flipbook); 
-
-        //     }).catch(err => {
-        //         console.error('PDF load failed:', err);
-        //         // Display error if PDF fails to load
-        //         $('#flipbook').html('<p class="text-danger">Failed to load PDF: ' + err.message + '. Please ensure the PDF file path is correct or the file exists at that path.</p>');
-        //     });
-        // }
-
-
-        function loadFlipbook(filePath) {
-            let $flipbook = $('#flipbook');
-
-            pdfjsLib.getDocument(filePath).promise.then(function (pdf) {
-                pdfDoc = pdf;
-                $flipbook.empty();
-
-                $('#page-slider').attr('max', pdf.numPages);
-
-                let pagesHtml = "";
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    pagesHtml += `
-                <div class="page">
-                     <canvas id="canvas-${i}"></canvas>
-                </div>`;
-                }
-
-                $flipbook.html(pagesHtml);
-
-                let book = $flipbook.turn({
-                    width: bookWidth,
-                    height: bookHeight,
-                    autoCenter: true,
-                    gradients: true,
-                    acceleration: false,
-                    when: {
-                        turning: function (event, page) {
-                            $('#page-slider').val(page);
-                            if (soundEnabled) flipSound.play();
-                        },
-                        turned: function (event, page) {
-                            reloadPages(page);
-                        }
-                    }
-                });
-
-                attachControls(book);
-
-                // Initial page render
-                renderPage(1);
-            }).catch(err => {
-                console.error("PDF load failed:", err);
-                $flipbook.html('<p style="color:red;">Error loading PDF.</p>');
-            });
-        }
-
         // --- Event Listeners for PDF Links ---
 
         // For featured section (blog-categiry pdf-link)
@@ -675,10 +578,5 @@
         //     modal.show();
         // });
         // this code only show ....................END ,........pdf when click viewdetails
-
-
-
     </script>
-
-
 @endsection
