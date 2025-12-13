@@ -116,7 +116,7 @@
                                         <option {{ $leadership->tag == 'environmental-vision' ? 'selected' : '' }}
                                             value="environmental-vision">- Environmental Vision: Sustainability Today
                                             for Tomorrow's Prosperity</option>
-                                        <option {{ $leadership->tag == 'other' ? 'selected' : '' }} value="other">- Other
+                                        <option {{ $leadership->tag == 'other-sectors' ? 'selected' : '' }} value="other-sectors">- Other
                                             Sectors: Beyond Boundaries, Expanding
                                             Horizons.</option>
                                     </select>
