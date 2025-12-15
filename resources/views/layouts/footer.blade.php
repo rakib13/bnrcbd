@@ -143,13 +143,13 @@
     <!-- Copyright Start -->
     <div class="container-fluid copyright py-1">
         <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-6 text-center text-md-end mb-md-0">
-                    Copyright &copy 2025;
+            <div class="row g-2 align-items-center">
+                <div class="col-12 text-center mb-0 text-body">
+                   © Copyright 2025 Bangladesh Nationalist Research Centre - BNRC. All Rights Reserved.
                 </div>
-                <div class="col-md-2 text-center text-md-start text-body fst-italic">
-                    Designed By : <a class="border-bottom text-danger" href="">BNRC</a>
-                </div>
+                {{-- <div class="col-12 text-center text-body fst-italic">
+                    Powered by Information and Technology Office, Bangladesh Nationalist Research Centre - <a class="border-bottom text-danger" href="">BNRC</a>
+                </div> --}}
             </div>
         </div>
     </div>
