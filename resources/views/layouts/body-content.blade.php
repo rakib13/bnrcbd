@@ -68,11 +68,11 @@
 <!-- Navbar Start -->
 <div class="container-fluid nav-bar px-lg-0 px-md-0 px-sm-1">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div id="top-logo" class="px-1 py-1 shadow shadow-1 rounded-pill">
-            <a href="#" class="navbar-brand d-flex align-items-center p-0 me-0 ">
-                <img src="{{ asset('/img/nav-logo.png') }}" alt="Logo BNRC">
+        {{-- <div id="nav-logo">
+            <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center p-0 me-0">
+                <img src="{{ asset('img/nav-logo.png') }}" alt="Logo BNRC" class="img-fluid">
             </a>
-        </div>
+        </div> --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>

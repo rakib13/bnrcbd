@@ -282,7 +282,7 @@
 .navbar .navbar-nav .nav-item {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
 }
 
 .navbar-light .navbar-nav .nav-item:hover,
@@ -2152,3 +2152,234 @@ a.download-btn:hover {
 }
 
  /* css for text p tag for all p tag end  here ............... */
+
+ /* ,,,,,,,,,,,,,,,,,,,,,,,,, NAV ITEM................................... */
+
+ /* ===============================
+   PREMIUM TOP NAV ITEM DESIGN
+=============================== */
+
+/* Base nav link */
+.navbar-nav > .nav-item > .nav-link,
+.navbar-nav > a.nav-link {
+  position: relative;
+  padding: 12px 18px;
+  font-size: 17.5px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #1f2937;
+  transition: all 0.35s ease;
+}
+
+/* Subtle underline */
+.navbar-nav > .nav-item > .nav-link::after,
+.navbar-nav > a.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 2px;
+  /* background: linear-gradient(90deg, #470606, #7c2d12); */
+  transition: all 0.35s ease;
+  transform: translateX(-50%);
+}
+
+/* Hover effect */
+.navbar-nav > .nav-item > .nav-link:hover,
+.navbar-nav > a.nav-link:hover {
+  color: #470606;
+}
+
+.navbar-nav > .nav-item > .nav-link:hover::after,
+.navbar-nav > a.nav-link:hover::after {
+  width: 60%;
+}
+
+.navbar .nav-item.dropdown > .nav-link:hover,
+.navbar .nav-item.dropdown:hover > .nav-link {
+    color: #470606 !important; /* BNRC color */
+}
+
+/* Optional: smooth transition */
+.navbar .nav-item.dropdown > .nav-link {
+    transition: color 0.25s ease;
+}
+
+/* Active state */
+.navbar-nav .active-home,
+.navbar-nav .nav-link.active {
+  color: #470606 !important;
+}
+
+.navbar-nav .active-home::after,
+.navbar-nav .nav-link.active::after {
+  width: 60%;
+}
+
+/* ABOUT label subtle emphasis */
+/* .about-label {
+  position: relative;
+  padding-right: 12px;
+} */
+
+/* .about-label::after {
+  content: "•";
+  position: absolute;
+  right: 0;
+  color: #470606;
+  font-size: 18px;
+} */
+
+/* =================================
+   CTA – Share Your Thoughts
+================================= */
+.navbar-nav > a[href*="share-your-thought"] {
+  border: 1.5px solid #470606;
+  border-radius: 30px;
+  padding: 10px 22px !important;
+  margin-left: 14px;
+}
+
+.navbar-nav > a[href*="share-your-thought"]:hover {
+  background: #470606;
+  color: #fff;
+}
+
+/* =================================
+   MOBILE OPTIMIZATION
+================================= */
+@media (max-width: 991px) {
+
+  .navbar-nav > .nav-item > .nav-link,
+  .navbar-nav > a.nav-link {
+    padding: 14px 12px;
+    font-size: 16px;
+  }
+
+  .navbar-nav > a[href*="share-your-thought"] {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+/* ................................................................ */
+ /* ===============================
+   UNIQUE EDITORIAL DROPDOWN STYLE
+=============================== */
+
+.custom-dropdown-menu {
+  min-width: 400px;
+  padding: 15px 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.18);
+  border: none;
+  z-index: 1050; /* VERY IMPORTANT */
+}
+
+/* Remove grid/card layout safely */
+.custom-dropdown-menu > div {
+  display: block;
+}
+
+/* Menu list style */
+.custom-dropdown-btn {
+  background: transparent;
+  border-radius: 0;
+  /* padding: 14px 12px 14px 22px; */
+  padding: 4px 8px 4px 10px; 
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+  position: relative;
+  display: block;
+  transition: all 0.35s ease;
+  white-space: normal;
+}
+
+/* Left accent line */
+.custom-dropdown-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: #470606;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Subtitle (professional hint text) */
+.custom-dropdown-btn span {
+  display: block;
+  font-size: 8px;
+  font-weight: 400;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Hover effect */
+.custom-dropdown-btn:hover {
+  color: #470606;
+  padding-left: 28px;
+}
+
+.custom-dropdown-btn:hover::before {
+  opacity: 1;
+}
+
+/* Submenu (Leadership & Governance) */
+/* Submenu styling */
+.submenu-column {
+    margin-top: 10px;
+    padding-left: 14px;
+    border-left: 2px solid #e5e7eb;
+    display: none; /* hide by default */
+    position: absolute; /* so it overlays nicely */
+    background: #fff;
+    z-index: 1000;
+}
+
+/* Submenu links */
+.submenu-column a {
+    font-size: 15px;
+    padding: 8px 0;
+    display: block;
+    color: #374151;
+    text-decoration: none;
+}
+
+/* Show submenu on hover */
+.custom-dropdown:hover .submenu-column {
+    display: block;
+}
+
+/* ===============================
+   DESKTOP ONLY HOVER
+=============================== */
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover > .custom-dropdown-menu {
+    display: block;
+  }
+}
+
+/* ===============================
+   MOBILE SAFE
+=============================== */
+@media (max-width: 991px) {
+  .custom-dropdown-menu {
+    min-width: 100%;
+    box-shadow: none;
+    padding: 12px;
+  }
+
+  .custom-dropdown-btn {
+    font-size: 16px;
+  }
+}

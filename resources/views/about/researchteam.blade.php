@@ -207,7 +207,8 @@
                         </section>
 
                         <section>
-                            <h2>Research Fellows</h2>
+                            {{-- <h2>Research Fellows</h2> --}}
+                            <h4 class="text-primary text-center">Research Fellows</h4>
                             <p class="bnrc-text">
                                 At BNRC, we take pride in our distinguished team of highly educated and
                                 experienced
@@ -235,6 +236,82 @@
                                 global best practices, and tailored to the nation's unique context and party
                                 needs.
                             </p>
+                             <!-- Research Fellows Images -->
+    <div class="row g-4 text-center mb-4">
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/zabiullah.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">Dr. A. Rahman</h6>
+                <small class="text-muted">Senior Research Fellow</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/amirkahsru.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">Prof. S. Ahmed</h6>
+                <small class="text-muted">Policy Analyst</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/fellow3.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">M. Islam</h6>
+                <small class="text-muted">Economic Researcher</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/fellow4.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">T. Hossain</h6>
+                <small class="text-muted">Social Development Expert</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-4 text-center">
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow5.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">R. Chowdhury</h6>
+            <small class="text-muted">Health Policy Expert</small>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow6.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">S. Hossain</h6>
+            <small class="text-muted">Security Analyst</small>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow7.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">N. Rahman</h6>
+            <small class="text-muted">Education Specialist</small>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow8.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">A. Karim</h6>
+            <small class="text-muted">Legal Researcher</small>
+        </div>
+    </div>
+
+</div>
                         </section>
 
                     </div>
