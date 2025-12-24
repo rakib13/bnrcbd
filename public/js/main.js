@@ -111,39 +111,39 @@
 
 // ....................publication js.....................................
 
-document.addEventListener("DOMContentLoaded", function () {
-    const pdfmodal = document.getElementById("customPdfModal");
-    const pdfiframe = document.getElementById("customPdfFrame");
-    const pdfcloseBtn = document.getElementById("customCloseBtn"); // ✅ Fixed
+// document.addEventListener("DOMContentLoaded", function () {
+//     const pdfmodal = document.getElementById("customPdfModal");
+//    // const pdfiframe = document.getElementById("customPdfFrame");
+//     const pdfcloseBtn = document.getElementById("customCloseBtn"); // ✅ Fixed
 
-    // Handle "View Details" PDF links
-    document.querySelectorAll('.pdf-link').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const pdfUrl = this.getAttribute('data-pdf');
-            if (pdfUrl) {
-                pdfiframe.src = pdfUrl;
-                pdfmodal.style.display = 'flex';
-            }
-        });
-    });
+//     // Handle "View Details" PDF links
+//     document.querySelectorAll('.pdf-link').forEach(link => {
+//         link.addEventListener('click', function (e) {
+//             e.preventDefault();
+//             const pdfUrl = this.getAttribute('data-pdf');
+//             if (pdfUrl) {
+//                // pdfiframe.src = pdfUrl;
+//                 pdfmodal.style.display = 'flex';
+//             }
+//         });
+//     });
 
-    // Handle modal close button
-    if (pdfcloseBtn) {
-        pdfcloseBtn.addEventListener('click', function () {
-            pdfmodal.style.display = 'none';
-            pdfiframe.src = ''; // Clear iframe
-        });
-    }
+//     // Handle modal close button
+//     if (pdfcloseBtn) {
+//         pdfcloseBtn.addEventListener('click', function () {
+//             pdfmodal.style.display = 'none';
+//           //  pdfiframe.src = ''; // Clear iframe
+//         });
+//     }
 
-    // Close modal if clicked outside content
-    window.addEventListener('click', function (e) {
-        if (e.target === pdfmodal) {
-            pdfmodal.style.display = 'none';
-            pdfiframe.src = '';
-        }
-    });
-});
+//     // Close modal if clicked outside content
+//     window.addEventListener('click', function (e) {
+//         if (e.target === pdfmodal) {
+//             pdfmodal.style.display = 'none';
+//           //  pdfiframe.src = '';
+//         }
+//     });
+// });
 
 
 function featuredSection(event) {

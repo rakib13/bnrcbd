@@ -84,9 +84,18 @@
                             <!-- File Link -->
                             <div class="col-md-6 mb-2">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="link" name="link"
+                                    <input type="file" class="form-control" id="link" name="link"
                                         value="{{ $leadership->link }}" placeholder="File Link" required>
                                     <label for="link">File Link</label>
+                                </div>
+                            </div>
+
+                            <!-- OLD File Link -->
+                            <div class="col-md-6 mb-2">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="link" name="link"
+                                        value="{{ $leadership->link }}" placeholder="File Link" disabled>
+                                    <label for="link">PDF File</label>
                                 </div>
                             </div>
 
@@ -107,7 +116,7 @@
                                         <option {{ $leadership->tag == 'environmental-vision' ? 'selected' : '' }}
                                             value="environmental-vision">- Environmental Vision: Sustainability Today
                                             for Tomorrow's Prosperity</option>
-                                        <option {{ $leadership->tag == 'other' ? 'selected' : '' }} value="other">- Other
+                                        <option {{ $leadership->tag == 'other-sectors' ? 'selected' : '' }} value="other-sectors">- Other
                                             Sectors: Beyond Boundaries, Expanding
                                             Horizons.</option>
                                     </select>

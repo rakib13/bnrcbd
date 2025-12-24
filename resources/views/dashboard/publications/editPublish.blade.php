@@ -82,6 +82,15 @@
                             <!-- File Link -->
                             <div class="col-md-6 mb-2">
                                 <div class="form-floating">
+                                    <input type="file" class="form-control" id="link" name="link"
+                                        value="{{ $publish->link }}" placeholder="File Link" required>
+                                    <label for="link">File Link</label>
+                                </div>
+                            </div>
+                            
+                            <!-- OLD File Link -->
+                            <div class="col-md-6 mb-2">
+                                <div class="form-floating">
                                     <input type="text" class="form-control" id="link" name="link"
                                         value="{{ $publish->link }}" placeholder="File Link" required>
                                     <label for="link">File Link</label>

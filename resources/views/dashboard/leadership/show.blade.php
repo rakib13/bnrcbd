@@ -99,8 +99,8 @@
                                         {{ $leadership->category_of_publication == 'environmental-vision' ? 'selected' : '' }}
                                         value="environmental-vision">- Environmental Vision: Sustainability Today
                                         for Tomorrow's Prosperity</option>
-                                    <option {{ $leadership->category_of_publication == 'other' ? 'selected' : '' }}
-                                        value="other">- Other Sectors: Beyond Boundaries, Expanding
+                                    <option {{ $leadership->category_of_publication == 'other-sectors' ? 'selected' : '' }}
+                                        value="other-sectors">- Other Sectors: Beyond Boundaries, Expanding
                                         Horizons.</option>
                                 </select>
                                 <label for="tag">Category</label>

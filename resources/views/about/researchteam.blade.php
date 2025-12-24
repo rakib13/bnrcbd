@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main-body')
 
-@include('layouts.header')
-
-<!-- Navbar & Hero End -->
+@section('main-body-content')
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,19 +38,17 @@
 <!-- Header End -->
 
 <!-- About Start -->
-<div class="container-fluid bg-light about py-5">
-    <div class="container py-5">
+<div class="container-fluid bg-light about py-3">
+    <div class="container py-3">
         <div class="row g-5 align-items-start">
             <!-- Combined Sidebar and Content Container -->
-            <div class="col-12 d-flex p-0 position-relative"> <!-- Changed to flex container -->
+            <div class="col-12 d-flex p-2 position-relative"> <!-- Changed to flex container -->
 
                 <!-- Content Area (now positioned immediately to the right) -->
-                <div class="content-area wow fadeInRight" data-wow-delay="0.2s" style="flex: 1; margin-left: 20px;">
-                   
-                   
+                <div class="content-area wow fadeInUp" data-wow-delay="0.2s" style="flex: 1; margin-left: 20px;">
 
                     <!-- CEO................................ -->
-                    <div id="researchteam" class="about-item-content bg-white rounded p-5 h-100 section active">
+                    <div id="researchteam" class="about-item-content bg-white rounded p-3 h-100 section active">
                         <h4 class="text-primary text-center">The Chief Executive Officer (CEO)</h4>
                         <div style="text-align: center; margin: 30px 0;">
                             <img src="{{ asset('img/zabiullah.jpg') }}" alt="Md. Ismail Zabihullah"
@@ -212,7 +207,8 @@
                         </section>
 
                         <section>
-                            <h2>Research Fellows</h2>
+                            {{-- <h2>Research Fellows</h2> --}}
+                            <h4 class="text-primary text-center">Research Fellows</h4>
                             <p class="bnrc-text">
                                 At BNRC, we take pride in our distinguished team of highly educated and
                                 experienced
@@ -240,6 +236,82 @@
                                 global best practices, and tailored to the nation's unique context and party
                                 needs.
                             </p>
+                             <!-- Research Fellows Images -->
+    <div class="row g-4 text-center mb-4">
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/zabiullah.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">Dr. A. Rahman</h6>
+                <small class="text-muted">Senior Research Fellow</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/amirkahsru.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">Prof. S. Ahmed</h6>
+                <small class="text-muted">Policy Analyst</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/fellow3.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">M. Islam</h6>
+                <small class="text-muted">Economic Researcher</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="research-card">
+                <img src="{{ asset('img/research/fellow4.jpg') }}" 
+                    class="img-fluid">
+                <h6 class="mt-3 mb-0">T. Hossain</h6>
+                <small class="text-muted">Social Development Expert</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-4 text-center">
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow5.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">R. Chowdhury</h6>
+            <small class="text-muted">Health Policy Expert</small>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow6.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">S. Hossain</h6>
+            <small class="text-muted">Security Analyst</small>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow7.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">N. Rahman</h6>
+            <small class="text-muted">Education Specialist</small>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="research-card">
+            <img src="{{ asset('img/research/fellow8.jpg') }}" class="img-fluid">
+            <h6 class="mt-3 mb-0">A. Karim</h6>
+            <small class="text-muted">Legal Researcher</small>
+        </div>
+    </div>
+
+</div>
                         </section>
 
                     </div>
@@ -252,10 +324,4 @@
 </div>
 <!-- About End -->
 
-<!-- Footer Start -->
-@include('layouts.footer')
-<!-- Footer End -->
-
-</body>
-
-</html>
+@endsection

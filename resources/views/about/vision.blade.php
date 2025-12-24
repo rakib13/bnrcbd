@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main-body')
 
-@include('layouts.header')
+@section('main-body-content')
 
-<body>
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
@@ -33,17 +31,17 @@
 <!-- Header End -->
 
 <!-- About Start -->
-<div class="container-fluid bg-light about py-5">
-    <div class="container py-5">
+<div class="container-fluid bg-light about py-3">
+    <div class="container py-3">
         <div class="row g-5 align-items-start">
 
-            <div class="col-12 d-flex p-0 position-relative">
+            <div class="col-12 d-flex p-2 position-relative">
 
                 <!-- CONTENT AREA -->
-                <div class="content-area wow fadeInRight" data-wow-delay="0.2s"
+                <div class="content-area wow fadeInUp" data-wow-delay="0.2s"
                     style="flex: 1; margin-left: 20px;">
 
-                    <div id="vision" class="about-item-content bg-white rounded p-5 h-100 section active">
+                    <div id="vision" class="about-item-content bg-white rounded p-3 h-100 section active">
                         <h4 class="text-primary text-center">Vision</h4>
 
                         <div class="vision-img d-flex flex-column flex-md-row align-items-start mt-3">
@@ -83,7 +81,4 @@
 </div>
 <!-- About End -->
 
-@include('layouts.footer')
-
-</body>
-</html>
+@endsection

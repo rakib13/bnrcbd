@@ -156,14 +156,14 @@
                     <div class="col-2 col-sm-12"></div>
                 </div>
                 <br>
-                <p class="col-12" style="text-align: justify;">
+                <p class="col-12">
                     At BNRC, research and publications serve as the foundation for evidence-based policymaking,
                     innovation, and national development. Through rigorous analysis and strategic insights, BNRC
                     contributes to policies
                     that promote sustainable growth, social justice, and national unity, supporting the Bangladesh
                     Nationalist Party’s vision for the country’s future.
                 </p>
-                <p class="col-12" style="text-align: justify;">
+                <p class="col-12">
                     Driven by our mission, we work to bridge the gap between academic research, policymakers, and the
                     public, fostering an informed and engaged society. Our research spans a diverse range of
                     macro-organizational and micro-economic topics, extending to national and international issues.

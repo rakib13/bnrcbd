@@ -47,7 +47,7 @@ class PublishController extends Controller
             'book_summary'      => 'required|string|',
             'book_author'       => 'required|string|min:5',
             'thumbnail'         => 'required | mimes:jpeg,jpg,png,PNG | max:2000',
-            'link'              => 'nullable|string',
+            'link'              => 'nullable | max:10000',
             'publish_date'      => 'required|date',
             'topic'             => 'required|string|max:255',
             'type'              => 'required|string|max:255',
@@ -69,7 +69,17 @@ class PublishController extends Controller
             $success = $image->move($upload_path, $image_full_name);
             $publish->thumbnail = $image_url;
         }
-        $publish->link =  $request->link;
+        // $publish->link =  $request->link;
+        $file_link = $request->file('link');
+        if ($file_link) {
+            $file_name = hexdec(uniqid());
+            $ext = strtolower($file_link->getClientOriginalExtension());
+            $file_full_name = $file_name . '.' . $ext;
+            $upload_path = 'pdf/';
+            $file_url = $upload_path . $file_full_name;
+            $file_link->move($upload_path, $file_full_name);
+            $publish->link = $file_url;
+        }
         $publish->publish_date = $request->publish_date;
         $publish->topic = $request->topic;
         $publish->type = $request->type;
@@ -113,7 +123,7 @@ class PublishController extends Controller
         $publish->book_author = $request->book_author;
         $publish->publish_date = $request->publish_date;
         $publish->book_summary = $request->book_summary;
-        $publish->link = $request->link;
+        // $publish->link = $request->link;
         $publish->topic = $request->topic;
         $publish->type = $request->type;
         $publish->tag = $request->tag;
@@ -138,6 +148,24 @@ class PublishController extends Controller
 
             $publish->thumbnail = $image_url;
         }
+
+        // Handle File Link upload
+        if ($request->hasFile('link')) {
+            // Delete old file if exists
+            if (file_exists(public_path($publish->link))) { 
+                unlink(public_path($publish->link));
+            }
+
+            $file_link = $request->file('link');
+            $file_name = hexdec(uniqid());
+            $ext = strtolower($file_link->getClientOriginalExtension());
+            $file_full_name = $file_name . '.' . $ext;
+            $upload_path = 'pdf/';
+            $file_url = $upload_path . $file_full_name;
+            $file_link->move(public_path($upload_path), $file_full_name);
+
+            $publish->link = $file_url;
+        }   
 
         $publish->save();
 
